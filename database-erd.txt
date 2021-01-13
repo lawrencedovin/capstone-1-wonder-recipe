@@ -1,15 +1,15 @@
 user
 -
 id PK SERIAL
-username unique string
-email unique string
-password string
-phone_number string
+username UNIQUE STRING
+email UNIQUE STRING
+password STRING
+phone_number UNIQUE STRING
 
 recipe
 -
 id PK SERIAL
-recipe_name unique STRING
+recipe_name UNIQUE STRING
 ingredients STRING
 diet_id STRING FK >- diet.id
 cuisine_id STRING FK >- cuisine.id
@@ -17,12 +17,12 @@ cuisine_id STRING FK >- cuisine.id
 cuisine
 -
 id PK SERIAL
-cuisine_name STRING
+cuisine_name UNIQUE STRING
 
 diet
 -
 id PK SERIAL
-diet_name STRING
+diet_name UNIQUE STRING
 
 favorites
 -
@@ -31,6 +31,12 @@ user_id INTEGER FK >- user.id
 recipe_id INTEGER FK >- recipe.id
 
 shopping_list
+-
+id PK SERIAL
+user_id INTEGER FK >- user.id
+recipe_id INTEGER FK >- recipe.id
+
+likes
 -
 id PK SERIAL
 user_id INTEGER FK >- user.id
