@@ -70,5 +70,18 @@ recipe along with their ingredients to their phone.
   Users can like or not like a particular recipe. The total likes will be displayed
 next to a recipe item.
 
-### User Flow  
+### User Flow
+
+### Additional Features  
+  The shopping list feature will temporarily store in recipes the user wants to use 
+which the user can send to their phone to conveniently shop for the ingredients. 
+There will be filtering options for different diet types and cuisines.
+
+### Possible Future Features  
+- Randomize Recipes features will allow a user to swipe left or right for discovering and favoriting recipes.  
+- User may further search using the Randomize Recipe by diet and or cuisine. 
+- Different language support. 
+- Users can add comments on the recipes.  
+- Dark and light mode.  
+- Social media share
 
