@@ -83,5 +83,5 @@ There will be filtering options for different diet types and cuisines.
 - Different language support. 
 - Users can add comments on the recipes.  
 - Dark and light mode.  
-- Social media share
+- Social media share.
 
