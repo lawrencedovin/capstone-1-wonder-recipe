@@ -78,8 +78,8 @@ which the user can send to their phone to conveniently shop for the ingredients.
 There will be filtering options for different diet types and cuisines.
 
 ### Possible Future Features  
-- Randomize Recipes features will allow a user to swipe left or right for discovering and favoriting recipes.  
-- User may further search using the Randomize Recipe by diet and or cuisine. 
+- Randomize Recipes feature will allow a user to swipe left or right for discovering and favoriting recipes.  
+- User may further search of the Randomize Recipe by diet and or cuisine. 
 - Different language support. 
 - Users can add comments on the recipes.  
 - Dark and light mode.  
