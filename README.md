@@ -1,4 +1,4 @@
-# **Capstone 1 Project Proposal**
+# **Capstone 1 Wonder Recipe Proposal**
 
 ## Goals
 
@@ -25,7 +25,7 @@ favorite recipes, phone number, shopping list.
 ### Potential API issues
 The food-api has over 330,000 recipes but the application will only contain 
 a few thousand, the potential issue is randomizing the data properly so that 
-we can have sufficient data for each cuisine and diet type. Another potential 
+there will be sufficient data for each cuisine and diet type. Another potential 
 issue is extracting the exact ingredients from the recipe according to how many 
 people to serve for the shopping list. For the twilio API verifying a phone number 
 after registering.

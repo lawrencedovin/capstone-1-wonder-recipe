@@ -1,0 +1,27 @@
+user
+-
+id PK SERIAL
+username unique string
+email unique string
+password string
+phone_number string
+
+recipe
+-
+id PK SERIAL
+recipe_name unique STRING
+diet STRING
+ingredients STRING
+cuisine STRING
+
+favorites
+-
+id PK SERIAL
+user_id INTEGER FK >- user.id
+recipe_id INTEGER FK >- recipe.id
+
+shopping_list
+-
+id PK SERIAL
+user_id INTEGER FK >- user.id
+recipe_id INTEGER FK >- recipe.id
