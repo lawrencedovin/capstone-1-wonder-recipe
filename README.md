@@ -20,7 +20,8 @@ favorite recipes, phone number, shopping list.
 
 ## Details  
 
-### Database Schema  
+### Database Schema 
+![ERD Diagram](database-erd.PNG?raw=true) 
 
 ### Potential API issues
 The food-api has over 330,000 recipes but the application will only contain 
