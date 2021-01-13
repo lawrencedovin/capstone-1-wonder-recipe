@@ -11,8 +11,8 @@ recipe
 id PK SERIAL
 recipe_name UNIQUE STRING
 ingredients STRING
-diet_id STRING FK >- diet.id
-cuisine_id STRING FK >- cuisine.id
+diet_id INTEGER FK >- diet.id
+cuisine_id INTEGER FK >- cuisine.id
 
 cuisine
 -
