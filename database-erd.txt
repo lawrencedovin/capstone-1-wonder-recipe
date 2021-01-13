@@ -10,9 +10,19 @@ recipe
 -
 id PK SERIAL
 recipe_name unique STRING
-diet STRING
 ingredients STRING
-cuisine STRING
+diet_id STRING FK >- diet.id
+cuisine_id STRING FK >- cuisine.id
+
+cuisine
+-
+id PK SERIAL
+cuisine_name STRING
+
+diet
+-
+id PK SERIAL
+diet_name STRING
 
 favorites
 -
