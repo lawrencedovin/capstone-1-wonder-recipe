@@ -71,7 +71,8 @@ recipe along with their ingredients to their phone.
   Users can like or not like a particular recipe. The total likes will be displayed
 next to a recipe item.
 
-### User Flow
+### User Flow  
+![User Flow Diagram](user-flow-diagram.png?raw=true) 
 
 ### Additional Features  
   The shopping list feature will temporarily store in recipes the user wants to use 
