@@ -1,0 +1,9 @@
+#logo {
+    font-family: $font-logo;
+    font-size: $font-size-medium;
+    font-weight: 700;
+
+    &:hover{
+        text-decoration: none;
+    }
+}
