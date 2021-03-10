@@ -1,0 +1,14 @@
+{
+  "name": "wonder-recipe",
+  "version": "1.0.0",
+  "description": "Wonder Recipe Capstone",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass static/sass/main.scss static/css/styles.css -w"
+  },
+  "author": "Lawrence Dovin",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
