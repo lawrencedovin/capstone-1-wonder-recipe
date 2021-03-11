@@ -8,20 +8,10 @@
     }
 }
 
-// .navbar-light .navbar-nav .nav-link {
-//     color: $color-black;
-//     padding-top: 0;
-//     padding-bottom: 0;
-//     border-left: 2px solid $color-black;
-//     border-right: 2px solid $color-black;
-
-//     &:nth-child(odd) {
-//         color: blue !important;
-//     }
-//     &:nth-child(even) {
-//         color: purple !important;
-//     }
-// }
+.navbar {
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+}
 
 .nav-item:nth-child(even) > .nav-link {
     border-left: 2px solid $color-black;
@@ -38,4 +28,12 @@
     &:hover {
         color: $color-green;
     }
+}
+
+.social-icon {
+    padding-left: 8px;
+}
+
+.col-md-12 {
+    padding: 0 8.8rem; 
 }

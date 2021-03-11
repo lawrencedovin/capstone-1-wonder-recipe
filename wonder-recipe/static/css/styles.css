@@ -33,6 +33,10 @@ body {
   #logo:hover {
     text-decoration: none; }
 
+.navbar {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem; }
+
 .nav-item:nth-child(even) > .nav-link {
   border-left: 2px solid #050505;
   border-right: 2px solid #050505;
@@ -45,3 +49,9 @@ body {
   padding-bottom: 0; }
   .navbar-light .navbar-nav .nav-link:hover {
     color: #31B233; }
+
+.social-icon {
+  padding-left: 8px; }
+
+.col-md-12 {
+  padding: 0 8.8rem; }
