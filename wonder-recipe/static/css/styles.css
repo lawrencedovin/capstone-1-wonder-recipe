@@ -32,3 +32,16 @@ body {
   font-weight: 700; }
   #logo:hover {
     text-decoration: none; }
+
+.nav-item:nth-child(even) > .nav-link {
+  border-left: 2px solid #050505;
+  border-right: 2px solid #050505;
+  margin: 0 1.6rem;
+  padding: 0 1.6rem; }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #050505;
+  padding-top: 0;
+  padding-bottom: 0; }
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #31B233; }

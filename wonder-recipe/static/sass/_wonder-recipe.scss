@@ -7,3 +7,35 @@
         text-decoration: none;
     }
 }
+
+// .navbar-light .navbar-nav .nav-link {
+//     color: $color-black;
+//     padding-top: 0;
+//     padding-bottom: 0;
+//     border-left: 2px solid $color-black;
+//     border-right: 2px solid $color-black;
+
+//     &:nth-child(odd) {
+//         color: blue !important;
+//     }
+//     &:nth-child(even) {
+//         color: purple !important;
+//     }
+// }
+
+.nav-item:nth-child(even) > .nav-link {
+    border-left: 2px solid $color-black;
+    border-right: 2px solid $color-black;
+    margin: 0 1.6rem;
+    padding: 0 1.6rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: $color-black;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:hover {
+        color: $color-green;
+    }
+}
