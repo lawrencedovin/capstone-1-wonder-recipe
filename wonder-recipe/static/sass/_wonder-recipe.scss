@@ -70,6 +70,43 @@
     }
 }
 
+.searchbar {
+    position: relative;
+    margin-top: 16rem;
+
+    &__input {
+        font-size: $font-size-small;
+        height: auto;
+        padding: 1rem .8rem;
+    }
+
+    &__buttons {
+        position: absolute;
+        right: .8rem;
+        z-index: 4;
+
+        &--search, 
+        &--clear {
+            color: $color-green;
+            opacity: .6;
+            padding: 0;
+
+            &:hover {
+                color: $color-green;
+                opacity: 1;
+            }
+        }
+
+        &--search {
+            font-size: $font-size-small;
+        }
+
+        &--clear {
+            font-size: $font-size-smedium;
+        }
+    }
+}
+
 .col-md-12 {
     padding: 0 8.8rem; 
 }

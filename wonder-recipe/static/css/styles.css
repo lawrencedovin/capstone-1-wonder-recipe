@@ -83,5 +83,28 @@ body {
       width: 80px;
       border-radius: 4px; }
 
+.searchbar {
+  position: relative;
+  margin-top: 16rem; }
+  .searchbar__input {
+    font-size: 1.6rem;
+    height: auto;
+    padding: 1rem .8rem; }
+  .searchbar__buttons {
+    position: absolute;
+    right: .8rem;
+    z-index: 4; }
+    .searchbar__buttons--search, .searchbar__buttons--clear {
+      color: #31B233;
+      opacity: .6;
+      padding: 0; }
+      .searchbar__buttons--search:hover, .searchbar__buttons--clear:hover {
+        color: #31B233;
+        opacity: 1; }
+    .searchbar__buttons--search {
+      font-size: 1.6rem; }
+    .searchbar__buttons--clear {
+      font-size: 2rem; }
+
 .col-md-12 {
   padding: 0 8.8rem; }
