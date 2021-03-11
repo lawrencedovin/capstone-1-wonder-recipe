@@ -1,3 +1,12 @@
+.col-md-12 {
+    padding: 0 8.8rem; 
+}
+
+.input-group>.custom-select:not(:last-child), 
+.input-group>.form-control:not(:last-child) {
+    border-radius: 4px;
+}
+
 #logo {
     font-family: $font-logo;
     font-size: $font-size-medium;
@@ -9,8 +18,7 @@
 }
 
 .navbar {
-    padding-top: 2.4rem;
-    padding-bottom: 2.4rem;
+    padding: 2.4rem 0;
 }
 
 .nav-item:nth-child(even) > .nav-link {
@@ -75,9 +83,20 @@
     margin-top: 16rem;
 
     &__input {
+        color: $color-green;
         font-size: $font-size-small;
         height: auto;
         padding: 1rem .8rem;
+        border: 2px solid $color-green;
+        opacity: .6;
+
+        &:hover {
+            opacity: .8;
+        }
+
+        &:focus {
+            opacity: 1;
+        }
     }
 
     &__buttons {
@@ -106,8 +125,3 @@
         }
     }
 }
-
-.col-md-12 {
-    padding: 0 8.8rem; 
-}
-
