@@ -11,27 +11,34 @@
 .navbar {
     padding-top: 2.4rem;
     padding-bottom: 2.4rem;
-}
 
-.nav-item:nth-child(even) > .nav-link {
-    border-left: 2px solid $color-black;
-    border-right: 2px solid $color-black;
-    margin: 0 1.6rem;
-    padding: 0 1.6rem;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: $color-black;
-    padding-top: 0;
-    padding-bottom: 0;
-
-    &:hover {
-        color: $color-green;
+    .nav-item:nth-child(even) > .nav-link {
+        border-left: 2px solid $color-black;
+        border-right: 2px solid $color-black;
+        margin: 0 1.6rem;
+        padding: 0 1.6rem;
+    }
+    
+    .navbar-light .navbar-nav .nav-link {
+        color: $color-black;
+        padding-top: 0;
+        padding-bottom: 0;
+    
+        &:hover {
+            color: $color-green;
+        }
+    }
+    
+    .social-icon {
+        padding-left: 8px;
     }
 }
 
-.social-icon {
-    padding-left: 8px;
+.hero-container {
+    &__gradient {
+        height: 29.6rem;
+        background: linear-gradient(180deg, #009B49 0%, #8CDC09 50.52%, #FFFFFF 100%);
+    }
 }
 
 .col-md-12 {
