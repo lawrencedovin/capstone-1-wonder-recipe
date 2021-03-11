@@ -1,17 +1,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <div class="btn-group">
+      <div class="btn-group food-filter">
         <div class="dropdown">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            class="food-filter__button food-filter__button--active food-filter__button--diet"
             type="button"
             id="dropdownMenu2"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Dropdown
+            Diet
+            
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button class="dropdown-item" type="button">Action</button>
@@ -23,14 +24,14 @@
         </div>
         <div class="dropdown">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            class="food-filter__button food-filter__button--inactive"
             type="button"
             id="dropdownMenu2"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Dropdown
+            Cuisine
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button class="dropdown-item" type="button">Action</button>
@@ -40,25 +41,9 @@
             </button>
           </div>
         </div>
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenu2"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Dropdown
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button">Action</button>
-            <button class="dropdown-item" type="button">Another action</button>
-            <button class="dropdown-item" type="button">
-              Something else here
-            </button>
-          </div>
-        </div>
+        <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="#">
+            Likes <i class="fas fa-arrow-up food-filter__button--likes-icon"></i>
+        </a>
       </div>
     </div>
   </div>

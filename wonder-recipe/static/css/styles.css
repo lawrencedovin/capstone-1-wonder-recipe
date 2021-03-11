@@ -5,6 +5,9 @@
   padding: 0;
   box-sizing: inherit; }
 
+a:hover {
+  text-decoration: none; }
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -79,7 +82,8 @@ body {
     display: inline-block;
     -ms-transform: rotate(270deg);
     /* IE 9 */
-    transform: rotate(270deg); }
+    transform: rotate(270deg);
+    margin-left: -4.8rem; }
     .hero-container__scroll-rectangle {
       display: inline-block;
       vertical-align: middle;
@@ -118,3 +122,20 @@ body {
       font-size: 1.6rem; }
     .searchbar__buttons--clear {
       font-size: 2rem; }
+
+.food-filter {
+  margin: 4.8rem auto; }
+  .food-filter__button {
+    padding: 1.6rem;
+    background: #fff;
+    border: none; }
+    .food-filter__button--active, .food-filter__button--inactive:hover {
+      color: #050505;
+      font-weight: 600;
+      border-bottom: 2px solid #31B233; }
+    .food-filter__button--inactive {
+      color: #7D8886;
+      border-bottom: 2px solid #7D8886; }
+    .food-filter__button--likes-icon {
+      font-size: 8px;
+      margin-left: 8px; }
