@@ -21,7 +21,7 @@ html {
       font-size: 25%; } }
 
 body {
-  font-family: "Monserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: #fff;
   font-size: 1.6rem;
   color: #050505; }
@@ -36,23 +36,37 @@ body {
 .navbar {
   padding-top: 2.4rem;
   padding-bottom: 2.4rem; }
-  .navbar .nav-item:nth-child(even) > .nav-link {
-    border-left: 2px solid #050505;
-    border-right: 2px solid #050505;
-    margin: 0 1.6rem;
-    padding: 0 1.6rem; }
-  .navbar .navbar-light .navbar-nav .nav-link {
-    color: #050505;
-    padding-top: 0;
-    padding-bottom: 0; }
-    .navbar .navbar-light .navbar-nav .nav-link:hover {
-      color: #31B233; }
-  .navbar .social-icon {
-    padding-left: 8px; }
 
-.hero-container__gradient {
-  height: 29.6rem;
-  background: linear-gradient(180deg, #009B49 0%, #8CDC09 50.52%, #FFFFFF 100%); }
+.nav-item:nth-child(even) > .nav-link {
+  border-left: 2px solid #050505;
+  border-right: 2px solid #050505;
+  margin: 0 1.6rem;
+  padding: 0 1.6rem; }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #050505;
+  padding-top: 0;
+  padding-bottom: 0; }
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #31B233; }
+
+.social-icon {
+  padding-left: 8px; }
+
+.hero-container {
+  position: relative;
+  margin-top: 8.8rem; }
+  .hero-container__gradient {
+    height: 32rem;
+    background: linear-gradient(180deg, #009B49 0%, #8CDC09 50.52%, #FFFFFF 100%);
+    position: absolute;
+    top: 32rem;
+    z-index: -1; }
+  .hero-container__caption {
+    color: #050505;
+    font-size: 4.8rem;
+    font-weight: 700;
+    margin-top: 6.4rem; }
 
 .col-md-12 {
   padding: 0 8.8rem; }
