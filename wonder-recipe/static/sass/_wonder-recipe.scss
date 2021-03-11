@@ -39,10 +39,10 @@
     margin-top: 8.8rem;
 
     &__gradient {
-        height: 32rem;
+        height: 65%;
         background: linear-gradient(180deg, #009B49 0%, #8CDC09 50.52%, #FFFFFF 100%);
         position: absolute;
-        top: 32rem;
+        top: 40%;
         z-index: -1;
     }
 
@@ -52,8 +52,25 @@
         font-weight: 700;
         margin-top: 6.4rem;
     }
+
+    &__scroll {
+        display: inline-block;
+        -ms-transform: rotate(270deg); /* IE 9 */
+        transform: rotate(270deg);
+
+        &-rectangle {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 1.6rem;
+            background: $color-black;
+            height: 4px;
+            width: 80px;
+            border-radius: 4px;
+        }
+    }
 }
 
 .col-md-12 {
     padding: 0 8.8rem; 
 }
+
