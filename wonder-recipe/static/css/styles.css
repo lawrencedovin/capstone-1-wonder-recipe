@@ -179,11 +179,25 @@ body {
       position: absolute;
       bottom: .8rem; }
 
-.footer__button {
-  border: 2px solid #31B233;
-  margin: 11.4rem 0 1.6rem;
-  padding: 1rem 1.2rem .8rem;
-  border-radius: 2px; }
-  .footer__button-icon {
-    color: #31B233;
-    font-size: 2rem; }
+.footer {
+  background: linear-gradient(90.15deg, #009B49 1%, #31B233 50.5%, #8CDC09 100%);
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem; }
+  .footer__button {
+    border: 2px solid #31B233;
+    margin: 11.4rem 0 2.4rem;
+    padding: 1rem 1.2rem .8rem;
+    border-radius: 2px; }
+    .footer__button-icon {
+      color: #31B233;
+      font-size: 2rem; }
+  .footer__text {
+    font-size: 1.6rem;
+    display: inline-flex;
+    align-items: center; }
+    .footer__text--made-with {
+      color: #fff; }
+      .footer__text--made-with-icon {
+        margin: auto .8rem; }
+    .footer__text--copyright {
+      color: #050505; }
