@@ -48,11 +48,12 @@ body {
 .navbar {
   padding: 2.4rem 0; }
 
-.nav-item:nth-child(even) > .nav-link {
-  border-left: 2px solid #050505;
-  border-right: 2px solid #050505;
-  margin: 0 1.6rem;
+.nav-item:first-child,
+.nav-item:not(:first-child) > .nav-link {
   padding: 0 1.6rem; }
+
+.nav-item:not(:first-child) > .nav-link {
+  border-left: 2px solid #050505; }
 
 .navbar-light .navbar-nav .nav-link {
   color: #050505;

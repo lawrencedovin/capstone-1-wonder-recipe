@@ -11,3 +11,7 @@ toolbar = DebugToolbarExtension(app)
 @app.route('/')
 def home():
     return render_template('home.html')
+
+@app.route('/home/logged_in')
+def home_logged_in():
+    return render_template('home-logged-in.html')
