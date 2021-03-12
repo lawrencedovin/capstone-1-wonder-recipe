@@ -166,6 +166,7 @@
 .food-cards {
     padding-left: calc(8.8rem - 15px);
     padding-right: calc(8.8rem - 15px);
+    margin-bottom: 4.8rem;
 
     &__img {
         border-radius: 2px;
@@ -175,7 +176,26 @@
         color: $color-black;
         font-size: $font-size-small;
         font-weight: 600;
-        margin: 1.6rem 0 4.8rem;
+        margin-top: 1.6rem;
+    }
+
+    &__button {
+        margin-right: 1.6rem;
+
+        &--thumbs-up-icon {
+            padding-right: .8rem;
+        }
+
+        &-likes, &-grocery-list {
+            &--active,
+            &--inactive:hover {
+                color: $color-green;
+            }
+            &--inactive,
+            &--active:hover {
+                color: $color-light-gray;
+            }
+        }
     }
 }
 
