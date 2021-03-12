@@ -67,6 +67,8 @@ body {
 .hero-container {
   position: relative;
   margin-top: 8.8rem; }
+  .hero-container__img {
+    border-radius: 2px; }
   .hero-container__gradient {
     height: 65%;
     background: linear-gradient(180deg, #009B49 0%, #8CDC09 50.52%, #FFFFFF 100%);
@@ -143,6 +145,8 @@ body {
 .food-cards {
   padding-left: calc(8.8rem - 15px);
   padding-right: calc(8.8rem - 15px); }
+  .food-cards__img {
+    border-radius: 2px; }
   .food-cards__food-name {
     color: #050505;
     font-size: 1.6rem;
