@@ -152,3 +152,27 @@ body {
     font-size: 1.6rem;
     font-weight: 600;
     margin: 1.6rem 0 4.8rem; }
+
+.pagination__button {
+  font-size: 1.6rem;
+  padding: .4rem 1.2rem;
+  border-radius: 2px; }
+  .pagination__button:not(:last-child) {
+    margin-right: 1.6rem; }
+  .pagination__button--active, .pagination__button--active:hover, .pagination__button--inactive:hover {
+    color: #fff;
+    background: #31B233;
+    border: 1px #31B233 solid; }
+  .pagination__button--inactive {
+    color: #050505;
+    background: #fff;
+    border: 1px #7D8886 solid; }
+  .pagination__button--next, .pagination__button--next:hover {
+    color: #050505;
+    position: relative; }
+  .pagination__button--next-icon {
+    color: #31B233;
+    margin-left: 1.6rem;
+    font-size: 2rem;
+    position: absolute;
+    bottom: .8rem; }
