@@ -15,3 +15,7 @@ def home():
 @app.route('/home/logged_in')
 def home_logged_in():
     return render_template('home-logged-in.html')
+
+@app.route('/liked_recipes')
+def liked_recipes():
+    return render_template('liked-recipes.html')
