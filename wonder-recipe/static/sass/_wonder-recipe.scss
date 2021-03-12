@@ -179,6 +179,7 @@
 }
 
 .pagination {
+    left: -1.6rem;
 
     &__button {
         font-size: $font-size-small;
@@ -219,6 +220,18 @@
                 position: absolute;
                 bottom: .8rem;
             }
+        }
+    }
+}
+
+.footer {
+
+    &__button {
+        border: 1px solid $color-green;
+
+        &-icon {
+            color: $color-green;
+            font-size: $font-size-smedium;
         }
     }
 }
