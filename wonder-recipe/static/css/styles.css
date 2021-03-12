@@ -180,7 +180,10 @@ body {
       bottom: .8rem; }
 
 .footer__button {
-  border: 1px solid #31B233; }
+  border: 2px solid #31B233;
+  margin: 11.4rem 0 1.6rem;
+  padding: 1rem 1.2rem .8rem;
+  border-radius: 2px; }
   .footer__button-icon {
     color: #31B233;
     font-size: 2rem; }

@@ -227,7 +227,10 @@
 .footer {
 
     &__button {
-        border: 1px solid $color-green;
+        border: 2px solid #31B233;
+        margin: 11.4rem 0 1.6rem;
+        padding: 1rem 1.2rem .8rem;
+        border-radius: 2px;
 
         &-icon {
             color: $color-green;
