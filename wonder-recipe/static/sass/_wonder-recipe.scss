@@ -280,3 +280,23 @@
         }
     }
 }
+
+.user-lists__title {
+
+    display: inline-block;
+
+    &-container {
+        text-align: center;
+    }
+
+    &-text {
+        color: $color-black;
+        font-size: $font-size-large;
+        font-weight: 600;
+    }
+
+    &-underline {
+        height: .4rem
+    }
+
+}

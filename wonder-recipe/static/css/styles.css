@@ -211,3 +211,14 @@ body {
         margin: auto .8rem; }
     .footer__text--copyright {
       color: #050505; }
+
+.user-lists__title {
+  display: inline-block; }
+  .user-lists__title-container {
+    text-align: center; }
+  .user-lists__title-text {
+    color: #050505;
+    font-size: 4.8rem;
+    font-weight: 600; }
+  .user-lists__title-underline {
+    height: .4rem; }
