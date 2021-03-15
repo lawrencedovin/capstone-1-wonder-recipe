@@ -19,3 +19,7 @@ def home_logged_in():
 @app.route('/liked_recipes')
 def liked_recipes():
     return render_template('liked-recipes.html')
+
+@app.route('/grocery_list')
+def grocery_list():
+    return render_template('grocery-list.html')
