@@ -2,6 +2,10 @@
     padding: 0 8.8rem; 
 }
 
+.container-fluid {
+    max-width: 144rem;
+}
+
 .input-group>.custom-select:not(:last-child), 
 .input-group>.form-control:not(:last-child) {
     border-radius: 4px;
@@ -48,6 +52,7 @@
     margin-top: 8.8rem;
 
     &__img {
+        max-width: 69rem;
         border-radius: 2px;
     }
 
@@ -186,15 +191,14 @@
             padding-right: .8rem;
         }
 
-        &-likes, &-grocery-list {
-            &--active,
-            &--inactive:hover {
-                color: $color-green;
-            }
-            &--inactive,
-            &--active:hover {
-                color: $color-light-gray;
-            }
+        &--active,
+        &--inactive:hover {
+            color: $color-green;
+        }
+
+        &--inactive,
+        &--active:hover {
+            color: $color-light-gray;
         }
     }
 }
@@ -326,4 +330,37 @@
         font-size: $font-size-large;
         font-weight: 700;
     }
+
+    &__stats-item {
+        display: inline-block;
+
+        &-likes {
+            padding-right: 1.6rem;
+        }
+
+        &-button {
+            padding: 0 1.6rem;
+            border-left: 2px solid $color-black;
+
+            &--active,
+            &--inactive:hover {
+                color: $color-green;
+            }
+            &--inactive,
+            &--active:hover {
+                color: $color-light-gray;
+            }
+        }
+    }
 }
+
+// &-likes, &-grocery-list {
+//     &--active,
+//     &--inactive:hover {
+//         color: $color-green;
+//     }
+//     &--inactive,
+//     &--active:hover {
+//         color: $color-light-gray;
+//     }
+// }
