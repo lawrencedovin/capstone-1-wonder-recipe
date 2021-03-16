@@ -23,3 +23,7 @@ def liked_recipes():
 @app.route('/grocery_list')
 def grocery_list():
     return render_template('grocery-list.html')
+
+@app.route('/recipe_page')
+def recipe_page():
+    return render_template('recipe-page.html')

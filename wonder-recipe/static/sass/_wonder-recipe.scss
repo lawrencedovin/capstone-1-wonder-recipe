@@ -318,3 +318,12 @@
         margin-left: 1.6rem;
     }
 }
+
+.recipe-page {
+
+    &__title {
+        color: $color-black;
+        font-size: $font-size-large;
+        font-weight: 700;
+    }
+}

@@ -17,9 +17,10 @@ const colors = ["#089F46", "#32B232", "#1CA83C", "#3AB630", "#4FB23", "#8CDC09",
                 "#A5FF13", "#94E80D", "#8CDC09", "#4FB23", "#3AB630", "#1CA83C", "#32B232", "#089F46"];
 
 function changeColor(colors, i) {
+    const userListsTitleUnderline = document.querySelector('#userListsTitleUnderline');
     setInterval(() => {
       let linearGradient = `linear-gradient(90deg, ${colors[i]} 0%, #089F46 50%, ${colors[i]} 100%)`;
-      userListsTitleUnderline.style.background = linearGradient;
+      if(userListsTitleUnderline) userListsTitleUnderline.style.background = linearGradient;
       i++;
       i %= colors.length;
     }, 250);
