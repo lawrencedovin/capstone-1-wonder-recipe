@@ -31,10 +31,6 @@ $font-size-small: 1.6rem;
     box-sizing: inherit;
 }
 
-a:hover {
-    text-decoration: none;
-}
-
 html {
     box-sizing: border-box;
     font-size: 62.5%; /* 1rem = 10px, 10px/16px = 62.5% */
@@ -60,4 +56,16 @@ body {
     background: $color-white;
     font-size: $font-size-small;
     color: $color-black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.col-md-12 {
+    padding: 0 8.8rem; 
+}
+
+.container-fluid {
+    max-width: 144rem;
 }

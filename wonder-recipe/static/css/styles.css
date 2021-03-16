@@ -5,9 +5,6 @@
   padding: 0;
   box-sizing: inherit; }
 
-a:hover {
-  text-decoration: none; }
-
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -30,6 +27,9 @@ body {
   background: #fff;
   font-size: 1.6rem;
   color: #050505; }
+
+a:hover {
+  text-decoration: none; }
 
 .col-md-12 {
   padding: 0 8.8rem; }
@@ -72,7 +72,6 @@ body {
   position: relative;
   margin-top: 8.8rem; }
   .hero-container__img {
-    max-width: 69rem;
     border-radius: 2px; }
   .hero-container__gradient {
     height: 65%;
