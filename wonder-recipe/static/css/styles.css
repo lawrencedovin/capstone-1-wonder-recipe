@@ -70,7 +70,7 @@ a:hover {
 
 .hero-container {
   position: relative;
-  margin-top: 8.8rem; }
+  margin: 8.8rem auto 16rem; }
   .hero-container__img {
     border-radius: 2px; }
   .hero-container__gradient {
@@ -100,8 +100,7 @@ a:hover {
       border-radius: 4px; }
 
 .searchbar {
-  position: relative;
-  margin-top: 16rem; }
+  position: relative; }
   .searchbar__input {
     color: #31B233;
     font-size: 1.6rem;
@@ -216,7 +215,8 @@ a:hover {
       color: #050505; }
 
 .user-lists__title {
-  display: inline-block; }
+  display: inline-block;
+  margin: 8.8rem auto; }
   .user-lists__title-container {
     text-align: center; }
   .user-lists__title-text {
