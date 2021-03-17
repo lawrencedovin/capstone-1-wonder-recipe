@@ -349,15 +349,20 @@
         padding: .4rem;
         background: linear-gradient(to bottom right, #009B49, #8CDC09);
     }
+
+    &__info {
+        width: 20rem;
+        padding: 1.6rem;
+        margin-bottom: 0;
+        border: 2px solid $color-gray;
+    }
 }
 
-// &-likes, &-grocery-list {
-//     &--active,
-//     &--inactive:hover {
-//         color: $color-green;
-//     }
-//     &--inactive,
-//     &--active:hover {
-//         color: $color-light-gray;
-//     }
-// }
+.fa-ul {
+    margin-bottom: 0;
+
+    &>li {
+        padding-left: 1.6rem;
+        padding-bottom: .8rem;
+    }
+}

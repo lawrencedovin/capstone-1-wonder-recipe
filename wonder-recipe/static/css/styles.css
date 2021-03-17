@@ -261,3 +261,15 @@ a:hover {
 .recipe-page__img {
   padding: .4rem;
   background: linear-gradient(to bottom right, #009B49, #8CDC09); }
+
+.recipe-page__info {
+  width: 20rem;
+  padding: 1.6rem;
+  margin-bottom: 0;
+  border: 2px solid #7D8886; }
+
+.fa-ul {
+  margin-bottom: 0; }
+  .fa-ul > li {
+    padding-left: 1.6rem;
+    padding-bottom: .8rem; }
