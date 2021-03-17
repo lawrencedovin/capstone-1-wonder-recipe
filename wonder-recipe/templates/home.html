@@ -3,8 +3,8 @@
 {% block content %}
 {% include '/components/top-nav.html' %}
 {% include '/components/hero-container.html' %}
-{% include '/components/searchbar.html' %}
-{% include '/components/food-filter.html' %}
+{% include '/components/filters/searchbar.html' %}
+{% include '/components/filters/food-filter.html' %}
 {% for food_card in range(1,7) %}
     {% include '/components/food-cards.html' %}
 {% endfor %}
