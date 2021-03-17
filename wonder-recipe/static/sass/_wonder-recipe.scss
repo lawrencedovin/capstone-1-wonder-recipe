@@ -56,7 +56,6 @@
     }
 
     &__caption {
-        color: $color-black;
         font-size: $font-size-large;
         font-weight: 700;
         margin-top: 6.4rem;
@@ -168,7 +167,6 @@
     }
 
     &__food-name{
-        color: $color-black;
         font-size: $font-size-small;
         font-weight: 600;
         margin-top: 1.6rem;
@@ -270,7 +268,6 @@
         }
 
         &--copyright {
-            color: $color-black;
         }
     }
 }
@@ -284,7 +281,6 @@
     }
 
     &-text {
-        color: $color-black;
         font-size: $font-size-large;
         font-weight: 600;
     }
@@ -316,9 +312,9 @@
 .recipe-page {
 
     &__title {
-        color: $color-black;
         font-size: $font-size-large;
         font-weight: 700;
+        margin-top: 8.8rem;
     }
 
     &__stats-item {
@@ -355,14 +351,33 @@
         padding: 1.6rem;
         margin-bottom: 0;
         border: 2px solid $color-gray;
+
+        &-container {
+            margin-bottom: 0;
+        }
+
+        &-text {
+            padding-left: 1.6rem;
+            padding-bottom: .8rem;
+        }
     }
-}
 
-.fa-ul {
-    margin-bottom: 0;
+    &__separator {
+        height: 1px;
+        width: 100%;
+        margin: 4.8rem auto;
+        background: $color-gray;
+    }
 
-    &>li {
-        padding-left: 1.6rem;
-        padding-bottom: .8rem;
+    &__section-title {
+        font-size: $font-size-medium;
+        font-weight: 700;
+        margin: 4.8rem auto;
+    }
+
+    &__ingredients {
+        &-text:not(:last-child) {
+            margin-bottom: 1.6rem;
+        }
     }
 }

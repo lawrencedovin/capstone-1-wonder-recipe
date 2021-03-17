@@ -80,7 +80,6 @@ a:hover {
     top: 40%;
     z-index: -1; }
   .hero-container__caption {
-    color: #050505;
     font-size: 4.8rem;
     font-weight: 700;
     margin-top: 6.4rem; }
@@ -152,7 +151,6 @@ a:hover {
   .food-cards__img {
     border-radius: 2px; }
   .food-cards__food-name {
-    color: #050505;
     font-size: 1.6rem;
     font-weight: 600;
     margin-top: 1.6rem; }
@@ -211,8 +209,6 @@ a:hover {
       color: #fff; }
       .footer__text--made-with-icon {
         margin: auto .8rem; }
-    .footer__text--copyright {
-      color: #050505; }
 
 .user-lists__title {
   display: inline-block;
@@ -220,7 +216,6 @@ a:hover {
   .user-lists__title-container {
     text-align: center; }
   .user-lists__title-text {
-    color: #050505;
     font-size: 4.8rem;
     font-weight: 600; }
   .user-lists__title-underline {
@@ -240,9 +235,9 @@ a:hover {
     margin-left: 1.6rem; }
 
 .recipe-page__title {
-  color: #050505;
   font-size: 4.8rem;
-  font-weight: 700; }
+  font-weight: 700;
+  margin-top: 8.8rem; }
 
 .recipe-page__stats-item {
   display: inline-block;
@@ -267,9 +262,22 @@ a:hover {
   padding: 1.6rem;
   margin-bottom: 0;
   border: 2px solid #7D8886; }
-
-.fa-ul {
-  margin-bottom: 0; }
-  .fa-ul > li {
+  .recipe-page__info-container {
+    margin-bottom: 0; }
+  .recipe-page__info-text {
     padding-left: 1.6rem;
     padding-bottom: .8rem; }
+
+.recipe-page__separator {
+  height: 1px;
+  width: 100%;
+  margin: 4.8rem auto;
+  background: #7D8886; }
+
+.recipe-page__section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 4.8rem auto; }
+
+.recipe-page__ingredients-text:not(:last-child) {
+  margin-bottom: 1.6rem; }
