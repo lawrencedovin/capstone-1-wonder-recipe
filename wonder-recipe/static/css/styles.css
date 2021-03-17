@@ -226,7 +226,7 @@ a:hover {
   font-size: 1.6rem;
   background: #31B233;
   padding: 2rem 2.8rem;
-  margin-top: 4.8rem;
+  margin: 8.8rem auto;
   border-radius: 5rem; }
   .sms__button:hover {
     color: #fff; }
