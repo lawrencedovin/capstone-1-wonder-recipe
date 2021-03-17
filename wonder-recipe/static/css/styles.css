@@ -245,9 +245,11 @@ a:hover {
   font-weight: 700; }
 
 .recipe-page__stats-item {
-  display: inline-block; }
+  display: inline-block;
+  margin-bottom: 4.8rem; }
   .recipe-page__stats-item-likes {
-    padding-right: 1.6rem; }
+    padding-right: 1.6rem;
+    font-weight: 700; }
   .recipe-page__stats-item-button {
     padding: 0 1.6rem;
     border-left: 2px solid #050505; }
@@ -255,3 +257,7 @@ a:hover {
       color: #31B233; }
     .recipe-page__stats-item-button--inactive, .recipe-page__stats-item-button--active:hover {
       color: #9EA6A8; }
+
+.recipe-page__img {
+  padding: .4rem;
+  background: linear-gradient(to bottom right, #009B49, #8CDC09); }

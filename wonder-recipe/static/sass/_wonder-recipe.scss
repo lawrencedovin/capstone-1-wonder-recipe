@@ -323,9 +323,11 @@
 
     &__stats-item {
         display: inline-block;
+        margin-bottom: 4.8rem;
 
         &-likes {
             padding-right: 1.6rem;
+            font-weight: 700;
         }
 
         &-button {
@@ -341,6 +343,11 @@
                 color: $color-light-gray;
             }
         }
+    }
+
+    &__img {
+        padding: .4rem;
+        background: linear-gradient(to bottom right, #009B49, #8CDC09);
     }
 }
 
