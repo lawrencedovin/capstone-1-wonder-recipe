@@ -192,6 +192,8 @@ a:hover {
   background: linear-gradient(90.15deg, #009B49 1%, #31B233 50.5%, #8CDC09 100%);
   padding-top: 3.2rem;
   padding-bottom: 3.2rem; }
+  .footer--forms {
+    background: #fff; }
   .footer__button {
     border: 2px solid #31B233;
     margin: 11.4rem 0 2.4rem;
@@ -206,6 +208,8 @@ a:hover {
     align-items: center; }
   .footer__made-with {
     color: #fff; }
+    .footer__made-with--forms {
+      color: #050505; }
   .footer__icon {
     margin: auto .8rem; }
 
@@ -288,12 +292,12 @@ a:hover {
 .forms {
   background: url("../images/form-background.jpg") no-repeat center center fixed;
   background-size: cover;
-  height: calc(100vh - 8.8rem);
+  height: calc(100vh - 17.2rem);
   position: relative; }
   .forms__register {
     background: #fff;
     border-radius: 2px;
-    padding: 4.8rem;
+    padding: 3.2rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -301,13 +305,13 @@ a:hover {
   .forms__icon {
     font-size: 4.8rem;
     color: #31B233;
-    margin-bottom: 3.2rem; }
+    margin-bottom: 2.4rem; }
   .forms__title {
     font-weight: 700;
     font-size: 2.4rem;
     margin-bottom: 1.6rem; }
   .forms__description {
-    margin-bottom: 4.8rem; }
+    margin-bottom: 3.2rem; }
   .forms__input {
     color: #31B233;
     font-size: 1.6rem;
@@ -332,7 +336,7 @@ a:hover {
     color: #fff;
     font-size: 1.6rem;
     background: #31B233;
-    margin-top: 4.8rem;
+    margin-top: 3.2rem;
     padding: 2rem 2.8rem;
     border-radius: 2px;
     border: none; }
