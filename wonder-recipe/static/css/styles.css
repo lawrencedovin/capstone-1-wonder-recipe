@@ -98,33 +98,33 @@ a:hover {
       width: 80px;
       border-radius: 4px; }
 
-.searchbar {
-  position: relative; }
-  .searchbar__input {
-    font-size: 1.6rem;
-    height: auto;
-    padding: 1rem .8rem;
-    border: 2px solid #31B233;
-    opacity: .6; }
-    .searchbar__input:hover {
-      opacity: .8; }
-    .searchbar__input:focus {
-      opacity: 1; }
-  .searchbar__buttons {
-    position: absolute;
-    right: .8rem;
-    z-index: 4; }
-    .searchbar__buttons--search, .searchbar__buttons--clear {
+.searchbar__input {
+  color: #31B233;
+  font-size: 1.6rem;
+  height: auto;
+  padding: 1rem .8rem;
+  border: 2px solid #31B233;
+  opacity: .6; }
+  .searchbar__input:hover {
+    opacity: .8; }
+  .searchbar__input:focus {
+    opacity: 1; }
+
+.searchbar__buttons {
+  position: absolute;
+  right: .8rem;
+  z-index: 4; }
+  .searchbar__buttons--search, .searchbar__buttons--clear {
+    color: #31B233;
+    opacity: .6;
+    padding: 0; }
+    .searchbar__buttons--search:hover, .searchbar__buttons--clear:hover {
       color: #31B233;
-      opacity: .6;
-      padding: 0; }
-      .searchbar__buttons--search:hover, .searchbar__buttons--clear:hover {
-        color: #31B233;
-        opacity: 1; }
-    .searchbar__buttons--search {
-      font-size: 1.6rem; }
-    .searchbar__buttons--clear {
-      font-size: 2rem; }
+      opacity: 1; }
+  .searchbar__buttons--search {
+    font-size: 1.6rem; }
+  .searchbar__buttons--clear {
+    font-size: 2rem; }
 
 .food-filter {
   margin: 4.8rem auto; }
@@ -315,8 +315,8 @@ a:hover {
     padding: 1rem 3.2rem;
     border: 2px solid #31B233;
     opacity: .6; }
-    .forms__input-container {
-      position: relative; }
+    .forms__input-container:not(:last-child) {
+      margin-bottom: 2.4rem; }
     .forms__input-icon {
       color: #31B233;
       opacity: .6;
@@ -327,3 +327,16 @@ a:hover {
       opacity: .8; }
     .forms__input:focus + .forms__input-icon {
       opacity: 1; }
+  .forms__button {
+    width: 100%;
+    color: #fff;
+    font-size: 1.6rem;
+    background: #31B233;
+    padding: 2rem 2.8rem;
+    border-radius: 2px;
+    border: none; }
+    .forms__button:hover {
+      color: #fff; }
+    .forms__button-icon {
+      margin-top: .4rem;
+      margin-left: 1.6rem; }

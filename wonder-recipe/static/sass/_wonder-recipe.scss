@@ -80,9 +80,9 @@
 }
 
 .searchbar {
-    position: relative;
 
     &__input {
+        color: $color-green;
         font-size: $font-size-small;
         height: auto;
         padding: 1rem .8rem;
@@ -422,15 +422,15 @@
     }
 
     &__input {
-        color: #31B233;
+        color: $color-green;
         font-size: 1.6rem;
         height: auto;
         padding: 1rem 3.2rem;
-        border: 2px solid #31B233;
+        border: 2px solid $color-green;
         opacity: .6;
 
-        &-container {
-            position: relative;
+        &-container:not(:last-child) {
+            margin-bottom: 2.4rem;
         }
 
         &-icon {
@@ -449,5 +449,24 @@
             opacity: 1;
         }
         
+    }
+
+    &__button {
+        width: 100%;
+        color: $color-white;
+        font-size: $font-size-small;
+        background: $color-green;
+        padding: 2rem 2.8rem;
+        border-radius: 2px;
+        border: none;
+
+        &:hover {
+            color: $color-white;
+        }
+    
+        &-icon {
+            margin-top: .4rem;
+            margin-left: 1.6rem;
+        }
     }
 }

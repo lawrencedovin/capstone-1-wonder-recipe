@@ -1,6 +1,6 @@
 {% extends '/components/forms/form-template.html'%}
 {% block form %}
-<form action="/action.php" class="forms__register">
+<form method="POST" class="forms__register">
     <div class="forms__icon-container text-center">
         <i class="fas fa-users forms__icon"></i>
     </div>
@@ -9,15 +9,29 @@
         Please fill out the form to create an account
     </p>
     <div class="input-group forms__input-container align-items-center">
-        <input type="text" class="form-control forms__input" placeholder="Search for a recipe...">
+        <input type="text" class="form-control forms__input" name="username" id="username" placeholder="Username" required>
         <span class="input-group-btn forms__input-icon align-middle">
-            <i class="fa fa-search"></i>
+            <i class="fas fa-user"></i>
         </span>
     </div>
-    <!-- <label for="fname">First name:</label><br>
-    <input type="text" id="fname" value="Mike"><br><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" value="Walker"><br><br>
-    <input type="submit" value="Submit"> -->
+    <div class="input-group forms__input-container align-items-center">
+        <input type="email" class="form-control forms__input" name="email" id="email" placeholder="Email" required>
+        <span class="input-group-btn forms__input-icon align-middle">
+            <i class="fas fa-envelope"></i>
+        </span>
+    </div>
+    <div class="input-group forms__input-container align-items-center">
+        <input type="password" class="form-control forms__input" name="password" id="password" placeholder="Password" required>
+        <span class="input-group-btn forms__input-icon align-middle">
+            <i class="fas fa-lock"></i>
+        </span>
+    </div>
+    <div class="input-group forms__input-container align-items-center">
+        <input type="number" class="form-control forms__input" name="phoneno" id="phoneno" placeholder="(201) 654-1555" required>
+        <span class="input-group-btn forms__input-icon align-middle">
+            <i class="fas fa-phone"></i>
+        </span>
+    </div>
+    {% include '/components/buttons/form-button-template.html' %}
 </form>
 {% endblock %}
