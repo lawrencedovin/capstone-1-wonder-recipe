@@ -36,3 +36,7 @@ def register():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/verify_user')
+def verify_user():
+    return render_template('verify_user.html')
