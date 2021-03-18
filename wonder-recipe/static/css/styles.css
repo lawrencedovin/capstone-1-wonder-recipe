@@ -204,10 +204,10 @@ a:hover {
     font-size: 1.6rem;
     display: inline-flex;
     align-items: center; }
-    .footer__text--made-with {
-      color: #fff; }
-      .footer__text--made-with-icon {
-        margin: auto .8rem; }
+  .footer__made-with {
+    color: #fff; }
+  .footer__icon {
+    margin: auto .8rem; }
 
 .user-lists__title {
   display: inline-block;
@@ -332,7 +332,7 @@ a:hover {
     color: #fff;
     font-size: 1.6rem;
     background: #31B233;
-    margin: 4.8rem auto;
+    margin-top: 4.8rem;
     padding: 2rem 2.8rem;
     border-radius: 2px;
     border: none; }
