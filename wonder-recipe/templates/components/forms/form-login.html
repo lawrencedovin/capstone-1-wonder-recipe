@@ -1,0 +1,25 @@
+{% extends '/components/forms/form-template.html'%}
+{% block form %}
+<form method="POST" class="forms__register">
+    <div class="forms__icon-container text-center">
+        <i class="fas fa-users forms__icon"></i>
+    </div>
+    <h1 class="forms__title text-center">Login</h1>
+    <p class="forms__description text-center">
+        Enter your user credentials to login
+    </p>
+    <div class="input-group forms__input-container align-items-center">
+        <input type="text" class="form-control forms__input" name="username" id="username" placeholder="Username" required>
+        <span class="input-group-btn forms__input-icon align-middle">
+            <i class="fas fa-user"></i>
+        </span>
+    </div>
+    <div class="input-group forms__input-container align-items-center">
+        <input type="password" class="form-control forms__input" name="password" id="password" placeholder="Password" required>
+        <span class="input-group-btn forms__input-icon align-middle">
+            <i class="fas fa-lock"></i>
+        </span>
+    </div>
+    {% include '/components/buttons/login-button.html' %}
+</form>
+{% endblock %}
