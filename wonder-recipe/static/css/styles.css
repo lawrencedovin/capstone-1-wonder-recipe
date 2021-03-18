@@ -340,3 +340,5 @@ a:hover {
     padding: 2rem 2.8rem;
     border-radius: 2px;
     border: none; }
+  .forms__confirm-changes {
+    margin-top: 2.4rem; }

@@ -37,6 +37,10 @@ def register():
 def login():
     return render_template('login.html')
 
-@app.route('/verify_user')
-def verify_user():
-    return render_template('verify_user.html')
+@app.route('/verify_account')
+def verify_account():
+    return render_template('verify-account.html')
+
+@app.route('/edit_profile')
+def edit_profile():
+    return render_template('edit-profile.html')
