@@ -456,17 +456,9 @@
         color: $color-white;
         font-size: $font-size-small;
         background: $color-green;
+        margin: 4.8rem auto;
         padding: 2rem 2.8rem;
         border-radius: 2px;
         border: none;
-
-        &:hover {
-            color: $color-white;
-        }
-    
-        &-icon {
-            margin-top: .4rem;
-            margin-left: 1.6rem;
-        }
     }
 }

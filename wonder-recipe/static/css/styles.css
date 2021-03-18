@@ -332,11 +332,7 @@ a:hover {
     color: #fff;
     font-size: 1.6rem;
     background: #31B233;
+    margin: 4.8rem auto;
     padding: 2rem 2.8rem;
     border-radius: 2px;
     border: none; }
-    .forms__button:hover {
-      color: #fff; }
-    .forms__button-icon {
-      margin-top: .4rem;
-      margin-left: 1.6rem; }
