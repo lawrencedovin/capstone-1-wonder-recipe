@@ -1,4 +1,23 @@
 {% extends '/components/forms/form-template.html'%}
 {% block form %}
-hello world
+<form action="/action.php" class="forms__register">
+    <div class="forms__icon-container text-center">
+        <i class="fas fa-users forms__icon"></i>
+    </div>
+    <h1 class="forms__title text-center">Create an account</h1>
+    <p class="forms__description text-center">
+        Please fill out the form to create an account
+    </p>
+    <div class="input-group forms__input-container align-items-center">
+        <input type="text" class="form-control forms__input" placeholder="Search for a recipe...">
+        <span class="input-group-btn forms__input-icon align-middle">
+            <i class="fa fa-search"></i>
+        </span>
+    </div>
+    <!-- <label for="fname">First name:</label><br>
+    <input type="text" id="fname" value="Mike"><br><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" value="Walker"><br><br>
+    <input type="submit" value="Submit"> -->
+</form>
 {% endblock %}

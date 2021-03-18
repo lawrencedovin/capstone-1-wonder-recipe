@@ -101,7 +101,6 @@ a:hover {
 .searchbar {
   position: relative; }
   .searchbar__input {
-    color: #31B233;
     font-size: 1.6rem;
     height: auto;
     padding: 1rem .8rem;
@@ -289,4 +288,42 @@ a:hover {
 .forms {
   background: url("../images/form-background.jpg") no-repeat center center fixed;
   background-size: cover;
-  height: calc(100vh - 8.8rem); }
+  height: calc(100vh - 8.8rem);
+  position: relative; }
+  .forms__register {
+    background: #fff;
+    border-radius: 2px;
+    padding: 4.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .forms__icon {
+    font-size: 4.8rem;
+    color: #31B233;
+    margin-bottom: 3.2rem; }
+  .forms__title {
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin-bottom: 1.6rem; }
+  .forms__description {
+    margin-bottom: 4.8rem; }
+  .forms__input {
+    color: #31B233;
+    font-size: 1.6rem;
+    height: auto;
+    padding: 1rem 3.2rem;
+    border: 2px solid #31B233;
+    opacity: .6; }
+    .forms__input-container {
+      position: relative; }
+    .forms__input-icon {
+      color: #31B233;
+      opacity: .6;
+      position: absolute;
+      left: .8rem;
+      z-index: 4; }
+    .forms__input:hover {
+      opacity: .8; }
+    .forms__input:focus + .forms__input-icon {
+      opacity: 1; }
