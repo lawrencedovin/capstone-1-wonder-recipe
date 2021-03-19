@@ -10,19 +10,27 @@ recipe
 -
 id PK SERIAL
 recipe_name UNIQUE STRING
-ingredients STRING
-diet_id INTEGER FK >- diet.id
+ingredients JSONB
+directions JSONB
+prep_time INTEGER
+servings INTEGER
 cuisine_id INTEGER FK >- cuisine.id
-
-cuisine
--
-id PK SERIAL
-cuisine_name UNIQUE STRING
 
 diet
 -
 id PK SERIAL
 diet_name UNIQUE STRING
+
+recipe_diet
+-
+id PK SERIAL
+recipe_id INTEGER FK >- recipe.id
+diet_id INTEGER FK >- diet.id
+
+cuisine
+-
+id PK SERIAL
+cuisine_name UNIQUE STRING
 
 favorites
 -
@@ -30,7 +38,13 @@ id PK SERIAL
 user_id INTEGER FK >- user.id
 recipe_id INTEGER FK >- recipe.id
 
-shopping_list
+grocery_list
+-
+id PK SERIAL
+user_id INTEGER FK >- user.id
+recipe_id INTEGER FK >- recipe.id
+
+liked_recipes
 -
 id PK SERIAL
 user_id INTEGER FK >- user.id
