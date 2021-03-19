@@ -76,8 +76,28 @@
             width: 80px;
             border-radius: 4px;
         }
+
+        &-ball {
+            width: 8px;
+            height: 4px;
+            border-radius: 4px;
+            background-color: white;
+            animation-name: scroll;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
     }
 }
+
+@keyframes scroll {
+    0% {margin-left: 72px;}
+    50% {width: 24px;}
+    80% {width: 8px; opacity: 1;}
+    100% {margin-left: 0px; opacity: 0;}
+  }
+
+
 
 .searchbar {
 
@@ -290,6 +310,7 @@
     }
 
     &-underline {
+        background: linear-gradient(90deg, $color-light-green 0%, $color-dark-green 50%, $color-light-green 100%);
         height: .4rem
     }
 
