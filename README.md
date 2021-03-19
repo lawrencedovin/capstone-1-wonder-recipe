@@ -9,8 +9,8 @@ so conveniently from the website all the way to the grocery store.
 Anyone that wants to discover new recipes to cook.
 
 ## API
-`food-api`  `twilio`  
-The food-api will be used to display recipes along with their ingredients 
+`spoonacular`  `twilio`  
+The spoonacular API will be used to display recipes along with their ingredients 
 which also allows recipes to be filtered by different types of diets such
 as vegetarian, vegan, pescetarian also the types of cuisine which comes from
 various countries. The twilio API will be used to gather the user’s phone if
@@ -24,7 +24,7 @@ favorite recipes, phone number, shopping list.
 ![ERD Diagram](database-erd.PNG?raw=true) 
 
 ### Potential API issues
-The food-api has over 330,000 recipes but the application will only contain 
+The spoonacular API has over 330,000 recipes but the application will only contain 
 a few thousand, the potential issue is randomizing the data properly so that 
 there will be sufficient data for each cuisine and diet type. Another potential 
 issue is extracting the exact ingredients from the recipe according to how many 
