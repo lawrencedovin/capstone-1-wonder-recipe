@@ -65,7 +65,7 @@ reset link will be sent to their email.
 recipe along with their ingredients to their phone.
 
 - #### Likes
-  Users can like or not like a particular recipe. Which will be stored to their liked recipe,
+  Users can like or unlike a particular recipe. Which will be stored to their liked recipe,
   The total likes will be displayed under the recipe item.
 
 ### User Flow  
