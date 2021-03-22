@@ -3,3 +3,4 @@ venv/
 __pycache__/
 node_modules/
 secrets.py
+cuisine-diet-api-call.py
