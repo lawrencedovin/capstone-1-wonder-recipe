@@ -2,4 +2,4 @@ venv/
 .vscode/
 __pycache__/
 node_modules/
-ultra_secret_key.py/
+/ultra_secret_key.py
