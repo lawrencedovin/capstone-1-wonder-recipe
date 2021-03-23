@@ -24,3 +24,26 @@ function changeColor(colors, i) {
     }, 250);
   }
 changeColor(colors, 0);
+
+async function getCard() {
+  try {
+    const url = 'https://api.spoonacular.com/recipes/complexSearch';
+    const apiKey = 'secret123';
+
+    
+    const response = await axios.get(url, {
+      params: {
+        apiKey: apiKey,
+        cuisine: 'african',
+        number: 5,
+      },
+    });
+
+    console.log("getCard resp=", response);
+    $("#card").html(response.data);
+  } catch(e) {
+    alert(`Error: ${e}`);
+  }
+}
+
+$("#card-btn").on("click", getCard);

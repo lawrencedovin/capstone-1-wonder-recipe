@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template, redirect, flash, jsonify
 from flask import session, make_response
 from flask_debugtoolbar import DebugToolbarExtension
+from wonderfoods import WonderFood
+from secrets import API_KEY
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "abc123"
@@ -44,3 +46,10 @@ def verify_account():
 @app.route('/edit_profile')
 def edit_profile():
     return render_template('edit-profile.html')
+
+@app.route('/api/get-food', methods=["GET"])
+def get_food():
+    foods = WonderFood(apiKey=API_KEY, cuisine='african', number=5)
+
+    response_json = jsonify(foods.serialize())
+    return (response_json, 200)
