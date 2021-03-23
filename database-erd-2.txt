@@ -9,13 +9,28 @@ phone_number UNIQUE STRING
 recipe
 -
 id PK SERIAL
-title UNIQUE STRING
+recipe_name UNIQUE STRING
 ingredients JSONB
 directions JSONB
 prep_time INTEGER
 servings INTEGER
-cuisine TEXT
-diet TEXT[]
+cuisine_id INTEGER FK >- cuisine.id
+
+diet
+-
+id PK SERIAL
+diet_name UNIQUE STRING
+
+recipe_diet
+-
+id PK SERIAL
+recipe_id INTEGER FK >- recipe.id
+diet_id INTEGER FK >- diet.id
+
+cuisine
+-
+id PK SERIAL
+cuisine_name UNIQUE STRING
 
 grocery_list
 -
