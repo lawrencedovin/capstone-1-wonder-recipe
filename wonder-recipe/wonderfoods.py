@@ -21,6 +21,7 @@ class WonderFood:
             food_dictionary["id"] = response["id"]
             food_dictionary["title"] = response["title"]
             food_dictionary["image"] = response["image"]
+            food_dictionary["cuisine"] = self.cuisine
             
             food_dictionary_copy = food_dictionary.copy()
             food_list.append(food_dictionary_copy)

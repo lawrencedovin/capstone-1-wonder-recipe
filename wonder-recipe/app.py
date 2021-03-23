@@ -3,6 +3,7 @@ from flask import session, make_response
 from flask_debugtoolbar import DebugToolbarExtension
 from wonderfoods import WonderFood
 from secrets import API_KEY
+from cuisinesdiets import cuisines
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "abc123"
@@ -49,7 +50,31 @@ def edit_profile():
 
 @app.route('/api/get-food', methods=["GET"])
 def get_food():
-    foods = WonderFood(apiKey=API_KEY, cuisine='african', number=5)
+    food_list = []
+    for cuisine in cuisines:
+        foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=5)
+        print(foods.serialize())
+        # food_list = food_list + foods.serialize()
+        print('before', foods.serialize())
+    
+    # response_json = jsonify(foods.serialize())
+    print('after', foods.serialize())
+    response_json = jsonify(food_list)
 
-    response_json = jsonify(foods.serialize())
     return (response_json, 200)
+
+    # [
+    #     {cuisine: vietnamese},
+    #     .
+    #     .
+    #     .
+    #     {cuisine: chinese}
+    # ]
+    # [
+    #     {cuisine: vietnamese},
+    #     {cuisine: vietnamese},
+
+    # ]
+    # [
+    #     {cuisine: chinese}
+    # ]
