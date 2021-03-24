@@ -52,13 +52,13 @@ def edit_profile():
 def get_food():
     food_list = []
     for cuisine in cuisines:
-        foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=5)
+        foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
         print(foods.serialize())
         # food_list = food_list + foods.serialize()
-        print('before', foods.serialize())
+        print('***************before***************', foods.serialize())
     
     # response_json = jsonify(foods.serialize())
-    print('after', foods.serialize())
+    print('***************after***************', foods.serialize())
     response_json = jsonify(food_list)
 
     return (response_json, 200)
