@@ -24,26 +24,41 @@ class WonderFood:
 
         cuisine_json_response = response_cuisine.json()
 
-        cuisine_dictionary = {}
-        cuisine_list = []
+        food_dictionary = {}
+        food_list = []
 
         for response in cuisine_json_response["results"]:
-            cuisine_dictionary["id"] = response["id"]
-            cuisine_dictionary["title"] = response["title"]
-            cuisine_dictionary["image"] = response["image"]
-            cuisine_dictionary["cuisine"] = self.cuisine
+            food_dictionary["id"] = response["id"]
+            food_dictionary["title"] = response["title"]
+            food_dictionary["image"] = response["image"]
+            food_dictionary["cuisine"] = self.cuisine
 
+            # Information API Call
             information_payload = {'apiKey': self.apiKey, 'includeNutrition': False}
             INFORMATION_URL = f'https://api.spoonacular.com/recipes/{response["id"]}/information/'
             response_information = requests.get(INFORMATION_URL, params=information_payload)
             information_json_response = response_information.json()
 
-            cuisine_dictionary["readyInMinutes"] = information_json_response["readyInMinutes"]
-            
-            cuisine_dictionary_copy = cuisine_dictionary.copy()
-            cuisine_list.append(cuisine_dictionary_copy)
+            food_dictionary["readyInMinutes"] = information_json_response["readyInMinutes"]
+            food_dictionary["servings"] = information_json_response["servings"]
 
-        return cuisine_list
+            ingredients_dictionary = {}
+            food_dictionary["ingredients"] = []
+
+            for ingredients in information_json_response["extendedIngredients"]:
+                ingredients_dictionary["name"] = ingredients["name"] 
+                ingredients_dictionary["amount"] = ingredients["amount"] 
+                ingredients_dictionary["unit"] = ingredients["unit"] 
+
+                ingredients_dictionary_copy = ingredients_dictionary.copy()
+                food_dictionary["ingredients"].append(ingredients_dictionary_copy)
+            
+            # food_dictionary["ingredients"] = information_json_response["extendedIngredients"]
+            
+            food_dictionary_copy = food_dictionary.copy()
+            food_list.append(food_dictionary_copy)
+
+        return food_list
 
     def __repr__(self):
         return f'<Wonder Food {self.apiKey} cuisine={self.cuisine} number={self.number}>'
