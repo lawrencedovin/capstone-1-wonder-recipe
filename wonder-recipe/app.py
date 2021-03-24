@@ -48,20 +48,20 @@ def verify_account():
 def edit_profile():
     return render_template('edit-profile.html')
 
-@app.route('/api/get-food', methods=["GET"])
-def get_food():
-    food_list = []
-    for cuisine in cuisines:
-        foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
-        print(foods.serialize())
-        # food_list = food_list + foods.serialize()
-        print('***************before***************', foods.serialize())
+# @app.route('/api/get-food', methods=["GET"])
+# def get_food():
+#     food_list = []
+#     for cuisine in cuisines:
+#         foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
+#         print(foods.serialize())
+#         # food_list = food_list + foods.serialize()
+#         print('***************before***************', foods.serialize())
     
-    # response_json = jsonify(foods.serialize())
-    print('***************after***************', foods.serialize())
-    response_json = jsonify(food_list)
+#     # response_json = jsonify(foods.serialize())
+#     print('***************after***************', foods.serialize())
+#     response_json = jsonify(food_list)
 
-    return (response_json, 200)
+#     return (response_json, 200)
 
     # [
     #     {cuisine: vietnamese},
