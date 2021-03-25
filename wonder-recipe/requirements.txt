@@ -23,6 +23,7 @@ six==1.11.0
 SQLAlchemy==1.2.14
 toml==0.10.2
 typed-ast==1.4.2
+unicodedata2==13.0.0.post2
 Werkzeug==0.14.1
 wrapt==1.12.1
 WTForms==2.2.1
