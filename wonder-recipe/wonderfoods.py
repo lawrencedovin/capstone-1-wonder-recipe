@@ -15,14 +15,6 @@ class WonderFood:
         cuisine_payload = {'apiKey': self.apiKey, 'cuisine': self.cuisine, 'number': self.number}
         response_cuisine = requests.get(CUISINE_URL, params=cuisine_payload)
 
-        # information_payload = {'apiKey': self.apiKey, 'includeNutrition': False}
-        # INFORMATION_URL = f'https://api.spoonacular.com/recipes/716268/information/'
-        # response_information = requests.get(INFORMATION_URL, params=information_payload)
-
-        # print("******", response_cuisine["extendedIngredients"].text)
-
-        # print("******", response_cuisine.text)
-
         cuisine_json_response = response_cuisine.json()
 
         food_dictionary = {}
@@ -59,21 +51,17 @@ class WonderFood:
             INFORMATION_URL = f'https://api.spoonacular.com/recipes/{response["id"]}/analyzedInstructions/'
             response_directions = requests.get(INFORMATION_URL, params=directions_payload)
             directions_json_response = response_directions.json()
-            # print(directions_json_response[0]["steps"], "**************")
             directions_dictionary = {}
             food_dictionary["directions"] = []
 
             for direction in directions_json_response[0]["steps"]:
                 directions_dictionary["number"] = direction["number"]
+                # normalize is used to replace \xa0 with spaces in step string
                 directions_dictionary["step"] = normalize("NFKD", direction["step"])
 
                 directions_dictionary_copy = directions_dictionary.copy()
                 food_dictionary["directions"].append(directions_dictionary_copy)
 
-
-            
-            # food_dictionary["ingredients"] = information_json_response["extendedIngredients"]
-            
             food_dictionary_copy = food_dictionary.copy()
             food_list.append(food_dictionary_copy)
 
@@ -86,12 +74,3 @@ class WonderFood:
 foods = WonderFood(apiKey=API_KEY, cuisine='african', number=1)
 # foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
 print(foods.serialize())
-# food_list = []
-# for cuisine in cuisines:
-#     foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
-#     print(foods.serialize())
-#     print('***************before***************', foods.serialize())
-# print('***************after***************', foods.serialize())
-# response_json = jsonify(food_list)
-
-# return (response_json, 200)
