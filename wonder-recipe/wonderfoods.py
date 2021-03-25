@@ -70,7 +70,8 @@ class WonderFood:
     def __repr__(self):
         return f'<Wonder Food {self.apiKey} cuisine={self.cuisine} number={self.number}>'
 
-# for cuisine in cuisines:
-foods = WonderFood(apiKey=API_KEY, cuisine='african', number=1)
-# foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
-print(foods.serialize())
+cuisines2 = ["greek", "african"]
+for cuisine in cuisines2:
+    # foods = WonderFood(apiKey=API_KEY, cuisine='african', number=1)
+    foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
+    print(foods.serialize())
