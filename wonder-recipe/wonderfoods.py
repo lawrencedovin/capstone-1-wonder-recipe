@@ -1,6 +1,7 @@
 import requests
 from secrets import API_KEY
 from cuisinesdiets import cuisines
+from unicodedata import normalize
 
 class WonderFood:
 
@@ -38,20 +39,38 @@ class WonderFood:
             INFORMATION_URL = f'https://api.spoonacular.com/recipes/{response["id"]}/information/'
             response_information = requests.get(INFORMATION_URL, params=information_payload)
             information_json_response = response_information.json()
-
+        
             food_dictionary["readyInMinutes"] = information_json_response["readyInMinutes"]
             food_dictionary["servings"] = information_json_response["servings"]
 
             ingredients_dictionary = {}
             food_dictionary["ingredients"] = []
 
-            for ingredients in information_json_response["extendedIngredients"]:
-                ingredients_dictionary["name"] = ingredients["name"] 
-                ingredients_dictionary["amount"] = ingredients["amount"] 
-                ingredients_dictionary["unit"] = ingredients["unit"] 
+            for ingredient in information_json_response["extendedIngredients"]:
+                ingredients_dictionary["name"] = ingredient["name"] 
+                ingredients_dictionary["amount"] = ingredient["amount"] 
+                ingredients_dictionary["unit"] = ingredient["unit"] 
 
                 ingredients_dictionary_copy = ingredients_dictionary.copy()
                 food_dictionary["ingredients"].append(ingredients_dictionary_copy)
+
+            # Directions API Call
+            directions_payload = {'apiKey': self.apiKey}
+            INFORMATION_URL = f'https://api.spoonacular.com/recipes/{response["id"]}/analyzedInstructions/'
+            response_directions = requests.get(INFORMATION_URL, params=directions_payload)
+            directions_json_response = response_directions.json()
+            # print(directions_json_response[0]["steps"], "**************")
+            directions_dictionary = {}
+            food_dictionary["directions"] = []
+
+            for direction in directions_json_response[0]["steps"]:
+                directions_dictionary["number"] = direction["number"]
+                directions_dictionary["step"] = normalize("NFKD", direction["step"])
+
+                directions_dictionary_copy = directions_dictionary.copy()
+                food_dictionary["directions"].append(directions_dictionary_copy)
+
+
             
             # food_dictionary["ingredients"] = information_json_response["extendedIngredients"]
             
@@ -63,7 +82,9 @@ class WonderFood:
     def __repr__(self):
         return f'<Wonder Food {self.apiKey} cuisine={self.cuisine} number={self.number}>'
 
+# for cuisine in cuisines:
 foods = WonderFood(apiKey=API_KEY, cuisine='african', number=1)
+# foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
 print(foods.serialize())
 # food_list = []
 # for cuisine in cuisines:
