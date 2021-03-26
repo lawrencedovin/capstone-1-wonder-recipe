@@ -37,6 +37,9 @@ class WonderFood:
 
             ingredients_dictionary = {}
             food_dictionary["ingredients"] = []
+            ingredients_dictionary["name"] = ''
+            ingredients_dictionary["amount"] = ''
+            ingredients_dictionary["unit"] = ''
 
             for ingredient in information_json_response["extendedIngredients"]:
                 ingredients_dictionary["name"] = ingredient["name"] 
@@ -48,19 +51,27 @@ class WonderFood:
 
             # Directions API Call
             directions_payload = {'apiKey': self.apiKey}
-            INFORMATION_URL = f'https://api.spoonacular.com/recipes/{response["id"]}/analyzedInstructions/'
-            response_directions = requests.get(INFORMATION_URL, params=directions_payload)
+            DIRECTIONS_URL = f'https://api.spoonacular.com/recipes/{response["id"]}/analyzedInstructions/'
+            response_directions = requests.get(DIRECTIONS_URL, params=directions_payload)
             directions_json_response = response_directions.json()
             directions_dictionary = {}
             food_dictionary["directions"] = []
 
-            for direction in directions_json_response[0]["steps"]:
-                directions_dictionary["number"] = direction["number"]
-                # normalize is used to replace \xa0 with spaces in step string
-                directions_dictionary["step"] = normalize("NFKD", direction["step"])
+            directions_dictionary["number"] = ''
+            directions_dictionary["step"] = ''
 
-                directions_dictionary_copy = directions_dictionary.copy()
-                food_dictionary["directions"].append(directions_dictionary_copy)
+            # Checks if steps are found in the directions json response
+            # Otherwise set to default values
+            try:
+                for direction in directions_json_response[0]["steps"]:
+                    directions_dictionary["number"] = direction["number"]
+                    # normalize is used to replace \xa0 with spaces in step string
+                    directions_dictionary["step"] = normalize("NFKD", direction["step"])
+
+                    directions_dictionary_copy = directions_dictionary.copy()
+                    food_dictionary["directions"].append(directions_dictionary_copy)
+            except:
+                print("Steps not found")
 
             food_dictionary_copy = food_dictionary.copy()
             food_list.append(food_dictionary_copy)
@@ -70,8 +81,6 @@ class WonderFood:
     def __repr__(self):
         return f'<Wonder Food {self.apiKey} cuisine={self.cuisine} number={self.number}>'
 
-cuisines2 = ["greek", "african"]
-for cuisine in cuisines2:
-    # foods = WonderFood(apiKey=API_KEY, cuisine='african', number=1)
-    foods = WonderFood(apiKey=API_KEY, cuisine=cuisine, number=1)
-    print(foods.serialize())
+# for cuisine in cuisines:
+foods = WonderFood(apiKey=API_KEY, cuisine='latin american', number=1)
+print(foods.serialize())
