@@ -22,8 +22,8 @@ julie = User(username='julie1', email='julie@gmail.com', password='123abc', phon
 miguel = User(username='miguel91', email='miguel@gmail.com', password='00123', phone_number='6105791845')
 
 # Add cuisine
-# post1 = Post(title='First Post!', content='Hello', user_id=1)
-# post2 = Post(title='Puberty the Horror', content='Bad', user_id=1)
+african = Cuisine(cuisine_name='african')
+greek = Cuisine(cuisine_name='greek')
 
 # Add diet
 # fun_tag = Tag(name='Fun')
@@ -45,6 +45,7 @@ miguel = User(username='miguel91', email='miguel@gmail.com', password='00123', p
 
 # Add new object to session, so they'll persist
 db.session.add_all([lawrence, julie, miguel])
+db.session.add_all([african, greek])
 # db.session.add_all([post1, post2])
 # db.session.add_all([fun_tag, cool_tag, hip_tag, fancy_tag])
 

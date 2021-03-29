@@ -25,3 +25,16 @@ class User(db.Model):
     def __repr__(self):
         user = self
         return f'<User - id: {user.id} username: {user.username} email: {user.email} password: {user.password} phone_number: {user.phone_number}>'
+
+class Cuisine(db.Model):
+    __tablename__ = 'cuisines'
+
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+    cuisine_name = db.Column(db.String(20),
+                     nullable=False)
+
+    def __repr__(self):
+        cuisine = self
+        return f'<Cuisine - id: {cuisine.id} cuisine_name: {cuisine.cuisine_name}>'
