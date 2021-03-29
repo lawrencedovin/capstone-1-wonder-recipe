@@ -3,7 +3,7 @@ from secrets import API_KEY
 from cuisinesdiets import cuisines
 from unicodedata import normalize
 
-class WonderFood:
+class WonderRecipe:
 
     def __init__(self, apiKey, cuisine, number):
         self.apiKey = apiKey

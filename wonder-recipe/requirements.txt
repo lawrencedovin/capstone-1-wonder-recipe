@@ -1,7 +1,9 @@
 astroid==2.4.2
 bcrypt==3.1.4
 blinker==1.4
+certifi==2020.12.5
 cffi==1.11.5
+chardet==4.0.0
 Click==7.0
 colorama==0.4.4
 Flask==1.0.2
@@ -10,6 +12,7 @@ Flask-DebugToolbar==0.10.1
 Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 gunicorn==20.0.4
+idna==2.10
 isort==5.7.0
 itsdangerous==1.1.0
 Jinja2==2.10
@@ -20,11 +23,13 @@ psycopg2==2.7.6.1
 psycopg2-binary==2.8.6
 pycparser==2.19
 pylint==2.6.0
+requests==2.25.1
 six==1.11.0
 SQLAlchemy==1.2.14
 toml==0.10.2
 typed-ast==1.4.2
 unicodedata2==13.0.0.post2
+urllib3==1.26.4
 Werkzeug==0.14.1
 wrapt==1.12.1
 WTForms==2.2.1

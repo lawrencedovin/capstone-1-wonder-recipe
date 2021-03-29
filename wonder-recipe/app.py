@@ -1,15 +1,21 @@
 from flask import Flask, request, render_template, redirect, flash, jsonify
 from flask import session, make_response
 from flask_debugtoolbar import DebugToolbarExtension
-from wonderfoods import WonderFood
+from wonderrecipes import WonderRecipe
 from secrets import API_KEY
 from cuisinesdiets import cuisines
+from models import *
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "abc123"
-app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.debug = False
-toolbar = DebugToolbarExtension(app)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///wonder_recipe_db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ECHO'] = False
+app.config['SECRET_KEY'] = 'pikachu'
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+debug = DebugToolbarExtension(app)
+
+connect_db(app)
 
 @app.route('/')
 def home():
