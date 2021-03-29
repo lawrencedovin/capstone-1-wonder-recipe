@@ -1,4 +1,4 @@
-""""Seed file to make sample data for wonderfoods db."""
+""""Seed file to make sample data for wonder recipes db."""
 
 from models import *
 from app import app
