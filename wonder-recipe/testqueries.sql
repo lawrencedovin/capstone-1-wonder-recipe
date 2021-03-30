@@ -9,3 +9,10 @@ SELECT r.recipe_name, d.diet_name
         ON r.id = rd.recipe_id
     JOIN diets d
         ON d.id = rd.diet_id;
+
+SELECT u.username, r.recipe_name
+    FROM grocery_list gl
+    JOIN users u
+        ON u.id = gl.user_id
+    JOIN recipes r
+        ON r.id = gl.recipe_id;

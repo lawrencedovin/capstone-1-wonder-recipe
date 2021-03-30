@@ -82,7 +82,7 @@ db.session.commit()
 
 # Adds Recipe after Cuisine has been made to link the relationship
 # between Recipe and Cuisine
-db.session.add_all([pancake])
+db.session.add_all([pancake, burger])
 db.session.commit()
 
 # Adds Recipe and Diet M:M relationship after Recipe and Diet
