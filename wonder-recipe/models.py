@@ -103,3 +103,13 @@ class LikedRecipes(db.Model):
     def __repr__(self):
         liked_recipes = self
         return f'<Liked Recipes - user_id: {liked_recipes.user_id} recipe_id: {liked_recipes.recipe_id}>'
+
+class Likes(db.Model):
+    __tablename__ = 'likes'
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True)
+
+    def __repr__(self):
+        likes = self
+        return f'<Likes - user_id: {likes.user_id} recipe_id: {likes.recipe_id}>'
