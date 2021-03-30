@@ -23,6 +23,7 @@ diet_name UNIQUE STRING
 
 recipe_diet
 -
+id PK SERIAL
 recipe_id INTEGER FK >- recipe.id
 diet_id INTEGER FK >- diet.id
 
@@ -33,10 +34,18 @@ cuisine_name UNIQUE STRING
 
 grocery_list
 -
+id PK SERIAL
+user_id INTEGER FK >- user.id
+recipe_id INTEGER FK >- recipe.id
+
+liked_recipes
+-
+id PK SERIAL
 user_id INTEGER FK >- user.id
 recipe_id INTEGER FK >- recipe.id
 
 likes
 -
+id PK SERIAL
 user_id INTEGER FK >- user.id
 recipe_id INTEGER FK >- recipe.id
