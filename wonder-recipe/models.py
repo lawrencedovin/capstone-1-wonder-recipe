@@ -77,15 +77,19 @@ class Recipe(db.Model):
 class RecipeDiet(db.Model):
     __tablename__ = 'recipe_diet'
 
-    # id = db.Column(db.Integer, primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True)
     diet_id = db.Column(db.Integer, db.ForeignKey('diets.id'), primary_key=True)
 
-    # recipe = db.relationship('Cuisine', backref='recipe_diet')
-    # diet = db.relationship('Diet', backref='recipe_diet')
-    # emp_id = db.Column(db.Integer, db.ForeignKey('employees.id'), primary_key=True)
-    # proj_code = db.Column(db.Text, db.ForeignKey('projects.proj_code'), primary_key=True)
-
     def __repr__(self):
         recipe_diet = self
-        return f'<Recipe Diet - id: {recipe_diet.id} recipe_id: {recipe_diet.recipe_id} diet_id: {recipe_diet.diet_id}>'
+        return f'<Recipe Diet - recipe_id: {recipe_diet.recipe_id} diet_id: {recipe_diet.diet_id}>'
+
+class GroceryList(db.Model):
+    __tablename__ = 'grocery_list'
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True)
+
+    def __repr__(self):
+        grocery_list = self
+        return f'<Grocery List - user_id: {grocery_list.user_id} recipe_id: {grocery_list.recipe_id}>'
