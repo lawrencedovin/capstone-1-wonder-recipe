@@ -2,6 +2,9 @@
 
 from models import *
 from app import app
+from cuisinesdiets import cuisines, diets
+from secrets import API_KEY
+from wonderrecipes import WonderRecipe
 
 # Create all tables
 db.drop_all()
@@ -22,8 +25,15 @@ julie = User(username='julie1', email='julie@gmail.com', password='123abc', phon
 miguel = User(username='miguel91', email='miguel@gmail.com', password='00123', phone_number='6105791845')
 
 # Add cuisine
-african = Cuisine(cuisine_name='african')
-greek = Cuisine(cuisine_name='greek')
+# african = Cuisine(cuisine_name='african')
+# greek = Cuisine(cuisine_name='greek')
+
+cuisine_list = []
+for cuisine in cuisines:
+   add_cuisine = Cuisine(cuisine_name=cuisine)
+   cuisine_list.append(add_cuisine)
+db.session.add_all(cuisine_list)
+db.session.commit()
 
 # Add diet
 vegan = Diet(diet_name='vegan')
@@ -81,7 +91,7 @@ miguel_burger = Likes(user_id=3, recipe_id=4321)
 
 # Add new object to session, so they'll persist
 db.session.add_all([lawrence, julie, miguel])
-db.session.add_all([african, greek])
+# db.session.add_all([african, greek])
 db.session.add_all([vegan, vegetarian])
 
 # Commit confirms changes and makes it permanent
@@ -97,8 +107,13 @@ db.session.commit()
 db.session.add_all([pancake_vegan, pancake_vegetarian])
 db.session.commit()
 
-# Adds Grocery List, Liked Recipes, Likes
+# Adds Grocery List, Likes
 db.session.add_all([lawrence_burger, lawrence_pancake, julie_burger])
 db.session.add_all([julie_pancake, miguel_burger])
 db.session.commit()
 
+# recipes = WonderRecipe(apiKey=API_KEY, cuisine='african', number=5)
+# serialized_recipes = recipes.serialize()
+# print(serialized_recipes)
+# for index, item in enumerate(serialized_recipes):
+#     print(serialized_recipes[index]["title"])

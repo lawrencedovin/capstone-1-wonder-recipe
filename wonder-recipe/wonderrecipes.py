@@ -71,7 +71,7 @@ class WonderRecipe:
                     directions_dictionary_copy = directions_dictionary.copy()
                     food_dictionary["directions"].append(directions_dictionary_copy)
             except:
-                print("Steps not found")
+                i=1
 
             food_dictionary_copy = food_dictionary.copy()
             food_list.append(food_dictionary_copy)
@@ -85,5 +85,22 @@ class WonderRecipe:
 #     foods = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
 #     print(foods.serialize())
 
-# foods = WonderRecipe(apiKey=API_KEY, cuisine='african', number=1)
+# for index, item in enumerate(cuisines):
+#     recipe = WonderRecipe(apiKey=API_KEY, cuisine=item, number=1)
+#     serialized_recipe = recipe.serialize()
+#     try:
+#         print(serialized_recipe[index]["title"])
+#     except:
+#         print('error')
+
+# recipe = WonderRecipe(apiKey=API_KEY, cuisine='african', number=1)
+# serialized_recipe = recipe.serialize()
+# print(serialized_recipe[0]["title"])
 # print(foods.serialize())
+
+
+# recipes = WonderRecipe(apiKey=API_KEY, cuisine='african', number=5)
+# serialized_recipes = recipes.serialize()
+# print(serialized_recipes)
+# for index, item in enumerate(serialized_recipes):
+#     print(serialized_recipes[index]["title"])
