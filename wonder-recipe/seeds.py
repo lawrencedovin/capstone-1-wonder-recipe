@@ -11,7 +11,10 @@ db.create_all()
 User.query.delete()
 Cuisine.query.delete()
 Diet.query.delete()
-# PostTag.query.delete()
+Recipe.query.delete()
+RecipeDiet.query.delete()
+GroceryList.query.delete()
+Likes.query.delete()
 
 # Add users
 lawrence = User(username='lawrence123', email='lawrence@gmail.com', password='abc123', phone_number='6105791888')
@@ -72,9 +75,9 @@ lawrence_burger = GroceryList(user_id=1, recipe_id=4321)
 lawrence_pancake = GroceryList(user_id=1, recipe_id=1234)
 julie_burger = GroceryList(user_id=2, recipe_id=4321)
 
-# Add Liked Recipes
-julie_pancake = LikedRecipes(user_id=2, recipe_id=1234)
-miguel_burger = LikedRecipes(user_id=3, recipe_id=4321)
+# Add Likes
+julie_pancake = Likes(user_id=2, recipe_id=1234)
+miguel_burger = Likes(user_id=3, recipe_id=4321)
 
 # Add new object to session, so they'll persist
 db.session.add_all([lawrence, julie, miguel])

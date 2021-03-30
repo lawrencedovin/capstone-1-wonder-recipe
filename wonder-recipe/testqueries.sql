@@ -18,7 +18,7 @@ SELECT u.username, r.recipe_name
         ON r.id = gl.recipe_id;
 
 SELECT u.username, r.recipe_name
-    FROM liked_recipes lr
+    FROM likes lr
     JOIN users u
         ON u.id = lr.user_id
     JOIN recipes r
