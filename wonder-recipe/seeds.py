@@ -45,9 +45,32 @@ pancake = Recipe(id=1234, recipe_name='pancakes',
       servings=1,
       cuisine_id=1)
 
+burger = Recipe(id=4321, recipe_name='burger', 
+        ingredients=[
+         {
+            "name":"burger patty",
+            "amount":1.0,
+            "unit":"slice"
+         }
+      ],
+      directions=[
+         {
+            "number":1,
+            "step":"Add Patty on buns and then cheese."
+         }
+      ],
+      ready_in_minutes=25,
+      servings=1,
+      cuisine_id=2)
+
 # Adds Recipe and Diet for M:M relationship
 pancake_vegan = RecipeDiet(recipe_id=1234, diet_id=1)
 pancake_vegetarian = RecipeDiet(recipe_id=1234, diet_id=2)
+
+# Add Grocery List
+lawrence_burger = GroceryList(user_id=1, recipe_id=4321)
+lawrence_pancake = GroceryList(user_id=1, recipe_id=1234)
+julie_burger = GroceryList(user_id=2, recipe_id=4321)
 
 # Add new object to session, so they'll persist
 db.session.add_all([lawrence, julie, miguel])
@@ -65,5 +88,9 @@ db.session.commit()
 # Adds Recipe and Diet M:M relationship after Recipe and Diet
 # Tables have been made
 db.session.add_all([pancake_vegan, pancake_vegetarian])
+db.session.commit()
+
+# Adds Grocery List, Liked Recipes, Likes
+db.session.add_all([lawrence_burger, lawrence_pancake, julie_burger])
 db.session.commit()
 
