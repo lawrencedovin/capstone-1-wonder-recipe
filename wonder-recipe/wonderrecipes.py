@@ -98,9 +98,12 @@ class WonderRecipe:
 # print(serialized_recipe[0]["title"])
 # print(foods.serialize())
 
-
 # recipes = WonderRecipe(apiKey=API_KEY, cuisine='african', number=5)
 # serialized_recipes = recipes.serialize()
 # print(serialized_recipes)
 # for index, item in enumerate(serialized_recipes):
 #     print(serialized_recipes[index]["title"])
+
+# recipe = WonderRecipe(apiKey=API_KEY, cuisine='african', number=1)
+# serialized_recipe = recipe.serialize()
+# print(serialized_recipe)

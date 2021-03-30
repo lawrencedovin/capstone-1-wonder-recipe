@@ -33,12 +33,12 @@ class Cuisine(db.Model):
     id = db.Column(db.Integer,
                    primary_key=True,
                    autoincrement=True)
-    cuisine_name = db.Column(db.String(64),
+    title = db.Column(db.String(64),
                      nullable=False)
 
     def __repr__(self):
         cuisine = self
-        return f'<Cuisine - id: {cuisine.id} cuisine_name: {cuisine.cuisine_name}>'
+        return f'<Cuisine - id: {cuisine.id} cuisine_title: {cuisine.title}>'
 
 class Diet(db.Model):
     __tablename__ = 'diets'
@@ -46,19 +46,22 @@ class Diet(db.Model):
     id = db.Column(db.Integer,
                    primary_key=True,
                    autoincrement=True)
-    diet_name = db.Column(db.String(64),
+    title = db.Column(db.String(64),
                      nullable=False)
 
     def __repr__(self):
         diet = self
-        return f'<Diet - id: {diet.id} diet_name: {diet.diet_name}>'
+        return f'<Diet - id: {diet.id} title: {diet.title}>'
 
 class Recipe(db.Model):
     __tablename__ = 'recipes'
 
     id = db.Column(db.Integer,
-                   primary_key=True)
-    recipe_name = db.Column(db.String(64),
+                   primary_key=True,
+                   autoincrement=True)
+    title = db.Column(db.String(180),
+                     nullable=False)
+    image = db.Column(db.String(256),
                      nullable=False)
     ingredients = db.Column(JSONB,
                      nullable=False)
@@ -72,7 +75,7 @@ class Recipe(db.Model):
 
     def __repr__(self):
         recipe = self
-        return f'<Recipe - id: {recipe.id} recipe_name: {recipe.recipe_name} ingredients: {recipe.ingredients} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings} cuisine_id: {recipe.cuisine_id}>'
+        return f'<Recipe - id: {recipe.id} title: {recipe.title} image: {recipe.image} ingredients: {recipe.ingredients} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings} cuisine_id: {recipe.cuisine_id}>'
 
 class RecipeDiet(db.Model):
     __tablename__ = 'recipe_diet'
