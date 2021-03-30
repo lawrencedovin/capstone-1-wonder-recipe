@@ -71,7 +71,7 @@ class WonderRecipe:
                     directions_dictionary_copy = directions_dictionary.copy()
                     food_dictionary["directions"].append(directions_dictionary_copy)
             except:
-                i=1
+                print("Steps not found")
 
             food_dictionary_copy = food_dictionary.copy()
             food_list.append(food_dictionary_copy)

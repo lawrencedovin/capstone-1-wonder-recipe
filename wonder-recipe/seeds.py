@@ -5,6 +5,7 @@ from app import app
 from cuisinesdiets import cuisines, diets
 from secrets import API_KEY
 from wonderrecipes import WonderRecipe
+import requests
 
 # Create all tables
 db.drop_all()
@@ -45,27 +46,40 @@ db.session.commit()
 # Adds Recipe after Cuisine has been made to link the relationship
 # between Recipe and Cuisine
 ####################################
-recipe_list = []
-for cuisine in cuisines:
-   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
-   serialized_recipes = recipes.serialize()
-   for index, item in enumerate(serialized_recipes):
-      title = serialized_recipes[index]["title"]
-      image = serialized_recipes[index]["image"]
-      ingredients = serialized_recipes[index]["ingredients"]
-      directions = serialized_recipes[index]["directions"]
-      ready_in_minutes = serialized_recipes[index]["readyInMinutes"]
-      servings = serialized_recipes[index]["servings"]
-      cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
+# recipe_list = []
+# for cuisine in cuisines:
+#    recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
+#    serialized_recipes = recipes.serialize()
+#    for index, item in enumerate(serialized_recipes):
+#       title = serialized_recipes[index]["title"]
+#       image = serialized_recipes[index]["image"]
+#       ingredients = serialized_recipes[index]["ingredients"]
+#       directions = serialized_recipes[index]["directions"]
+#       ready_in_minutes = serialized_recipes[index]["readyInMinutes"]
+#       servings = serialized_recipes[index]["servings"]
+#       cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
 
-      recipe = Recipe(title=title, image=image, ingredients=ingredients, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings, cuisine_id=cuisine_id)
-      recipe_list.append(recipe)
+#       recipe = Recipe(title=title, image=image, ingredients=ingredients, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings, cuisine_id=cuisine_id)
+#       recipe_list.append(recipe)
 
-db.session.add_all(recipe_list)
-db.session.commit()
+# db.session.add_all(recipe_list)
+# db.session.commit()
 
 # Adds Recipe and Diet for M:M relationship
 ####################################
+# recipe_diet_list = []
+# recipes = Recipe.query.all()
+# diets = Diet.query.all()
+
+# for recipe_diet in recipes:
+CUISINE_URL = 'https://api.spoonacular.com/recipes/complexSearch/'
+cuisine_payload = {'apiKey': API_KEY, 'cuisine': 'african', 'number': 1}
+response_cuisine = requests.get(CUISINE_URL, params=cuisine_payload)
+
+cuisine_json_response = response_cuisine.json()
+
+for response in cuisine_json_response["results"]:
+   print(response)
 # pancake_vegan = RecipeDiet(recipe_id=1234, diet_id=1)
 # pancake_vegetarian = RecipeDiet(recipe_id=1234, diet_id=2)
 
