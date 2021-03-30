@@ -72,6 +72,10 @@ lawrence_burger = GroceryList(user_id=1, recipe_id=4321)
 lawrence_pancake = GroceryList(user_id=1, recipe_id=1234)
 julie_burger = GroceryList(user_id=2, recipe_id=4321)
 
+# Add Liked Recipes
+julie_pancake = LikedRecipes(user_id=2, recipe_id=1234)
+miguel_burger = LikedRecipes(user_id=3, recipe_id=4321)
+
 # Add new object to session, so they'll persist
 db.session.add_all([lawrence, julie, miguel])
 db.session.add_all([african, greek])
@@ -92,5 +96,6 @@ db.session.commit()
 
 # Adds Grocery List, Liked Recipes, Likes
 db.session.add_all([lawrence_burger, lawrence_pancake, julie_burger])
+db.session.add_all([julie_pancake, miguel_burger])
 db.session.commit()
 
