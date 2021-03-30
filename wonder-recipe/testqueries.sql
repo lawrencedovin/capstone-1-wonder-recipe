@@ -16,3 +16,10 @@ SELECT u.username, r.recipe_name
         ON u.id = gl.user_id
     JOIN recipes r
         ON r.id = gl.recipe_id;
+
+SELECT u.username, r.recipe_name
+    FROM liked_recipes lr
+    JOIN users u
+        ON u.id = lr.user_id
+    JOIN recipes r
+        ON r.id = lr.recipe_id;
