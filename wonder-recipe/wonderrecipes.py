@@ -84,3 +84,6 @@ class WonderRecipe:
 # for cuisine in cuisines:
 #     foods = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
 #     print(foods.serialize())
+
+# foods = WonderRecipe(apiKey=API_KEY, cuisine='african', number=1)
+# print(foods.serialize())

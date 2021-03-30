@@ -9,14 +9,11 @@ db.create_all()
 
 # If table isn't empty, empty it
 User.query.delete()
-# Post.query.delete()
-# Tag.query.delete()
+Cuisine.query.delete()
+Diet.query.delete()
 # PostTag.query.delete()
 
 # Add users
-# lawrence = User(first_name='Lawrence', last_name='Dovin', image_url='https://images.unsplash.com/photo-1517783999520-f068d7431a60?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80')
-# julie = User(first_name='Julie', last_name='Paez', image_url='https://images.unsplash.com/photo-1517783999520-f068d7431a60?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80')
-# miguel = User(first_name='Miguel', last_name='Servin', image_url='https://images.unsplash.com/photo-1517783999520-f068d7431a60?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80')
 lawrence = User(username='lawrence123', email='lawrence@gmail.com', password='abc123', phone_number='6105791888')
 julie = User(username='julie1', email='julie@gmail.com', password='123abc', phone_number='6105791885')
 miguel = User(username='miguel91', email='miguel@gmail.com', password='00123', phone_number='6105791845')
@@ -26,12 +23,27 @@ african = Cuisine(cuisine_name='african')
 greek = Cuisine(cuisine_name='greek')
 
 # Add diet
-# fun_tag = Tag(name='Fun')
-# cool_tag = Tag(name='Cool')
-# hip_tag = Tag(name='Hip')
-# fancy_tag = Tag(name='Fancy')
+vegan = Diet(diet_name='vegan')
+vegetarian = Diet(diet_name='vegetarian')
 
 # Add recipe
+pancake = Recipe(id=1234, recipe_name='pancakes', 
+        ingredients=[
+         {
+            "name":"bell peppers",
+            "amount":1.0,
+            "unit":"serving"
+         }
+      ],
+      directions=[
+         {
+            "number":1,
+            "step":"Season and Boil the Chicken for 10 minutes with salt, pepper, and seasoning."
+         }
+      ],
+      ready_in_minutes=45,
+      servings=1,
+      cuisine_id=1)
 
 # Add recipe_diet
 
@@ -46,6 +58,7 @@ greek = Cuisine(cuisine_name='greek')
 # Add new object to session, so they'll persist
 db.session.add_all([lawrence, julie, miguel])
 db.session.add_all([african, greek])
+db.session.add_all([vegan, vegetarian])
 # db.session.add_all([post1, post2])
 # db.session.add_all([fun_tag, cool_tag, hip_tag, fancy_tag])
 
@@ -53,5 +66,5 @@ db.session.add_all([african, greek])
 db.session.commit()
 
 # Add post to tag relationship after initial data has been entered
-# db.session.add_all([first_fun_tag, first_hip_tag, puberty_fun_tag, puberty_cool_tag])
-# db.session.commit()
+db.session.add_all([pancake])
+db.session.commit()

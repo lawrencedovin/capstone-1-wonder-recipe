@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.dialects.postgresql import JSON, JSONB
 
 db = SQLAlchemy()
 
@@ -32,9 +33,43 @@ class Cuisine(db.Model):
     id = db.Column(db.Integer,
                    primary_key=True,
                    autoincrement=True)
-    cuisine_name = db.Column(db.String(20),
+    cuisine_name = db.Column(db.String(64),
                      nullable=False)
 
     def __repr__(self):
         cuisine = self
         return f'<Cuisine - id: {cuisine.id} cuisine_name: {cuisine.cuisine_name}>'
+
+class Diet(db.Model):
+    __tablename__ = 'diets'
+
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+    diet_name = db.Column(db.String(64),
+                     nullable=False)
+
+    def __repr__(self):
+        diet = self
+        return f'<Diet - id: {diet.id} diet_name: {diet.diet_name}>'
+
+class Recipe(db.Model):
+    __tablename__ = 'recipes'
+
+    id = db.Column(db.Integer,
+                   primary_key=True)
+    recipe_name = db.Column(db.String(64),
+                     nullable=False)
+    ingredients = db.Column(JSONB,
+                     nullable=False)
+    directions = db.Column(JSONB,
+                     nullable=False)
+    ready_in_minutes = db.Column(db.Numeric(scale=2, asdecimal=False))
+    servings = db.Column(db.Numeric(scale=2, asdecimal=False))
+    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisines.id'))
+
+    cuisine = db.relationship('Cuisine', backref='recipes')
+
+    def __repr__(self):
+        recipe = self
+        return f'<Recipe - id: {recipe.id} recipe_name: {recipe.recipe_name} ingredients: {recipe.ingredients} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings} cuisine_id: {recipe.cuisine_id}>'
