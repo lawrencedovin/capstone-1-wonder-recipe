@@ -93,3 +93,13 @@ class GroceryList(db.Model):
     def __repr__(self):
         grocery_list = self
         return f'<Grocery List - user_id: {grocery_list.user_id} recipe_id: {grocery_list.recipe_id}>'
+
+class LikedRecipes(db.Model):
+    __tablename__ = 'liked_recipes'
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True)
+
+    def __repr__(self):
+        liked_recipes = self
+        return f'<Liked Recipes - user_id: {liked_recipes.user_id} recipe_id: {liked_recipes.recipe_id}>'
