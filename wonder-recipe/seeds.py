@@ -45,26 +45,25 @@ pancake = Recipe(id=1234, recipe_name='pancakes',
       servings=1,
       cuisine_id=1)
 
-# Add recipe_diet
-
-
-
-# Add post tag relationships
-# first_fun_tag = PostTag(post_id=1, tag_id=1)
-# first_hip_tag = PostTag(post_id=1, tag_id=3)
-# puberty_fun_tag = PostTag(post_id=2, tag_id=1)
-# puberty_cool_tag = PostTag(post_id=2, tag_id=2)
+# Adds Recipe and Diet for M:M relationship
+pancake_vegan = RecipeDiet(recipe_id=1234, diet_id=1)
+pancake_vegetarian = RecipeDiet(recipe_id=1234, diet_id=2)
 
 # Add new object to session, so they'll persist
 db.session.add_all([lawrence, julie, miguel])
 db.session.add_all([african, greek])
 db.session.add_all([vegan, vegetarian])
-# db.session.add_all([post1, post2])
-# db.session.add_all([fun_tag, cool_tag, hip_tag, fancy_tag])
 
 # Commit confirms changes and makes it permanent
 db.session.commit()
 
-# Add post to tag relationship after initial data has been entered
+# Adds Recipe after Cuisine has been made to link the relationship
+# between Recipe and Cuisine
 db.session.add_all([pancake])
 db.session.commit()
+
+# Adds Recipe and Diet M:M relationship after Recipe and Diet
+# Tables have been made
+db.session.add_all([pancake_vegan, pancake_vegetarian])
+db.session.commit()
+

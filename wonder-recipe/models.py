@@ -73,3 +73,19 @@ class Recipe(db.Model):
     def __repr__(self):
         recipe = self
         return f'<Recipe - id: {recipe.id} recipe_name: {recipe.recipe_name} ingredients: {recipe.ingredients} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings} cuisine_id: {recipe.cuisine_id}>'
+
+class RecipeDiet(db.Model):
+    __tablename__ = 'recipe_diet'
+
+    # id = db.Column(db.Integer, primary_key=True)
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True)
+    diet_id = db.Column(db.Integer, db.ForeignKey('diets.id'), primary_key=True)
+
+    # recipe = db.relationship('Cuisine', backref='recipe_diet')
+    # diet = db.relationship('Diet', backref='recipe_diet')
+    # emp_id = db.Column(db.Integer, db.ForeignKey('employees.id'), primary_key=True)
+    # proj_code = db.Column(db.Text, db.ForeignKey('projects.proj_code'), primary_key=True)
+
+    def __repr__(self):
+        recipe_diet = self
+        return f'<Recipe Diet - id: {recipe_diet.id} recipe_id: {recipe_diet.recipe_id} diet_id: {recipe_diet.diet_id}>'
