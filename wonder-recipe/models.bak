@@ -57,7 +57,8 @@ class Recipe(db.Model):
     __tablename__ = 'recipes'
 
     id = db.Column(db.Integer,
-                   primary_key=True)
+                   primary_key=True,
+                   autoincrement=True)
     title = db.Column(db.String(180),
                      nullable=False)
     image = db.Column(db.String(256),
@@ -68,10 +69,13 @@ class Recipe(db.Model):
                      nullable=False)
     ready_in_minutes = db.Column(db.Numeric(scale=2, asdecimal=False))
     servings = db.Column(db.Numeric(scale=2, asdecimal=False))
+    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisines.id'))
+
+    cuisine = db.relationship('Cuisine', backref='recipes')
 
     def __repr__(self):
         recipe = self
-        return f'<Recipe - id: {recipe.id} title: {recipe.title} image: {recipe.image} ingredients: {recipe.ingredients} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings}>'
+        return f'<Recipe - id: {recipe.id} title: {recipe.title} image: {recipe.image} ingredients: {recipe.ingredients} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings} cuisine_id: {recipe.cuisine_id}>'
 
 class RecipeDiet(db.Model):
     __tablename__ = 'recipe_diet'
@@ -82,16 +86,6 @@ class RecipeDiet(db.Model):
     def __repr__(self):
         recipe_diet = self
         return f'<Recipe Diet - recipe_id: {recipe_diet.recipe_id} diet_id: {recipe_diet.diet_id}>'
-
-# class RecipeCuisine(db.Model):
-#     __tablename__ = 'recipe_cuisine'
-
-#     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisines.id'), primary_key=True)
-#     diet_id = db.Column(db.Integer, db.ForeignKey('diets.id'), primary_key=True)
-
-#     def __repr__(self):
-#         recipe_cuisine = self
-#         return f'<Recipe Diet - cuisine_id: {recipe_cuisine.cuisine_id} diet_id: {recipe_cuisine.diet_id}>'
 
 class GroceryList(db.Model):
     __tablename__ = 'grocery_list'
