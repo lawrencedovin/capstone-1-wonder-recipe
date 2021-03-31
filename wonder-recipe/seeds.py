@@ -73,13 +73,15 @@ db.session.commit()
 
 # for recipe_diet in recipes:
 CUISINE_URL = 'https://api.spoonacular.com/recipes/complexSearch/'
-cuisine_payload = {'apiKey': API_KEY, 'cuisine': 'african', 'number': 1}
+cuisine_payload = {'apiKey': API_KEY, 'cuisine': 'african', 'number': 1, 'addRecipeInformation': True}
 response_cuisine = requests.get(CUISINE_URL, params=cuisine_payload)
 
 cuisine_json_response = response_cuisine.json()
 
 for response in cuisine_json_response["results"]:
-   print(response)
+   for diet in response["diets"]:
+      print(diet)
+   # diets = response["diets"][0]
 # pancake_vegan = RecipeDiet(recipe_id=1234, diet_id=1)
 # pancake_vegetarian = RecipeDiet(recipe_id=1234, diet_id=2)
 
