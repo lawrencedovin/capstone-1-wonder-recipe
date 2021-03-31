@@ -12,7 +12,7 @@ class WonderRecipe:
 
     def serialize(self):
         CUISINE_URL = 'https://api.spoonacular.com/recipes/complexSearch/'
-        cuisine_payload = {'apiKey': self.apiKey, 'cuisine': self.cuisine, 'number': self.number}
+        cuisine_payload = {'apiKey': self.apiKey, 'cuisine': self.cuisine, 'number': self.number, 'addRecipeInformation': True}
         response_cuisine = requests.get(CUISINE_URL, params=cuisine_payload)
 
         cuisine_json_response = response_cuisine.json()
@@ -79,7 +79,7 @@ class WonderRecipe:
         return food_list
 
     def __repr__(self):
-        return f'<Wonder Recipe {self.apiKey} cuisine={self.cuisine} number={self.number}>'
+        return f'<Wonder Recipe cuisine={self.cuisine} number={self.number}>'
 
 # for cuisine in cuisines:
 #     foods = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)

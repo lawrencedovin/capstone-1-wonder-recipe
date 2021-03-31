@@ -14,6 +14,7 @@ ingredients JSONB
 directions JSONB
 ready_in_minutes NUMERIC
 servings NUMERIC
+cuisine_id INTEGER FK >- cuisine.id
 
 diet
 -
@@ -29,11 +30,6 @@ cuisine
 -
 id PK SERIAL
 cuisine_name UNIQUE STRING
-
-recipe_cuisine
--
-recipe_id INTEGER FK >- recipe.id
-cuisine_id INTEGER FK >- cuisine.id
 
 grocery_list
 -
