@@ -6,6 +6,7 @@ from cuisinesdiets import cuisines, diets
 from secrets import API_KEY
 from wonderrecipes import WonderRecipe
 import requests
+from sqlalchemy import exc
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.sql import text
 
@@ -63,13 +64,29 @@ for cuisine in cuisines:
     #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
 
       recipe = Recipe(id=id, title=title, image=image, ingredients=ingredients, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings)
-      recipe_list.append(recipe)
+      try:
+          db.session.add(recipe)
+          db.session.commit()
+      except exc.IntegrityError:
+          db.session.rollback()
+      
+# try:
+#     db.session.add_all(recipe_list)
+#     db.session.commit()
+# except exc.IntegrityError:
+#     db.session.rollback()      
+    #   recipe_list.append(recipe)
 
-db.session.execute(insert(text('recipes'))
-                .values(recipe_list)
-                .on_conflict_do_nothing())
+# db.session.execute(insert(text('recipes'))
+#                 .values(recipe_list)
+#                 .on_conflict_do_nothing())
 # db.session.add_all(recipe_list).prefix_with("OR REPLACE")
-# db.session.commit()
+
+# try:
+#     db.session.add_all(recipe_list)
+#     db.session.commit()
+# except exc.IntegrityError:
+#     db.session.rollback()
 
 # Adds Recipe and Diet for M:M relationship
 ####################################
