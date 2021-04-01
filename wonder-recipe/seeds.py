@@ -108,9 +108,30 @@ for cuisine in cuisines:
 #    for diet in response["diets"]:
 #       print(diet)
 
+for cuisine in cuisines:
+   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
+   serialized_recipes = recipes.serialize()
+   for recipe in serialized_recipes:
+      id = recipe["id"]
+      title = recipe["title"]
+      image = recipe["image"]
+      ingredients = recipe["ingredients"]
+      directions = recipe["directions"]
+      ready_in_minutes = recipe["readyInMinutes"]
+      servings = recipe["servings"]
+    #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
+      for diet in recipe["diets"]:
+        # diet_id = Diet.query.filter(Diet.title == diet).first().id()
+        # print(f"diet id: {diet_id}")
+        recipe_diet = RecipeDiet(recipe_id=id, diet_id=1)
+        try:
+            db.session.add(recipe_diet)
+            db.session.commit()
+        except exc.IntegrityError:
+            db.session.rollback()
 
-
-
+# recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True)
+#     diet_id = db.Column(db.Integer, db.ForeignKey('diets.id'), primary_key=True)
 
 
    # diets = response["diets"][0]
@@ -118,27 +139,6 @@ for cuisine in cuisines:
 # pancake_vegetarian = RecipeDiet(recipe_id=1234, diet_id=2)
 
 # recipe_diet_list = []
-
-
-# for cuisine in cuisines:
-#    recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
-#    serialized_recipes = recipes.serialize()
-#    for index, item in enumerate(serialized_recipes):
-#       id = serialized_recipes[index]["id"]
-#       title = serialized_recipes[index]["title"]
-#       image = serialized_recipes[index]["image"]
-#       ingredients = serialized_recipes[index]["ingredients"]
-#       directions = serialized_recipes[index]["directions"]
-#       ready_in_minutes = serialized_recipes[index]["readyInMinutes"]
-#       servings = serialized_recipes[index]["servings"]
-#     #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
-
-#       recipe_diet = RecipeDiet(recipe_id=, diet_id=)
-#       try:
-#           db.session.add(recipe_diet)
-#           db.session.commit()
-#       except exc.IntegrityError:
-#           db.session.rollback()
 
 # Add Grocery List
 ####################################

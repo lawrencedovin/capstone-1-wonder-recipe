@@ -34,6 +34,7 @@ class WonderRecipe:
         
             food_dictionary["readyInMinutes"] = information_json_response["readyInMinutes"]
             food_dictionary["servings"] = information_json_response["servings"]
+            food_dictionary["diets"] = response["diets"]
 
             ingredients_dictionary = {}
             food_dictionary["ingredients"] = []
