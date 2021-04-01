@@ -85,6 +85,7 @@ for cuisine in cuisines:
       directions = recipe["directions"]
       ready_in_minutes = recipe["readyInMinutes"]
       servings = recipe["servings"]
+
       # Extracts the Cuisine table's id for where the match was found
       # between Cuisine db Table and Recipe API call's cuisine.
       cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
@@ -96,6 +97,7 @@ for cuisine in cuisines:
         db.session.rollback()
 
       for diet in recipe["diets"]:
+
         # Extracts the Diet table's id for where the match was found
         # between Diets db Table and Recipe API call's diet.
         diet_id = Diet.query.filter(Diet.title == diet).first().id
@@ -117,7 +119,7 @@ for cuisine in cuisines:
 # julie_pancake = Likes(user_id=2, recipe_id=1234)
 # miguel_burger = Likes(user_id=3, recipe_id=4321)
 
-# Adds Grocery List
+# Adds Grocery List and Likes
 ####################################
 # db.session.add_all([lawrence_burger, lawrence_pancake, julie_burger])
 # db.session.add_all([julie_pancake, miguel_burger])

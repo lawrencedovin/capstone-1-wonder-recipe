@@ -3,7 +3,7 @@ SELECT r.recipe_name, c.cuisine_name
     JOIN cuisines c
         ON r.cuisine_id = c.id;
 
-SELECT r.recipe_name, d.diet_name
+SELECT r.title, d.title
     FROM recipe_diet rd
     JOIN recipes r
         ON r.id = rd.recipe_id
