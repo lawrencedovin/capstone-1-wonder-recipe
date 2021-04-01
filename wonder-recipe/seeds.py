@@ -53,14 +53,14 @@ recipe_list = []
 for cuisine in cuisines:
    recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
    serialized_recipes = recipes.serialize()
-   for index, item in enumerate(serialized_recipes):
-      id = serialized_recipes[index]["id"]
-      title = serialized_recipes[index]["title"]
-      image = serialized_recipes[index]["image"]
-      ingredients = serialized_recipes[index]["ingredients"]
-      directions = serialized_recipes[index]["directions"]
-      ready_in_minutes = serialized_recipes[index]["readyInMinutes"]
-      servings = serialized_recipes[index]["servings"]
+   for recipe in serialized_recipes:
+      id = recipe["id"]
+      title = recipe["title"]
+      image = recipe["image"]
+      ingredients = recipe["ingredients"]
+      directions = recipe["directions"]
+      ready_in_minutes = recipe["readyInMinutes"]
+      servings = recipe["servings"]
     #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
 
       recipe = Recipe(id=id, title=title, image=image, ingredients=ingredients, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings)
@@ -116,6 +116,29 @@ for cuisine in cuisines:
    # diets = response["diets"][0]
 # pancake_vegan = RecipeDiet(recipe_id=1234, diet_id=1)
 # pancake_vegetarian = RecipeDiet(recipe_id=1234, diet_id=2)
+
+# recipe_diet_list = []
+
+
+# for cuisine in cuisines:
+#    recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
+#    serialized_recipes = recipes.serialize()
+#    for index, item in enumerate(serialized_recipes):
+#       id = serialized_recipes[index]["id"]
+#       title = serialized_recipes[index]["title"]
+#       image = serialized_recipes[index]["image"]
+#       ingredients = serialized_recipes[index]["ingredients"]
+#       directions = serialized_recipes[index]["directions"]
+#       ready_in_minutes = serialized_recipes[index]["readyInMinutes"]
+#       servings = serialized_recipes[index]["servings"]
+#     #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
+
+#       recipe_diet = RecipeDiet(recipe_id=, diet_id=)
+#       try:
+#           db.session.add(recipe_diet)
+#           db.session.commit()
+#       except exc.IntegrityError:
+#           db.session.rollback()
 
 # Add Grocery List
 ####################################
