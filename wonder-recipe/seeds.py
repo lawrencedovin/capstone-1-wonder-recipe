@@ -5,10 +5,7 @@ from app import app
 from cuisinesdiets import cuisines, diets
 from secrets import API_KEY
 from wonderrecipes import WonderRecipe
-import requests
 from sqlalchemy import exc
-from sqlalchemy.dialects.postgresql import insert
-from sqlalchemy.sql import text
 
 # Create all tables
 ####################################
@@ -74,7 +71,7 @@ for cuisine in cuisines:
       except exc.IntegrityError:
           db.session.rollback()
 
-# Adds Recipe and Diet, Recipe and Cuisine for M:M relationship
+# Adds data for RecipeDiet, RecipeCuisine for M:M relationship
 ####################################
 
 for cuisine in cuisines:
