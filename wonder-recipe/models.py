@@ -83,15 +83,15 @@ class RecipeDiet(db.Model):
         recipe_diet = self
         return f'<Recipe Diet - recipe_id: {recipe_diet.recipe_id} diet_id: {recipe_diet.diet_id}>'
 
-# class RecipeCuisine(db.Model):
-#     __tablename__ = 'recipe_cuisine'
+class RecipeCuisine(db.Model):
+    __tablename__ = 'recipe_cuisine'
 
-#     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisines.id'), primary_key=True)
-#     diet_id = db.Column(db.Integer, db.ForeignKey('diets.id'), primary_key=True)
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True)
+    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisines.id'), primary_key=True)
 
-#     def __repr__(self):
-#         recipe_cuisine = self
-#         return f'<Recipe Diet - cuisine_id: {recipe_cuisine.cuisine_id} diet_id: {recipe_cuisine.diet_id}>'
+    def __repr__(self):
+        recipe_cuisine = self
+        return f'<Recipe Cuisine - recipe_id: {recipe_cuisine.recipe_id} cuisine_id: {recipe_cuisine.cuisine_id}>'
 
 class GroceryList(db.Model):
     __tablename__ = 'grocery_list'

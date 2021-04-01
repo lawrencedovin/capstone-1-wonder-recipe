@@ -78,7 +78,7 @@ for cuisine in cuisines:
       except exc.IntegrityError:
           db.session.rollback()
 
-# Adds Recipe and Diet for M:M relationship
+# Adds Recipe and Diet, Recipe and Cuisine for M:M relationship
 ####################################
 
 for cuisine in cuisines:
@@ -92,7 +92,16 @@ for cuisine in cuisines:
       directions = recipe["directions"]
       ready_in_minutes = recipe["readyInMinutes"]
       servings = recipe["servings"]
-    #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
+      # Extracts the Cuisine table's id for where the match was found
+      # between Cuisine db Table and Recipe API call's cuisine.
+      cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
+      recipe_cuisine = RecipeCuisine(recipe_id=id, cuisine_id=cuisine_id)
+      try:
+        db.session.add(recipe_cuisine)
+        db.session.commit()
+      except exc.IntegrityError:
+        db.session.rollback()
+
       for diet in recipe["diets"]:
         # Extracts the Diet table's id for where the match was found
         # between Diets db Table and Recipe API call's diet.
