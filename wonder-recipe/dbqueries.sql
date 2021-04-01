@@ -10,6 +10,13 @@ SELECT r.title, d.title
     JOIN diets d
         ON d.id = rd.diet_id;
 
+SELECT r.title, c.title
+    FROM recipe_cuisine rc
+    JOIN recipes r
+        ON r.id = rc.recipe_id
+    JOIN cuisines c
+        ON c.id = rc.cuisine_id;
+
 SELECT u.username, r.recipe_name
     FROM grocery_list gl
     JOIN users u
