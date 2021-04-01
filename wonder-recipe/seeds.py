@@ -62,7 +62,9 @@ for cuisine in cuisines:
       ready_in_minutes = recipe["readyInMinutes"]
       servings = recipe["servings"]
     #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
-
+    #   print(recipe["diets"])
+    #   for item, diet in enumerate(recipe["diets"]):
+    #       print(f'{item} - {diet}')
       recipe = Recipe(id=id, title=title, image=image, ingredients=ingredients, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings)
       try:
           db.session.add(recipe)
@@ -121,9 +123,10 @@ for cuisine in cuisines:
       servings = recipe["servings"]
     #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
       for diet in recipe["diets"]:
-        # diet_id = Diet.query.filter(Diet.title == diet).first().id()
-        # print(f"diet id: {diet_id}")
-        recipe_diet = RecipeDiet(recipe_id=id, diet_id=1)
+        # Extracts the Diet table's id for where the match was found
+        # between Diets db Table and Recipe API call's diet.
+        diet_id = Diet.query.filter(Diet.title == diet).first().id
+        recipe_diet = RecipeDiet(recipe_id=id, diet_id=diet_id)
         try:
             db.session.add(recipe_diet)
             db.session.commit()
