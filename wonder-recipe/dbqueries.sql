@@ -1,4 +1,4 @@
-SELECT r.recipe_name, c.cuisine_name
+SELECT r.title, c.title
     FROM recipes r
     JOIN cuisines c
         ON r.cuisine_id = c.id;
