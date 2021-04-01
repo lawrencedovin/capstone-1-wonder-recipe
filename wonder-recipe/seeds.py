@@ -67,10 +67,6 @@ for cuisine in cuisines:
       directions = recipe["directions"]
       ready_in_minutes = recipe["readyInMinutes"]
       servings = recipe["servings"]
-    #   cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
-    #   print(recipe["diets"])
-    #   for item, diet in enumerate(recipe["diets"]):
-    #       print(f'{item} - {diet}')
       recipe = Recipe(id=id, title=title, image=image, ingredients=ingredients, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings)
       try:
           db.session.add(recipe)
@@ -124,13 +120,7 @@ for cuisine in cuisines:
 # julie_pancake = Likes(user_id=2, recipe_id=1234)
 # miguel_burger = Likes(user_id=3, recipe_id=4321)
 
-# Adds Recipe and Diet M:M relationship after Recipe and Diet
-# Tables have been made
-####################################
-# db.session.add_all([pancake_vegan, pancake_vegetarian])
-# db.session.commit()
-
-# Adds Grocery List, Likes
+# Adds Grocery List
 ####################################
 # db.session.add_all([lawrence_burger, lawrence_pancake, julie_burger])
 # db.session.add_all([julie_pancake, miguel_burger])
