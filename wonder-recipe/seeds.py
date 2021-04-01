@@ -54,7 +54,7 @@ db.session.commit()
 ####################################
 recipe_list = []
 for cuisine in cuisines:
-   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
+   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=5)
    serialized_recipes = recipes.serialize()
    for recipe in serialized_recipes:
       id = recipe["id"]
@@ -65,6 +65,9 @@ for cuisine in cuisines:
       ready_in_minutes = recipe["readyInMinutes"]
       servings = recipe["servings"]
       recipe = Recipe(id=id, title=title, image=image, ingredients=ingredients, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings)
+        # for index, diet in enumerate(recipe["diets"]):
+        #     print(f'{index} - {diet}')
+        # print('------------------------------------')
       try:
           db.session.add(recipe)
           db.session.commit()
@@ -75,7 +78,7 @@ for cuisine in cuisines:
 ####################################
 
 for cuisine in cuisines:
-   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=1)
+   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=5)
    serialized_recipes = recipes.serialize()
    for recipe in serialized_recipes:
       id = recipe["id"]
@@ -101,6 +104,8 @@ for cuisine in cuisines:
         # Extracts the Diet table's id for where the match was found
         # between Diets db Table and Recipe API call's diet.
         diet_id = Diet.query.filter(Diet.title == diet).first().id
+        if not diet_id:
+            diet_id = Diet.query.order_by('-id').first().id
         recipe_diet = RecipeDiet(recipe_id=id, diet_id=diet_id)
         try:
             db.session.add(recipe_diet)

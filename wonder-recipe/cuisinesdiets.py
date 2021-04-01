@@ -6,4 +6,4 @@ cuisines = ["african", "american", "british", "cajun", "caribbean",
 
 diets = ["gluten free", "ketogenic", "vegetarian", "vegan", "pescatarian",
         "paleo", "primal", "lacto ovo vegetarian", "dairy free", "paleolithic",
-        "fodmap friendly"]
+        "fodmap friendly", "whole 30", "N/A"]
