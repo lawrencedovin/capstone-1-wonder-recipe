@@ -2,7 +2,7 @@
     <div class="row food-cards">
         {% for recipe in recipes %}
         <div class="col-md-3">
-            <img src="{{recipe.image}}" alt="" class="food-cards__img img-fluid">
+            <img src="{{ recipe.image }}" alt="" class="food-cards__img img-fluid">
             <p class="food-cards__food-name">{{ recipe.title }}</p>
         </div>
         {% endfor %}

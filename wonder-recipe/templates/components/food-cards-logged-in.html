@@ -1,8 +1,9 @@
 <div class="container-fluid">
     <div class="row food-cards">
+        {% for recipe in recipes %}
         <div class="col-md-3">
-            <img src="..\static\images\food\sushi.jpg" alt="" class="food-cards__img img-fluid">
-            <p class="food-cards__food-name">Sushi</p>
+            <img src="{{ recipe.image }}" alt="" class="food-cards__img img-fluid">
+            <p class="food-cards__food-name">{{ recipe.title }}</p>
             <div class="btn-group">
                 <a class="food-cards__button food-cards__button--inactive" href="#">
                     <i class="fas fa-thumbs-up food-cards__button--thumbs-up-icon"></i> 78
@@ -12,45 +13,7 @@
                 </a>
             </div>
         </div>
-        
-        <div class="col-md-3">
-            <img src="..\static\images\food\spaghetti.jpg" alt="" class="food-cards__img img-fluid">
-            <p class="food-cards__food-name">Spaghetti</p>
-            <div class="btn-group">
-                <a class="food-cards__button food-cards__button--active" href="#">
-                    <i class="fas fa-thumbs-up food-cards__button--thumbs-up-icon"></i> 11
-                </a>
-                <a class="food-cards__button food-cards__button--inactive" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
-        </div>
-        
-        <div class="col-md-3">
-            <img src="..\static\images\food\raspberry-cake.jpg" alt="" class="food-cards__img img-fluid">
-            <p class="food-cards__food-name">Raspberry Cake</p>
-            <div class="btn-group">
-                <a class="food-cards__button food-cards__button--active" href="#">
-                    <i class="fas fa-thumbs-up food-cards__button--thumbs-up-icon"></i> 37
-                </a>
-                <a class="food-cards__button food-cards__button--active" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
-        </div>
-        
-        <div class="col-md-3">
-            <img src="..\static\images\food\pancit.jpg" alt="" class="food-cards__img img-fluid">
-            <p class="food-cards__food-name">Pancit</p>
-            <div class="btn-group">
-                <a class="food-cards__button food-cards__button--active" href="#">
-                    <i class="fas fa-thumbs-up food-cards__button--thumbs-up-icon"></i> 67
-                </a>
-                <a class="food-cards__button food-cards__button--inactive" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
   </div>
   

@@ -25,7 +25,8 @@ def home():
 
 @app.route('/home/logged_in')
 def home_logged_in():
-    return render_template('home-logged-in.html')
+    recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
+    return render_template('home-logged-in.html', recipes=recipes)
 
 @app.route('/liked_recipes')
 def liked_recipes():
@@ -37,7 +38,7 @@ def grocery_list():
 
 @app.route('/recipe')
 def recipe():
-    return render_template('recipe-page.html')
+    return render_template('recipe.html')
 
 # Forms
 @app.route('/register')
