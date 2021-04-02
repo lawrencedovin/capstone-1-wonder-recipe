@@ -5,6 +5,7 @@ from wonderrecipes import WonderRecipe
 from secrets import API_KEY
 from cuisinesdiets import cuisines
 from models import *
+from  sqlalchemy.sql.expression import func, select
 
 app = Flask(__name__)
 
@@ -19,7 +20,8 @@ connect_db(app)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    recipes = Recipe.query.filter().order_by(func.random()).limit(4).all()
+    return render_template('home.html', recipes=recipes)
 
 @app.route('/home/logged_in')
 def home_logged_in():
