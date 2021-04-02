@@ -64,6 +64,8 @@ class Recipe(db.Model):
                      nullable=False)
     ingredients = db.Column(JSONB,
                      nullable=False)
+    macros = db.Column(JSONB,
+                     nullable=False)
     directions = db.Column(JSONB,
                      nullable=False)
     ready_in_minutes = db.Column(db.Numeric(scale=2, asdecimal=False))
@@ -71,7 +73,7 @@ class Recipe(db.Model):
 
     def __repr__(self):
         recipe = self
-        return f'<Recipe - id: {recipe.id} title: {recipe.title} image: {recipe.image} ingredients: {recipe.ingredients} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings}>'
+        return f'<Recipe - id: {recipe.id} title: {recipe.title} image: {recipe.image} ingredients: {recipe.ingredients} macros: {recipe.macros} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings}>'
 
 class RecipeDiet(db.Model):
     __tablename__ = 'recipe_diet'
