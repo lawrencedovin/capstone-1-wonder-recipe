@@ -36,9 +36,10 @@ def liked_recipes():
 def grocery_list():
     return render_template('grocery-list.html')
 
-@app.route('/recipe')
-def recipe():
-    return render_template('recipe.html')
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
+    return render_template('recipe.html', recipe=recipe)
 
 # Forms
 @app.route('/register')
