@@ -54,7 +54,7 @@ db.session.commit()
 ####################################
 recipe_list = []
 for cuisine in cuisines:
-   recipes = WonderRecipe(apiKey=API_KEY, cuisine='african', number=1)
+   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=40)
    serialized_recipes = recipes.serialize()
    for recipe in serialized_recipes:
       id = recipe["id"]
@@ -77,13 +77,14 @@ for cuisine in cuisines:
 ####################################
 
 for cuisine in cuisines:
-   recipes = WonderRecipe(apiKey=API_KEY, cuisine='african', number=1)
+   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=40)
    serialized_recipes = recipes.serialize()
    for recipe in serialized_recipes:
       id = recipe["id"]
       title = recipe["title"]
       image = recipe["image"]
       ingredients = recipe["ingredients"]
+      macros = recipe["macros"]
       directions = recipe["directions"]
       ready_in_minutes = recipe["readyInMinutes"]
       servings = recipe["servings"]

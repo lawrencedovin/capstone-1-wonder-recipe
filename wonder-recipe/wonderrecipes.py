@@ -44,8 +44,8 @@ class WonderRecipe:
 
                         macros_dictionary_copy = macros_dictionary.copy()
                         food_dictionary["macros"].append(macros_dictionary_copy)
-            except Exception as e:
-                raise Exception('Macros not found')
+            except:
+                print('Macros not found')
 
             # Information API Call
             information_payload = {'apiKey': self.apiKey, 'includeNutrition': False}
@@ -92,8 +92,8 @@ class WonderRecipe:
 
                     directions_dictionary_copy = directions_dictionary.copy()
                     food_dictionary["directions"].append(directions_dictionary_copy)
-            except Exception as e:
-                raise Exception('Macros not found')
+            except:
+                print('Directions not found')
 
             food_dictionary_copy = food_dictionary.copy()
             food_list.append(food_dictionary_copy)
