@@ -20,7 +20,7 @@ connect_db(app)
 
 @app.route('/')
 def home():
-    recipes = Recipe.query.filter().order_by(func.random()).limit(4).all()
+    recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
     return render_template('home.html', recipes=recipes)
 
 @app.route('/home/logged_in')

@@ -1,27 +1,11 @@
-
-{% for recipe in recipes %}
 <div class="container-fluid">
     <div class="row food-cards">
+        {% for recipe in recipes %}
         <div class="col-md-3">
             <img src="{{recipe.image}}" alt="" class="food-cards__img img-fluid">
             <p class="food-cards__food-name">{{ recipe.title }}</p>
         </div>
-        
-        <!-- <div class="col-md-3">
-            <img src="..\static\images\food\spaghetti.jpg" alt="" class="food-cards__img img-fluid">
-            <p class="food-cards__food-name">Spaghetti</p>
-        </div>
-        
-        <div class="col-md-3">
-            <img src="..\static\images\food\raspberry-cake.jpg" alt="" class="food-cards__img img-fluid">
-            <p class="food-cards__food-name">Raspberry Cake</p>
-        </div>
-        
-        <div class="col-md-3">
-            <img src="..\static\images\food\pancit.jpg" alt="" class="food-cards__img img-fluid">
-            <p class="food-cards__food-name">Pancit</p>
-        </div> -->
+        {% endfor %}
     </div>
   </div>
-{% endfor %}
   
