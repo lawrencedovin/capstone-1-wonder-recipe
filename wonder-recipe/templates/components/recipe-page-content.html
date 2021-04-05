@@ -24,8 +24,8 @@
                     <ul class="fa-ul recipe-page__info-container">
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-leaf"></i>Vegan</li>
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-globe-americas"></i>Filipino</li>
-                        <li class="recipe-page__info-text"><i class="fa-li fas fa-clock"></i>{{recipe["ready_in_minutes"]|round|int}} min</li>
-                        <li class="recipe-page__info-text"><i class="fa-li fas fa-utensil-spoon"></i>4 servings</li>
+                        <li class="recipe-page__info-text"><i class="fa-li fas fa-clock"></i>{{ recipe["ready_in_minutes"]|round|int }} min</li>
+                        <li class="recipe-page__info-text"><i class="fa-li fas fa-utensil-spoon"></i>{{ recipe["servings"]|round }} servings</li>
                     </ul>
                 </div>
             </div>
