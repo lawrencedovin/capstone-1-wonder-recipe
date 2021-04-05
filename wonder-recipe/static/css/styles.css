@@ -311,6 +311,9 @@ a:hover {
   font-weight: 700;
   margin-bottom: .8rem; }
 
+.recipe-page__macros-amount {
+  font-weight: 400; }
+
 .forms {
   background: url("../images/form-background.jpg") no-repeat center center fixed;
   background-size: cover;
