@@ -71,6 +71,14 @@ class Recipe(db.Model):
     ready_in_minutes = db.Column(db.Numeric(scale=2, asdecimal=False))
     servings = db.Column(db.Numeric(scale=2, asdecimal=False))
 
+    diets = db.relationship('Diet',
+                            secondary='recipe_diet',
+                            backref='recipe')
+
+    cuisines = db.relationship('Cuisine',
+                            secondary='recipe_cuisine',
+                            backref='recipe')
+
     def __repr__(self):
         recipe = self
         return f'<Recipe - id: {recipe.id} title: {recipe.title} image: {recipe.image} ingredients: {recipe.ingredients} macros: {recipe.macros} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings}>'
