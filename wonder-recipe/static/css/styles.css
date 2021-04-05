@@ -292,6 +292,8 @@ a:hover {
   .recipe-page__info-text {
     padding-left: 1.6rem;
     padding-bottom: .8rem; }
+  .recipe-page__info-text-list:not(:last-child):after {
+    content: ", "; }
 
 .recipe-page__separator {
   height: 1px;

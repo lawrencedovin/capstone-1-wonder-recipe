@@ -385,6 +385,10 @@
             padding-left: 1.6rem;
             padding-bottom: .8rem;
         }
+
+        &-text-list:not(:last-child):after{
+            content: ", ";
+        }
     }
 
     &__separator {

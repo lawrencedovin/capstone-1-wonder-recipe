@@ -25,7 +25,7 @@
                         
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-leaf"></i>
                             {% for diet in recipe.diets %}
-                            <span>{{ diet.title }}</span>
+                            <span class="recipe-page__info-text-list">{{ diet.title }}</span>
                             {% endfor %}
                         </li>
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-globe-americas"></i>Filipino {{recipe.cuisines}}</li>
