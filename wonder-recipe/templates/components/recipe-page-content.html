@@ -17,7 +17,7 @@
         </ul>
         <div class="row">
             <div class="col-md-7">
-                <img src="..\static\images\food\pancit.jpg" alt="" class="recipe-page__img img-fluid">
+                <img src="{{ recipe.image }}" alt="" class="recipe-page__img img-fluid">
             </div>
             <div class="col-md-5">
                 <div class="recipe-page__info ml-auto">
@@ -36,18 +36,9 @@
                 Ingredients
             </h2>
             <ul class="recipe-page__ingredients-container">
-                <li class="recipe-page__ingredients-text">1 (6.75 ounce) - package rice noodles</li>
-                <li class="recipe-page__ingredients-text">¼ cup and 1 tablespoon - vegetable oil, divided</li>
-                <li class="recipe-page__ingredients-text">1 - small onion minced</li>
-                <li class="recipe-page__ingredients-text">2 - cloves garlic, minced</li>
-                <li class="recipe-page__ingredients-text">½ - teaspoon ground ginger</li>
-                <li class="recipe-page__ingredients-text">3 - tablespoons cooked small shrimp, diced</li>
-                <li class="recipe-page__ingredients-text">3 - tablespoons chopped cooked pork</li>
-                <li class="recipe-page__ingredients-text">½ - cup shredded bok choy</li>
-                <li class="recipe-page__ingredients-text">3 - tablespoons oyster sauce</li>
-                <li class="recipe-page__ingredients-text">¼ - cup chicken broth</li>
-                <li class="recipe-page__ingredients-text">¼ - teaspoon crushed red pepper flakes</li>
-                <li class="recipe-page__ingredients-text">1 - green onion, minced</li>
+                {% for ingredient in recipe["ingredients"] %}
+                <li class="recipe-page__ingredients-text">{{ ingredient["amount"] }} {{ ingredient["unit"] }} - {{ ingredient["name"] }}</li>
+                {% endfor %}
             </ul>
         </div>
         <div class="recipe-page__directions">

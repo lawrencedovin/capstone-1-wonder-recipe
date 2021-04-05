@@ -39,6 +39,7 @@ def grocery_list():
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
     recipe = Recipe.query.get(recipe_id)
+    # recipe_diet = RecipeDiet.query.get(recipe_id).all()
     return render_template('recipe.html', recipe=recipe)
 
 # Forms
