@@ -30,6 +30,15 @@
                 </div>
             </div>
         </div>
+        <div class="recipe-page__macros">
+            <div class="recipe-page__separator"></div>
+            <h2 class="recipe-page__section-title">
+                Macros
+            </h2>
+            {% for macro in recipe["macros"] %}
+            <p class="recipe-page__macros-name">{{ macro["name"] }}: <span class="recipe-page__macros-amount">{{ macro["amount"] }} {{ macro["unit"]}}</span></p>
+            {% endfor %}
+        </div>
         <div class="recipe-page__ingredients">
             <div class="recipe-page__separator"></div>
             <h2 class="recipe-page__section-title">

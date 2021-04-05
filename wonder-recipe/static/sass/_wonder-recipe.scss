@@ -400,6 +400,7 @@
         margin: 4.8rem auto;
     }
 
+    &__macros,
     &__ingredients, 
     &__directions {
         &-text:not(:last-child) {
@@ -407,12 +408,12 @@
         }
     }
 
-    &__directions {
-        &-steps {
+    &__directions-steps, 
+    &__macros-name {
             font-weight: 700;
             margin-bottom: .8rem
-        }
     }
+    
 }
 
 .forms {

@@ -78,8 +78,8 @@ class Recipe(db.Model):
 class RecipeDiet(db.Model):
     __tablename__ = 'recipe_diet'
 
-    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True, ondelete='cascade')
-    diet_id = db.Column(db.Integer, db.ForeignKey('diets.id'), primary_key=True, ondelete='cascade')
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id', ondelete='cascade'), primary_key=True)
+    diet_id = db.Column(db.Integer, db.ForeignKey('diets.id', ondelete='cascade'), primary_key=True)
 
     def __repr__(self):
         recipe_diet = self
@@ -88,8 +88,8 @@ class RecipeDiet(db.Model):
 class RecipeCuisine(db.Model):
     __tablename__ = 'recipe_cuisine'
 
-    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True, ondelete='cascade')
-    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisines.id'), primary_key=True, ondelete='cascade')
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id', ondelete='cascade'), primary_key=True)
+    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisines.id', ondelete='cascade'), primary_key=True)
 
     def __repr__(self):
         recipe_cuisine = self
@@ -98,8 +98,8 @@ class RecipeCuisine(db.Model):
 class GroceryList(db.Model):
     __tablename__ = 'grocery_list'
 
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True, ondelete='cascade')
-    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True, ondelete='cascade')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='cascade'), primary_key=True)
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id', ondelete='cascade'), primary_key=True)
 
     def __repr__(self):
         grocery_list = self
@@ -108,8 +108,8 @@ class GroceryList(db.Model):
 class Likes(db.Model):
     __tablename__ = 'likes'
 
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True, ondelete='cascade')
-    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True, ondelete='cascade')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='cascade'), primary_key=True)
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id', ondelete='cascade'), primary_key=True)
 
     def __repr__(self):
         likes = self
