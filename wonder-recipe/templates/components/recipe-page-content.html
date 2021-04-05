@@ -25,10 +25,14 @@
                         
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-leaf"></i>
                             {% for diet in recipe.diets %}
-                            <span class="recipe-page__info-text-list">{{ diet.title }}</span>
+                            <span class="recipe-page__info-text-list">{{ diet.title[0]|upper }}{{ diet.title[1:] }}</span>
                             {% endfor %}
                         </li>
-                        <li class="recipe-page__info-text"><i class="fa-li fas fa-globe-americas"></i>Filipino {{recipe.cuisines}}</li>
+                        <li class="recipe-page__info-text"><i class="fa-li fas fa-globe-americas"></i>
+                            {% for cuisine in recipe.cuisines%}
+                            <span class="recipe-page__info-text-list">{{ cuisine.title[0]|upper }}{{ cuisine.title[1:] }}</span>
+                            {% endfor %}
+                        </li>
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-clock"></i>{{ recipe["ready_in_minutes"]|round|int }} min</li>
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-utensil-spoon"></i>{{ recipe["servings"]|round }} servings</li>
                     </ul>
