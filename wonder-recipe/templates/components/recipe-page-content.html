@@ -47,24 +47,12 @@
                 Directions
             </h2>
             <div class="recipe-page__directions-container">
-                <h3 class="recipe-page__directions-steps">Step 1</h3>
+                {% for direction in recipe["directions"] %}
+                <h3 class="recipe-page__directions-steps">Step {{ direction["number"] }}</h3>
                 <p class="recipe-page__directions-text">
-                    Soak the rice noodles in warm water for 20 minutes; drain.
+                    {{ direction["step"] }}
                 </p>
-                
-                <h3 class="recipe-page__directions-steps">Step 2</h3>
-                <p class="recipe-page__directions-text">
-                    Heat 3 tablespoons oil in a wok or large heavy skillet over medium-high heat. 
-                    Saute noodles for 1 minute. Transfer to serving dish, and keep warm. 
-                    Add remaining 2 tablespoons oil to skillet, and saute onion, garlic, ginger, 
-                    shrimp and pork for 1 minute.
-                </p>
-                <h3 class="recipe-page__directions-steps">Step 3</h3>
-                <p class="recipe-page__directions-text">
-                    Stir in bok choy, oyster sauce and chicken broth. Season with pepper flakes. 
-                    Cover, and cook for 1 minute, or until bok choy is wilted. Spoon over noodles, 
-                    and garnish with minced green onion.
-                </p>
+                {% endfor %}
             </div>
         </div>
       </div>
