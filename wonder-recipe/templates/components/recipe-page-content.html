@@ -22,7 +22,9 @@
             <div class="col-md-5">
                 <div class="recipe-page__info ml-auto">
                     <ul class="fa-ul recipe-page__info-container">
-                        <li class="recipe-page__info-text"><i class="fa-li fas fa-leaf"></i>Vegan {{recipe.diets}}</li>
+                        {% for diet in recipe.diets %}
+                        <li class="recipe-page__info-text"><i class="fa-li fas fa-leaf"></i>{{ diet.title }}</li>
+                        {% endfor %}
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-globe-americas"></i>Filipino {{recipe.cuisines}}</li>
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-clock"></i>{{ recipe["ready_in_minutes"]|round|int }} min</li>
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-utensil-spoon"></i>{{ recipe["servings"]|round }} servings</li>
