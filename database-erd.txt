@@ -9,16 +9,17 @@ phone_number UNIQUE STRING
 recipe
 -
 id PK SERIAL
-recipe_name UNIQUE STRING
+title UNIQUE STRING
 ingredients JSONB
 directions JSONB
+macros JSONB
 ready_in_minutes NUMERIC
 servings NUMERIC
 
 diet
 -
 id PK SERIAL
-diet_name UNIQUE STRING
+title UNIQUE STRING
 
 recipe_diet
 -
@@ -28,7 +29,7 @@ diet_id INTEGER FK >- diet.id
 cuisine
 -
 id PK SERIAL
-cuisine_name UNIQUE STRING
+title UNIQUE STRING
 
 recipe_cuisine
 -
