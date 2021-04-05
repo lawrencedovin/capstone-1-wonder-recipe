@@ -65,12 +65,16 @@
                 Directions
             </h2>
             <div class="recipe-page__directions-container">
+                {% if recipe["directions"] %}
                 {% for direction in recipe["directions"] %}
                 <h3 class="recipe-page__directions-steps">Step {{ direction["number"] }}</h3>
                 <p class="recipe-page__directions-text">
                     {{ direction["step"] }}
                 </p>
                 {% endfor %}
+                {% else %}
+                <h3 class="recipe-page__directions-steps">N/A</h3>
+                {% endif %}
             </div>
         </div>
       </div>
