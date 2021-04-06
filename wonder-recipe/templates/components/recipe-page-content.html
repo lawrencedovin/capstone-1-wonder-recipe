@@ -55,7 +55,7 @@
             </h2>
             <ul class="recipe-page__ingredients-container">
                 {% for ingredient in recipe["ingredients"] %}
-                <li class="recipe-page__ingredients-text">{{ ingredient["amount"] }} {{ ingredient["unit"] }} - {{ ingredient["name"] }}</li>
+                <li class="recipe-page__ingredients-text">{{ "%.2f" | format(ingredient["amount"]|float) }} {{ ingredient["unit"] }} - {{ ingredient["name"] }}</li>
                 {% endfor %}
             </ul>
         </div>
