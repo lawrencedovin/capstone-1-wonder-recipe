@@ -78,6 +78,10 @@ class Recipe(db.Model):
     cuisines = db.relationship('Cuisine',
                             secondary='recipe_cuisine',
                             backref='recipe')
+    
+    users = db.relationship('User',
+                            secondary='likes',
+                            backref='recipe')
 
     def __repr__(self):
         recipe = self
