@@ -2,7 +2,9 @@
     <div class="row food-cards">
         {% for recipe in recipes %}
         <div class="col-md-3">
-            <img src="{{ recipe.image }}" alt="" class="food-cards__img img-fluid">
+            <a href="/recipe/{{ recipe.id }}">
+                <img src="{{ recipe.image }}" alt="" class="food-cards__img img-fluid">
+            </a>
             <p class="food-cards__food-name">{{ recipe.title }}</p>
             <div class="btn-group">
                 <a class="food-cards__button food-cards__button--inactive" href="#">
