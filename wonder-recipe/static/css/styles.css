@@ -142,10 +142,10 @@ a:hover {
     .searchbar__buttons--search:hover, .searchbar__buttons--clear:hover {
       color: #31B233;
       opacity: 1; }
-  .searchbar__buttons--search {
-    font-size: 1.6rem; }
-  .searchbar__buttons--clear {
-    font-size: 2rem; }
+  .searchbar__buttons--search-icon {
+    height: 2.4rem; }
+  .searchbar__buttons--clear-icon {
+    height: 2.6rem; }
 
 .food-filter {
   margin: 4.8rem auto; }

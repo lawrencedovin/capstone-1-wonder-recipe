@@ -135,12 +135,12 @@
             }
         }
 
-        &--search {
-            font-size: $font-size-small;
+        &--search-icon {
+            height: 2.4rem;
         }
 
-        &--clear {
-            font-size: $font-size-smedium;
+        &--clear-icon {
+            height: 2.6rem;
         }
     }
 }
