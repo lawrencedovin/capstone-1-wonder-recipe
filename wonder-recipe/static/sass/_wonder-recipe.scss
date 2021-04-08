@@ -125,22 +125,32 @@
 
         &--search, 
         &--clear {
-            color: $color-green;
             opacity: .6;
             padding: 0;
 
             &:hover {
-                color: $color-green;
                 opacity: 1;
             }
         }
 
+
+
         &--search-icon {
             height: 2.4rem;
+            filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
+
+            &::before {
+                filter: brightness(0) saturate(100%);
+            }
         }
 
         &--clear-icon {
             height: 2.6rem;
+            filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
+
+            &::before {
+                filter: brightness(0) saturate(100%);
+            }
         }
     }
 }
