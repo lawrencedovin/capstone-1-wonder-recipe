@@ -32,12 +32,28 @@
 
     &:hover {
         color: $color-green;
+
+        .social-icon,
+        .likes-icon,
+        .grocery-list-icon {
+            filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
+        }
     }
 }
 
+.social-icon,
+.likes-icon,
+.grocery-list-icon {
+    height: 2rem;
+    filter: invert(0%) sepia(5%) saturate(19%) hue-rotate(250deg) brightness(98%) contrast(96%);
+}
+
 .social-icon {
+    margin-top: -.3rem;
     padding-left: 8px;
 }
+
+
 
 .hero-container {
     position: relative;
