@@ -268,12 +268,12 @@
     &__button {
         border: 2px solid $color-green;
         margin: 11.4rem 0 2.4rem;
-        padding: 1rem 1.2rem .8rem;
+        padding: .6rem .8rem .8rem;
         border-radius: 2px;
 
         &-icon {
-            color: $color-green;
-            font-size: $font-size-smedium;
+            filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
+            height: 3.2rem;
         }
     }
 
