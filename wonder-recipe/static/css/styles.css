@@ -143,13 +143,9 @@ a:hover {
   .searchbar__buttons--search-icon {
     height: 2.4rem;
     filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%); }
-    .searchbar__buttons--search-icon::before {
-      filter: brightness(0) saturate(100%); }
   .searchbar__buttons--clear-icon {
     height: 2.6rem;
     filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%); }
-    .searchbar__buttons--clear-icon::before {
-      filter: brightness(0) saturate(100%); }
 
 .food-filter {
   margin: 4.8rem auto; }
