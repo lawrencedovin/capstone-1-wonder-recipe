@@ -246,11 +246,12 @@
             }
 
             &-icon {
+                height: 1.6rem;
                 color: $color-green;
                 margin-left: 1.6rem;
-                font-size: $font-size-smedium;
                 position: absolute;
-                bottom: .8rem;
+                bottom: 1rem;
+                filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
             }
         }
     }
@@ -274,6 +275,13 @@
         &-icon {
             filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
             height: 2.4rem;
+        }
+
+        &:hover {
+            background: $color-green;
+            & > #footerButtonIcon {
+                filter: invert(100%) sepia(1%) saturate(7500%) hue-rotate(305deg) brightness(106%) contrast(103%);
+            }
         }
     }
 
