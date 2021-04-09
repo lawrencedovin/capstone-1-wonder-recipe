@@ -174,18 +174,26 @@
             color: $color-black;
             font-weight: 600;
             border-bottom: 2px solid $color-green;
+
+            #likesIcon {
+                filter: invert(0%) sepia(88%) saturate(4802%) hue-rotate(115deg) brightness(123%) contrast(96%);
+            }
         }
 
         &--inactive {
             color: $color-gray;
             border-bottom: 2px solid $color-gray;
+
+            #likesIcon {
+                    filter: invert(55%) sepia(6%) saturate(379%) hue-rotate(119deg) brightness(94%) contrast(92%);
+                }
         }
 
         &--likes {
 
             &-icon {
-                font-size: 8px;
-                margin-left: 8px;
+                height: 12px;
+                margin-top: -2px;
             }
         }
     }

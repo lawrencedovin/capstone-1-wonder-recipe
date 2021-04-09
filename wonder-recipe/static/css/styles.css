@@ -168,12 +168,16 @@ a:hover {
       color: #050505;
       font-weight: 600;
       border-bottom: 2px solid #31B233; }
+      .food-filter__button--active #likesIcon, .food-filter__button--inactive:hover #likesIcon {
+        filter: invert(0%) sepia(88%) saturate(4802%) hue-rotate(115deg) brightness(123%) contrast(96%); }
     .food-filter__button--inactive {
       color: #7D8886;
       border-bottom: 2px solid #7D8886; }
+      .food-filter__button--inactive #likesIcon {
+        filter: invert(55%) sepia(6%) saturate(379%) hue-rotate(119deg) brightness(94%) contrast(92%); }
     .food-filter__button--likes-icon {
-      font-size: 8px;
-      margin-left: 8px; }
+      height: 12px;
+      margin-top: -2px; }
 
 .food-cards {
   padding-left: calc(8.8rem - 15px);
