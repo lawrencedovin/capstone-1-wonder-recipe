@@ -6,6 +6,7 @@ from secrets import API_KEY
 from cuisinesdiets import cuisines
 from models import *
 from  sqlalchemy.sql.expression import func, select
+from random import sample
 
 app = Flask(__name__)
 
@@ -40,10 +41,30 @@ def liked_recipes():
 def grocery_list():
     return render_template('grocery-list.html')
 
-@app.route('/recipe/<recipe_id>')
-def recipe(recipe_id):
+@app.route('/recipe/<int:recipe_id>')
+def recipe_page(recipe_id):
     recipe = Recipe.query.get(recipe_id)
     return render_template('recipe.html', recipe=recipe)
+
+# Filtering
+
+@app.route('/diets/<search_diet>')
+def diet_search(search_diet):
+    recipes = []
+    all_recipes = Recipe.query.all()
+    
+    # Searches for which recipe contains the diet
+    # in their recipe.diets list then adds it to list
+
+    for recipe in all_recipes:
+        for diet in recipe.diets:
+            if(diet.title == search_diet):
+                recipes.append(recipe)
+    recipes = sample(recipes, 24)
+
+    diets = Diet.query.limit(12).all()
+    cuisines = Cuisine.query.all()
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
 # Forms
 @app.route('/register')

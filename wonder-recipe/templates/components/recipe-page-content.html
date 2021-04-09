@@ -35,7 +35,7 @@
                             {% endif %}
                         </li>
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-globe-americas"></i>
-                            {% for cuisine in recipe.cuisines%}
+                            {% for cuisine in recipe.cuisines %}
                             <span class="recipe-page__info-text-list">{{ cuisine.title[0]|upper }}{{ cuisine.title[1:] }}</span>
                             {% endfor %}
                         </li>
