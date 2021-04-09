@@ -26,9 +26,13 @@
                     <ul class="fa-ul recipe-page__info-container">
                         
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-leaf"></i>
+                            {% if recipe.diets %}
                             {% for diet in recipe.diets %}
                             <span class="recipe-page__info-text-list">{{ diet.title[0]|upper }}{{ diet.title[1:] }}</span>
                             {% endfor %}
+                            {% else %}
+                            <span class="recipe-page__info-text-list">N/A</span>
+                            {% endif %}
                         </li>
                         <li class="recipe-page__info-text"><i class="fa-li fas fa-globe-americas"></i>
                             {% for cuisine in recipe.cuisines%}
