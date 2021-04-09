@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row food-cards">
         {% for recipe in recipes %}
-        <div class="col-md-3">
+        <div class="col-md-3 food-cards__recipe-container">
             <a href="/recipe/{{ recipe.id }}">
                 <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}" class="food-cards__img img-fluid">
             </a>
