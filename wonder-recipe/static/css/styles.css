@@ -179,6 +179,9 @@ a:hover {
       height: 12px;
       margin-top: -2px; }
 
+.dropdown-item {
+  font-size: 1.6rem; }
+
 .food-cards {
   padding-left: calc(8.8rem - 15px);
   padding-right: calc(8.8rem - 15px);

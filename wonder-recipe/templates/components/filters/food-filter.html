@@ -32,11 +32,9 @@
             Cuisine
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button">Action</button>
-            <button class="dropdown-item" type="button">Another action</button>
-            <button class="dropdown-item" type="button">
-              Something else here
-            </button>
+            {% for cuisine in cuisines %}
+            <button class="dropdown-item" type="button">{{ cuisine.title }}</button>
+            {% endfor %}
           </div>
         </div>
         <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="#">
