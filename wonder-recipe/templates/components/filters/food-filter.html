@@ -16,7 +16,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             {% for diet in diets %}
-            <button class="dropdown-item" type="button">{{ diet.title }}</button>
+            <a class="dropdown-item" href="/diets/{{ diet.title }}">{{ diet.title }}</a>
             {% endfor %}
           </div>
         </div>
@@ -33,7 +33,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             {% for cuisine in cuisines %}
-            <button class="dropdown-item" type="button">{{ cuisine.title }}</button>
+            <a class="dropdown-item" href="/cuisines/{{ cuisine.title }}">{{ cuisine.title }}</a>
             {% endfor %}
           </div>
         </div>
