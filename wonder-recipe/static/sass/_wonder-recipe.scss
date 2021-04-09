@@ -210,18 +210,33 @@
     &__button {
         margin-right: 1.6rem;
 
-        &--thumbs-up-icon {
-            padding-right: .8rem;
-        }
-
-        &--active,
-        &--inactive:hover {
+        &:hover &-text--inactive, 
+        &-text--active {
             color: $color-green;
         }
 
-        &--inactive,
-        &--active:hover {
+        &:hover &-text--active,
+        &-text--inactive {
             color: $color-light-gray;
+        }
+
+        &:hover &-icon--inactive, 
+        &-icon--active {
+            filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
+        }
+
+        &:hover &-icon--active, 
+        &-icon--inactive {
+            filter: invert(73%) sepia(6%) saturate(271%) hue-rotate(145deg) brightness(91%) contrast(85%);
+        }
+
+        &--likes-icon,
+        &--grocery-list-icon {
+            height: 2rem;
+        }
+
+        &--likes-icon {
+            padding-right: .8rem;
         }
     }
 }

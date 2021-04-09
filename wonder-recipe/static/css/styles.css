@@ -187,12 +187,18 @@ a:hover {
     margin-top: 1.6rem; }
   .food-cards__button {
     margin-right: 1.6rem; }
-    .food-cards__button--thumbs-up-icon {
-      padding-right: .8rem; }
-    .food-cards__button--active, .food-cards__button--inactive:hover {
+    .food-cards__button:hover .food-cards__button-text--inactive, .food-cards__button-text--active {
       color: #31B233; }
-    .food-cards__button--inactive, .food-cards__button--active:hover {
+    .food-cards__button:hover .food-cards__button-text--active, .food-cards__button-text--inactive {
       color: #9EA6A8; }
+    .food-cards__button:hover .food-cards__button-icon--inactive, .food-cards__button-icon--active {
+      filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%); }
+    .food-cards__button:hover .food-cards__button-icon--active, .food-cards__button-icon--inactive {
+      filter: invert(73%) sepia(6%) saturate(271%) hue-rotate(145deg) brightness(91%) contrast(85%); }
+    .food-cards__button--likes-icon, .food-cards__button--grocery-list-icon {
+      height: 2rem; }
+    .food-cards__button--likes-icon {
+      padding-right: .8rem; }
 
 .pagination {
   left: -1.6rem; }
