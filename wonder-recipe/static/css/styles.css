@@ -295,10 +295,12 @@ a:hover {
   .recipe-page__stats-item-button {
     padding: 0 1.6rem;
     border-left: 2px solid #050505; }
+    .recipe-page__stats-item-button--inactive, .recipe-page__stats-item-button--active, .recipe-page__stats-item-button--inactive:hover, .recipe-page__stats-item-button--active:hover {
+      height: 2rem; }
     .recipe-page__stats-item-button--active, .recipe-page__stats-item-button--inactive:hover {
-      color: #31B233; }
+      filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%); }
     .recipe-page__stats-item-button--inactive, .recipe-page__stats-item-button--active:hover {
-      color: #9EA6A8; }
+      filter: invert(73%) sepia(6%) saturate(271%) hue-rotate(145deg) brightness(91%) contrast(85%); }
 
 .recipe-page__img {
   padding: .4rem;

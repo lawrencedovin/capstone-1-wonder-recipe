@@ -394,13 +394,21 @@
             padding: 0 1.6rem;
             border-left: 2px solid $color-black;
 
-            &--active,
-            &--inactive:hover {
-                color: $color-green;
+            &--inactive,
+            &--active, 
+            &--inactive:hover,
+            &--active:hover {
+                height: 2rem;
             }
+
+            &--active, 
+            &--inactive:hover {
+                filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
+            }
+    
             &--inactive,
             &--active:hover {
-                color: $color-light-gray;
+                filter: invert(73%) sepia(6%) saturate(271%) hue-rotate(145deg) brightness(91%) contrast(85%);
             }
         }
     }

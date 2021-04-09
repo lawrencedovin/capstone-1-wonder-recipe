@@ -7,11 +7,13 @@
                 <p class="recipe-page__stats-item-likes">{{ recipe.users|length }} likes</p>
             </li>
             <li class="recipe-page__stats-item">
-                <a class="recipe-page__stats-item-button recipe-page__stats-item-button--active" href="#"><i class="fas fa-thumbs-up"></i></a>
+                <a class="recipe-page__stats-item-button" href="#">
+                    <img src="../static/images/icons/likes.svg" alt="" class="recipe-page__stats-item-button--active"> 
+                </a>
             </li>
             <li class="recipe-page__stats-item">
-                <a class="recipe-page__stats-item-button recipe-page__stats-item-button--inactive" href="#">
-                    <i class="fas fa-shopping-cart"></i>
+                <a class="recipe-page__stats-item-button" href="#">
+                    <img src="../static/images/icons/grocery-list.svg" alt="" class="recipe-page__stats-item-button--inactive">
                 </a>
             </li>
         </ul>
