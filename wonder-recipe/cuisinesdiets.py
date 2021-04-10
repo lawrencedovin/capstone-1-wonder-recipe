@@ -4,6 +4,6 @@ cuisines = ["african", "american", "british", "cajun", "caribbean",
             "korean", "latin american", "mediterranean", "mexican", "middle eastern",
             "nordic", "southern", "spanish", "thai", "vietnamese"]
 
-diets = ["gluten free", "ketogenic", "vegetarian", "vegan", "pescatarian",
+diets = ["gluten free", "ketogenic", "vegan", "pescatarian",
         "paleo", "primal", "lacto ovo vegetarian", "dairy free", "paleolithic",
         "fodmap friendly", "whole 30", "N/A"]
