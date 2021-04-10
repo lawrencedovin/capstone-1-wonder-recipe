@@ -84,6 +84,24 @@ def cuisine_search(search_cuisine):
     cuisines = Cuisine.query.all()
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
+@app.route('/recipes')
+def list_recipes():
+    """Page with listing of recipes.
+    Can take a 'q' param in querystring to search by that recipe name.
+    """
+
+    search = request.args.get('q')
+
+    if not search:
+        recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
+    else:
+        recipes = Recipe.query.filter(Recipe.title.like(f"%{search}%")).all()
+    
+    diets = Diet.query.limit(12).all()
+    cuisines = Cuisine.query.all()
+
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines) 
+
 # Forms
 @app.route('/register')
 def register():

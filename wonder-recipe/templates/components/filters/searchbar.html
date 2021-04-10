@@ -1,15 +1,15 @@
 <div class="row d-flex justify-content-center">
   <div class="col-md-4">
-    <div class="input-group searchbar align-items-center">
-        <input type="text" class="form-control searchbar__input" placeholder="Search for a recipe...">
+    <form class="input-group searchbar align-items-center" action="/recipes">
+        <input type="text" name="q" class="form-control searchbar__input" placeholder="Search for a recipe...">
         <span class="input-group-btn searchbar__buttons align-middle">
           <button class="btn btn-default searchbar__buttons--search" type="submit">
               <img src="../static/images/icons/search.svg" alt="" class="searchbar__buttons--search-icon pixel filterPixel">
           </button>
-          <button class="btn btn-default searchbar__buttons--clear" type="submit">
+          <!-- <button class="btn btn-default searchbar__buttons--clear" type="submit">
             <img src="../static/images/icons/clear.svg" alt="" class="searchbar__buttons--clear-icon pixel filterPixel">
-        </button>
-        </span>
+          </button> -->
+      </form>
     </div>
   </div>
 </div>
