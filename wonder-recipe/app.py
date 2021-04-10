@@ -84,8 +84,8 @@ def cuisine_search(search_cuisine):
     cuisines = Cuisine.query.all()
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
-@app.route('/recipes')
-def list_recipes():
+@app.route('/search')
+def search_recipes():
     """Page with listing of recipes.
     Can take a 'q' param in querystring to search by that recipe name.
     """
