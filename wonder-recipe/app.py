@@ -95,7 +95,7 @@ def list_recipes():
     if not search:
         recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
     else:
-        recipes = Recipe.query.filter(Recipe.title.like(f"%{search}%")).all()
+        recipes = Recipe.query.filter(Recipe.title.like(f"%{search.capitalize()}%")).limit(24).all()
     
     diets = Diet.query.limit(12).all()
     cuisines = Cuisine.query.all()
