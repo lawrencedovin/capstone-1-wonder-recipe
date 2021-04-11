@@ -47,3 +47,8 @@ async function getCard() {
 }
 
 $("#card-btn").on("click", getCard);
+
+
+$('#clearButton').on("click", () => {
+  $('#q').val('');
+});
