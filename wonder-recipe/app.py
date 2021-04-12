@@ -131,6 +131,34 @@ def search_descending_likes():
 
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
+@app.route('/likes_ascending')
+def search_ascending_likes():
+    """Page that displays 24 recipes by likes
+    in ascending order.    
+    """
+
+    # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
+    recipe_dict = {}
+    for recipe in Recipe.query.all():
+        recipe_dict[recipe.id] = len(recipe.users)
+
+    # Sorts dictionary by ascending order, the key,value pairs with the highest
+    # likes will go first.
+    ascending_order = dict(sorted(recipe_dict.items(), key=operator.itemgetter(1)))
+
+    # Stores the full recipes by getting the id and places it
+    # into a list based on the sorted dictionary
+    ascending_likes_recipe_list = []
+    for key, value in ascending_order.items():
+        ascending_likes_recipe_list.append(Recipe.query.get(key))
+
+    recipes = ascending_likes_recipe_list[:24]
+
+    diets = Diet.query.limit(12).all()
+    cuisines = Cuisine.query.all()
+
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+
 # Forms
 @app.route('/register')
 def register():
