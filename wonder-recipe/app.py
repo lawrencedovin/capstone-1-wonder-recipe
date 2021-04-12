@@ -97,7 +97,7 @@ def diet_search(search_diet):
                 recipes.append(recipe)
     recipes = sample(recipes, 24) if len(recipes) >= 24 else recipes
 
-    diets = Diet.query.limit(12).all()
+    diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
@@ -115,7 +115,7 @@ def cuisine_search(search_cuisine):
                 recipes.append(recipe)
     recipes = sample(recipes, 24) if len(recipes) >= 24 else recipes
 
-    diets = Diet.query.limit(12).all()
+    diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
@@ -132,7 +132,7 @@ def search_recipes():
     else:
         recipes = Recipe.query.filter(Recipe.title.like(f"%{search.capitalize()}%")).limit(24).all()
     
-    diets = Diet.query.limit(12).all()
+    diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
 
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
@@ -160,7 +160,7 @@ def search_descending_likes():
 
     recipes = descending_likes_recipe_list[:24]
 
-    diets = Diet.query.limit(12).all()
+    diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
 
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
@@ -188,7 +188,7 @@ def search_ascending_likes():
 
     recipes = ascending_likes_recipe_list[:24]
 
-    diets = Diet.query.limit(12).all()
+    diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
 
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
