@@ -1,14 +1,17 @@
-from flask import Flask, request, render_template, redirect, flash, jsonify
+from flask import Flask, request, render_template, redirect, flash, jsonify, session, g
 from flask import session, make_response
 from flask_debugtoolbar import DebugToolbarExtension
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.sql.expression import func, select
 from wonderrecipes import WonderRecipe
 from secrets import API_KEY
 from cuisinesdiets import cuisines
 from models import *
 from forms import RegisterForm, LoginForm, EditForm
-from  sqlalchemy.sql.expression import func, select
 from random import sample
 import operator
+
+CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
@@ -20,6 +23,36 @@ app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
 connect_db(app)
+
+# @app.before_request decorator allows us to create a function 
+# that will run before each request. Before each page loads when being
+# directed to a route it sets the global user variable to the current user in session
+# If there's no session/ user is not logged in then g.user is set to None.
+# Performs the function before being redirected
+@app.before_request
+def add_user_to_g():
+    """If we're logged in, add current user to Flask global."""
+
+    if CURR_USER_KEY in session:
+        # session is carried across request/ per client data while g is per requested data
+        # g exists across all of your request, the data is not transferred over like a session between requests 
+        g.user = User.query.get(session[CURR_USER_KEY])
+
+    else:
+        g.user = None
+
+
+def do_login(user):
+    """Log in user."""
+
+    session[CURR_USER_KEY] = user.id
+
+
+def do_logout():
+    """Logout user."""
+
+    if CURR_USER_KEY in session:
+        del session[CURR_USER_KEY]
 
 @app.route('/')
 def home():
@@ -165,18 +198,49 @@ def search_ascending_likes():
 def register():
     """Added User"""
 
-    # form = RegisterForm()
+    form = RegisterForm()
 
-    # if form.validate_on_submit():
-    #     try:
-    #         user = User.
+    if form.validate_on_submit():
+        try:
+            user = User.signup(
+                username=form.username.data,
+                email=form.email.data,
+                password=form.password.data,
+                phone_number=form.phone_number.data,
+            )
+            db.session.commit()
 
+        except IntegrityError:
+            flash("Username already taken", 'danger')
+            return render_template('register.html', form=form)
 
-    return render_template('register.html')
+        # if validated sets session[CURR_USER_KEY] = user.id before redirecting
+        do_login(user)
 
-@app.route('/login')
+        return redirect("/")
+
+    else:
+        return render_template('register.html', form=form)
+
+@app.route('/login', methods=["GET", "POST"])
 def login():
-    return render_template('login.html')
+    """Handle user login."""
+
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        user = User.authenticate(form.username.data,
+                                 form.password.data)
+
+        if user:
+            # if validated sets session[CURR_USER_KEY] = user.id before redirecting
+            do_login(user)
+            flash(f"Hello, {user.username}!", "success")
+            return redirect("/")
+
+        flash("Invalid credentials.", 'danger')
+
+    return render_template('login.html', form=form)
 
 @app.route('/verify_account')
 def verify_account():

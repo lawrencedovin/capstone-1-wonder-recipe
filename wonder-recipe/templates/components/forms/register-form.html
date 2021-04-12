@@ -8,7 +8,7 @@
     <p class="forms__description text-center">
         Please fill out the form to create an account
     </p>
-    <div class="input-group forms__input-container align-items-center">
+    <!-- <div class="input-group forms__input-container align-items-center">
         <input type="text" class="form-control forms__input" name="username" id="username" placeholder="Username" autocomplete="off" required>
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-user"></i>
@@ -31,6 +31,16 @@
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-phone"></i>
         </span>
+    </div> -->
+    <div class="input-group forms__input-container align-items-center">
+        {{ form.hidden_tag() }}
+
+        {% for field in form if field.widget.input_type != 'hidden' %}
+          {% for error in field.errors %}
+            <span class="text-danger">{{ error }}</span>
+          {% endfor %}
+          {{ field(placeholder=field.label.text, class="form-control") }}
+        {% endfor %}
     </div>
     {% include '/components/buttons/register-button.html' %}
 </form>

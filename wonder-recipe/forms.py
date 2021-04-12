@@ -8,7 +8,7 @@ class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = EmailField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[Length(min=6)])
-    phone = TelField('Phone', validators=[Length(min=10)])
+    phone_number = TelField('Phone', validators=[Length(min=10)])
 
 class LoginForm(FlaskForm):
 
@@ -20,4 +20,4 @@ class EditForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = EmailField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[Length(min=6)])
-    phone = TelField('Phone', validators=[Length(min=10)])
+    phone_number = TelField('Phone', validators=[Length(min=10)])
