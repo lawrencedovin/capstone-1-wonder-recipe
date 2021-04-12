@@ -1,6 +1,7 @@
 {% extends '/components/forms/form-template.html'%}
 {% block form %}
 <form method="POST" class="forms__register">
+    {{ form.hidden_tag() }}
     <div class="forms__icon-container text-center">
         <i class="fas fa-user forms__icon"></i>
     </div>
@@ -8,27 +9,19 @@
     <p class="forms__description text-center">
         Enter your user credentials to login
     </p>
-    <!-- <div class="input-group forms__input-container align-items-center">
-        <input type="text" class="form-control forms__input" name="username" id="username" placeholder="Username" autocomplete="off" required>
+    <div class="input-group forms__input-container align-items-center">
+        {{ form.username(class_="form-control forms__input", placeholder="Username") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-user"></i>
         </span>
     </div>
     <div class="input-group forms__input-container align-items-center">
-        <input type="password" class="form-control forms__input" name="password" id="password" placeholder="Password" autocomplete="off" required>
+        {{ form.password(class_="form-control forms__input", placeholder="Password") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-lock"></i>
         </span>
-    </div> -->
+    </div>
     <div class="input-group forms__input-container align-items-center">
-        {{ form.hidden_tag() }}
-
-        {% for field in form if field.widget.input_type != 'hidden' %}
-          {% for error in field.errors %}
-            <span class="text-danger">{{ error }}</span>
-          {% endfor %}
-          {{ field(placeholder=field.label.text, class="form-control") }}
-        {% endfor %}
     </div>
     {% include '/components/buttons/login-button.html' %}
 </form>
