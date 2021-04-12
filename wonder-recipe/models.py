@@ -83,6 +83,9 @@ class Recipe(db.Model):
                             secondary='likes',
                             backref='recipe')
 
+    # likes = db.relationship('Likes',
+    #                         seconday=)
+
     def __repr__(self):
         recipe = self
         return f'<Recipe - id: {recipe.id} title: {recipe.title} image: {recipe.image} ingredients: {recipe.ingredients} macros: {recipe.macros} directions: {recipe.directions} ready_in_minutes: {recipe.ready_in_minutes} servings: {recipe.servings}>'
