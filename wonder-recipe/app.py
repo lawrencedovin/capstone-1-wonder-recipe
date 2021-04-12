@@ -5,6 +5,7 @@ from wonderrecipes import WonderRecipe
 from secrets import API_KEY
 from cuisinesdiets import cuisines
 from models import *
+from forms import RegisterForm, LoginForm, EditForm
 from  sqlalchemy.sql.expression import func, select
 from random import sample
 import operator
@@ -160,8 +161,17 @@ def search_ascending_likes():
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
 # Forms
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
+    """Added User"""
+
+    # form = RegisterForm()
+
+    # if form.validate_on_submit():
+    #     try:
+    #         user = User.
+
+
     return render_template('register.html')
 
 @app.route('/login')
