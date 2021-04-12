@@ -25,7 +25,7 @@ liked recipes list, phone number, grocery list.
 
 ### Potential API issues
 The spoonacular API has over 330,000 recipes but the application will only contain 
-a few thousand, the potential issue is randomizing the data properly so that 
+almost 600, the potential issue is randomizing the data properly so that 
 there will be sufficient data for each cuisine and diet type. Another potential 
 issue is extracting the exact ingredients from the recipe according to how many 
 people to serve for the grocery list. For the twilio API verifying a phone number 
