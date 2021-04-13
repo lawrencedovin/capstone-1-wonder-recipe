@@ -14,27 +14,27 @@
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-user"></i>
         </span>
-        {% if form.username.errors %}
-          {% for error in form.username.errors %}
-            <small class="form-text text-danger">
-                {{ error }}
-            </small>
-          {% endfor %}
-        {% endif %}
     </div>
+    {% if form.username.errors %}
+      {% for error in form.username.errors %}
+        <small class="form-text text-danger">
+            {{ error }}
+        </small>
+      {% endfor %}
+    {% endif %}
     <div class="input-group forms__input-container align-items-center">
         {{ form.password(class_="form-control forms__input", placeholder="Password") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-lock"></i>
         </span>
-        {% if form.password.errors %}
-          {% for error in form.password.errors %}
-            <small class="form-text text-danger">
-                {{ error }}
-            </small>
-          {% endfor %}
-        {% endif %}
     </div>
+    {% if form.password.errors %}
+      {% for error in form.password.errors %}
+        <small class="form-text text-danger">
+            {{ error }}
+        </small>
+      {% endfor %}
+    {% endif %}
     <div class="input-group forms__input-container align-items-center">
     </div>
     {% include '/components/buttons/login-button.html' %}
