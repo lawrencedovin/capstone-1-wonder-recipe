@@ -2,13 +2,11 @@
 {% block title %} lawrence123's Grocery List {% endblock %}
 {% block content %}
 {% include '/components/top-nav.html' %}
-<div style="min-height: 100vh;">
 {% include '/components/titles/grocery-list-title.html' %}
 {% include '/components/filters/searchbar.html' %}
 {% include '/components/filters/food-filter.html' %}
 {% include '/components/food-cards.html' %}
 {% include '/components/buttons/pagination.html' %}
 {% include '/components/buttons/sms-button.html' %}
-</div>
 {% include '/components/footer.html' %}
 {% endblock %}
