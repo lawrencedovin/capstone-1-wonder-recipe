@@ -61,13 +61,6 @@ def home():
     cuisines = Cuisine.query.all()
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
-@app.route('/home/logged_in')
-def home_logged_in():
-    recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
-    diets = Diet.query.limit(11).all()
-    cuisines = Cuisine.query.all()
-    return render_template('home-logged-in.html', recipes=recipes, diets=diets, cuisines=cuisines)
-
 @app.route('/liked_recipes')
 def liked_recipes():
     return render_template('liked-recipes.html')
