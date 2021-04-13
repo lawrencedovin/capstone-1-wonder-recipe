@@ -14,24 +14,52 @@
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-user"></i>
         </span>
+        {% if form.username.errors %}
+          {% for error in form.username.errors %}
+            <small class="form-text text-danger">
+                {{ error }}
+            </small>
+          {% endfor %}
+        {% endif %}
     </div>
     <div class="input-group forms__input-container align-items-center">
         {{ form.email(class_="form-control forms__input", placeholder="Email") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-envelope"></i>
         </span>
+        {% if form.email.errors %}
+          {% for error in form.email.errors %}
+            <small class="form-text text-danger">
+                {{ error }}
+            </small>
+          {% endfor %}
+        {% endif %}
     </div>
     <div class="input-group forms__input-container align-items-center">
         {{ form.password(class_="form-control forms__input", placeholder="Password") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-lock"></i>
         </span>
+        {% if form.password.errors %}
+          {% for error in form.password.errors %}
+            <small class="form-text text-danger">
+                {{ error }}
+            </small>
+          {% endfor %}
+        {% endif %}
     </div>
     <div class="input-group forms__input-container align-items-center">
         {{ form.phone_number(class_="form-control forms__input", placeholder="(201) 654-1555") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-phone"></i>
         </span>
+        {% if form.phone_number.errors %}
+          {% for error in form.phone_number.errors %}
+            <small class="form-text text-danger">
+                {{ error }}
+            </small>
+          {% endfor %}
+        {% endif %}
     </div>
     {% include '/components/buttons/register-button.html' %}
 </form>
