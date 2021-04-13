@@ -257,7 +257,6 @@
 }
 
 .pagination {
-    // margin-bottom: 32rem;
     left: -1.6rem;
 
     &__button {
@@ -581,4 +580,10 @@
 
 .form-text {
     margin: -1rem 0 1rem;
+}
+
+// Flash Messages
+.alert-success {
+    background-color: $color-dark-green !important;
+    border-color: $color-dark-green !important;
 }

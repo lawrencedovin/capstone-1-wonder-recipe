@@ -415,3 +415,7 @@ a:hover {
 
 .form-text {
   margin: -1rem 0 1rem; }
+
+.alert-success {
+  background-color: #009B49 !important;
+  border-color: #009B49 !important; }
