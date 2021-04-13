@@ -40,27 +40,27 @@
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-lock"></i>
         </span>
-        {% if form.password.errors %}
-          {% for error in form.password.errors %}
-            <small class="form-text text-danger">
-                {{ error }}
-            </small>
-          {% endfor %}
-        {% endif %}
     </div>
+    {% if form.password.errors %}
+      {% for error in form.password.errors %}
+        <small class="form-text text-danger">
+            {{ error }}
+        </small>
+      {% endfor %}
+    {% endif %}
     <div class="input-group forms__input-container align-items-center">
         {{ form.phone_number(class_="form-control forms__input", placeholder="(201) 654-1555") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-phone"></i>
         </span>
-        {% if form.phone_number.errors %}
-          {% for error in form.phone_number.errors %}
-            <small class="form-text text-danger">
-                {{ error }}
-            </small>
-          {% endfor %}
-        {% endif %}
     </div>
+    {% if form.phone_number.errors %}
+      {% for error in form.phone_number.errors %}
+        <small class="form-text text-danger">
+            {{ error }}
+        </small>
+      {% endfor %}
+    {% endif %}
     {% include '/components/buttons/register-button.html' %}
 </form>
 {% endblock %}
