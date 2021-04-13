@@ -250,6 +250,16 @@ def verify_account():
 def edit_profile():
     return render_template('edit-profile.html')
 
+# Logout
+@app.route('/logout')
+def logout():
+    """Handle logout of user."""
+
+    # IMPLEMENT THIS
+    do_logout()
+    flash('Logged out successfully', 'success')
+    return redirect('/')
+
 # @app.route('/api/get-food', methods=["GET"])
 # def get_food():
 #     food_list = []
