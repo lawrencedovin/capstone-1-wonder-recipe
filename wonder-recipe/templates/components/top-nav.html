@@ -9,7 +9,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Social <img src="../static/images/icons/social.svg" alt="" class="social-icon" id="socialIcon"></a>
+                <a class="nav-link" href="#">Social <img src="../../static/images/icons/social.svg" alt="" class="social-icon" id="socialIcon"></a>
               </li>
               {% if not g.user %}
               <li class="nav-item">
@@ -24,10 +24,10 @@
                 <a class="nav-link" href="/edit_profile">{{ g.user.username }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/liked_recipes"><img src="../static/images/icons/likes.svg" alt="" class="likes-icon"></a>
+                <a class="nav-link" href="/users/{{ g.user.id }}/liked_recipes"><img src="../../static/images/icons/likes.svg" alt="" class="likes-icon"></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/grocery_list"><img src="../static/images/icons/grocery-list.svg" alt="" class="grocery-list-icon"></a>
+                <a class="nav-link" href="/users/{{ g.user.id }}/grocery_list"><img src="../../static/images/icons/grocery-list.svg" alt="" class="grocery-list-icon"></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>

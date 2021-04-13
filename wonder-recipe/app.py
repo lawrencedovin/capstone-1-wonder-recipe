@@ -61,12 +61,22 @@ def home():
     cuisines = Cuisine.query.all()
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
-@app.route('/liked_recipes')
-def liked_recipes():
+@app.route('/users/<int:user_id>/liked_recipes')
+def liked_recipes(user_id):
+
+    # if not g.user:
+    #     flash("Access unauthorized.", "danger")
+    #     return redirect("/")
+    
     return render_template('liked-recipes.html')
 
-@app.route('/grocery_list')
-def grocery_list():
+@app.route('/users/<int:user_id>/grocery_list')
+def grocery_list(user_id):
+
+    # if not g.user:
+    #     flash("Access unauthorized.", "danger")
+    #     return redirect("/")
+
     return render_template('grocery-list.html')
 
 @app.route('/recipe/<int:recipe_id>')
