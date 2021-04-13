@@ -213,7 +213,6 @@ a:hover {
       padding-right: .8rem; }
 
 .pagination {
-  margin-bottom: 32rem;
   left: -1.6rem; }
   .pagination__button {
     font-size: 1.6rem;
@@ -249,6 +248,8 @@ a:hover {
     right: 0;
     bottom: 0;
     left: 0; }
+  .footer-fix {
+    height: 32rem; }
   .footer--forms {
     background: #fff; }
   .footer__button {
