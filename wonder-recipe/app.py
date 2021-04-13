@@ -65,6 +65,10 @@ def home():
 def liked_recipes(user_id):
 
     if not g.user:
+        flash("Login to your account.", "danger")
+        return redirect("/")
+    
+    if user_id != g.user.id:
         flash("Access unauthorized.", "danger")
         return redirect("/")
     
@@ -74,6 +78,10 @@ def liked_recipes(user_id):
 def grocery_list(user_id):
 
     if not g.user:
+        flash("Login to your account.", "danger")
+        return redirect("/")
+    
+    if user_id != g.user.id:
         flash("Access unauthorized.", "danger")
         return redirect("/")
 
