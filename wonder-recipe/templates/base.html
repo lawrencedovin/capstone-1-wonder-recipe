@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
+    {% include '/components/top-nav.html' %}
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+      <div class="alert alert-{{ category }} text-light">{{ message }}</div>
+    {% endfor %}
     {% block content %}
     {% endblock %}
     <!-- Axios -->
