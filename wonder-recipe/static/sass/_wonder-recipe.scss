@@ -257,6 +257,7 @@
 }
 
 .pagination {
+    margin-bottom: 32rem;
     left: -1.6rem;
 
     &__button {
@@ -310,8 +311,9 @@
 
     &-container {
         position: absolute;
+        right: 0;
         bottom: 0;
-        width: 100%;
+        left: 0;
     }
     
     &--forms {

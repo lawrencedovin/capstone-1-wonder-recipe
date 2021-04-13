@@ -11,7 +11,8 @@ html {
   /* 1rem = 10px, 10px/16px = 62.5% */
   scroll-behavior: smooth;
   overflow-y: auto;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  height: 100%; }
   @media only screen and (max-width: 120em) {
     html {
       font-size: 50%; } }
@@ -26,7 +27,9 @@ body {
   font-family: "Montserrat", sans-serif;
   background: #fff;
   font-size: 1.6rem;
-  color: #050505; }
+  color: #050505;
+  position: relative;
+  min-height: 100%; }
 
 a:hover {
   text-decoration: none; }
@@ -210,6 +213,7 @@ a:hover {
       padding-right: .8rem; }
 
 .pagination {
+  margin-bottom: 32rem;
   left: -1.6rem; }
   .pagination__button {
     font-size: 1.6rem;
@@ -242,8 +246,9 @@ a:hover {
   padding-bottom: 3.2rem; }
   .footer-container {
     position: absolute;
+    right: 0;
     bottom: 0;
-    width: 100%; }
+    left: 0; }
   .footer--forms {
     background: #fff; }
   .footer__button {
