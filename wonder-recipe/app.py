@@ -64,18 +64,18 @@ def home():
 @app.route('/users/<int:user_id>/liked_recipes')
 def liked_recipes(user_id):
 
-    # if not g.user:
-    #     flash("Access unauthorized.", "danger")
-    #     return redirect("/")
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
     
     return render_template('liked-recipes.html')
 
 @app.route('/users/<int:user_id>/grocery_list')
 def grocery_list(user_id):
 
-    # if not g.user:
-    #     flash("Access unauthorized.", "danger")
-    #     return redirect("/")
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
 
     return render_template('grocery-list.html')
 

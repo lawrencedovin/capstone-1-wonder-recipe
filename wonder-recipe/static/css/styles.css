@@ -240,6 +240,10 @@ a:hover {
   background: linear-gradient(90.15deg, #009B49 1%, #31B233 50.5%, #8CDC09 100%);
   padding-top: 3.2rem;
   padding-bottom: 3.2rem; }
+  .footer-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
   .footer--forms {
     background: #fff; }
   .footer__button {
