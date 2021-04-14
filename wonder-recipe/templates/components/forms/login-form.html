@@ -10,7 +10,7 @@
         Enter your user credentials to login
     </p>
     <div class="input-group forms__input-container align-items-center">
-        {{ form.username(class_="form-control forms__input", placeholder="Username") }}
+        {{ form.username(class_="form-control forms__input", placeholder="Username", autocomplete="off") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-user"></i>
         </span>
@@ -23,7 +23,7 @@
       {% endfor %}
     {% endif %}
     <div class="input-group forms__input-container align-items-center">
-        {{ form.password(class_="form-control forms__input", placeholder="Password") }}
+        {{ form.password(class_="form-control forms__input", placeholder="Password", autocomplete="off") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-lock"></i>
         </span>
