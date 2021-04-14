@@ -9,8 +9,13 @@
             {% if g.user %}
             <div class="btn-group">
                 <a class="food-cards__button" href="#">
+                    {% if recipe in g.user.liked_recipes %}
                     <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--active"> 
                     <span class="food-cards__button-text--active">{{ recipe.liked_by_users|length }}</span>
+                    {% else %}
+                    <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--inactive"> 
+                    <span class="food-cards__button-text--inactive">{{ recipe.liked_by_users|length }}</span>
+                    {% endif %}
                 </a>
                 <a class="food-cards__button" href="#">
                     <img src="../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--inactive">

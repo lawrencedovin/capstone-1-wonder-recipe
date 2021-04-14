@@ -64,7 +64,7 @@ def home():
 @app.route('/users/<int:user_id>/liked_recipes')
 def liked_recipes(user_id):
 
-    recipes = g.user.liked_recipes
+    recipes = g.user.liked_recipes[:24]
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
 
@@ -81,7 +81,7 @@ def liked_recipes(user_id):
 @app.route('/users/<int:user_id>/grocery_list')
 def grocery_list(user_id):
 
-    recipes = g.user.grocery_list_recipes
+    recipes = g.user.grocery_list_recipes[:24]
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
 
