@@ -165,7 +165,7 @@ def search_descending_likes():
     # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
     recipe_dict = {}
     for recipe in Recipe.query.all():
-        recipe_dict[recipe.id] = len(recipe.likes)
+        recipe_dict[recipe.id] = len(recipe.liked_by_users)
 
     # Sorts dictionary by descending order, the key,value pairs with the highest
     # likes will go first.
@@ -193,7 +193,7 @@ def search_ascending_likes():
     # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
     recipe_dict = {}
     for recipe in Recipe.query.all():
-        recipe_dict[recipe.id] = len(recipe.likes)
+        recipe_dict[recipe.id] = len(recipe.liked_by_users)
 
     # Sorts dictionary by ascending order, the key,value pairs with the highest
     # likes will go first.
