@@ -55,6 +55,6 @@ $('#clearButton').on("click", () => {
 
 $(document).ready(function() {
   setTimeout(function() {
-      $('.alert').fadeOut('slow');
+      $('.flash').fadeOut('slow');
   }, 2000); // <-- time in milliseconds
 });

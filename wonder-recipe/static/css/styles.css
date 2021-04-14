@@ -416,6 +416,18 @@ a:hover {
 .form-text {
   margin: -1rem 0 1rem; }
 
-.alert-success {
-  background-color: #009B49 !important;
-  border-color: #009B49 !important; }
+.flash {
+  padding: 1rem 2rem;
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 4px;
+  border: none; }
+
+.flash-success {
+  background-color: #009B49; }
+
+.flash-danger {
+  background-color: #CF0000; }
