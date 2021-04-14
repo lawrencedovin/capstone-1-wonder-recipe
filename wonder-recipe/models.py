@@ -121,12 +121,13 @@ class Recipe(db.Model):
                             secondary='recipe_cuisine',
                             backref='recipe')
     
-    users = db.relationship('User',
+    liked_by_users = db.relationship('User',
                             secondary='likes',
-                            backref='recipe')
-
-    # likes = db.relationship('Likes',
-    #                         seconday=)
+                            backref='liked_recipes')
+    
+    grocery_list_by_users = db.relationship('User',
+                            secondary='grocery_list',
+                            backref='grocery_list_recipes')
 
     def __repr__(self):
         recipe = self
