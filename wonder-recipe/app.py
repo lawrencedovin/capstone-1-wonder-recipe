@@ -300,7 +300,7 @@ def user_grocery_list_diet_search(search_diet):
     cuisines = Cuisine.query.all()
     url = request.url
 
-    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/users/grocery_list/cuisines/<search_cuisine>')
 def user_grocery_list_cuisine_search(search_cuisine):
@@ -311,7 +311,7 @@ def user_grocery_list_cuisine_search(search_cuisine):
     cuisines = Cuisine.query.all()
     url = request.url
 
-    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 # @app.route('/search')
 # def search_recipes():
