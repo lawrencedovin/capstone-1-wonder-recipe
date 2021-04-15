@@ -12,7 +12,7 @@
                 <form method="POST" 
                       action="/users/remove_like/{{ recipe.id }}" id="messages-form">
                   <button class="food-cards__button">
-                    <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--active"> 
+                    <img src="../../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--active"> 
                     <span class="food-cards__button-text--active">{{ recipe.liked_by_users|length }}</span>
                   </button>
                 </form>
@@ -20,7 +20,7 @@
                 <form method="POST" 
                       action="/users/add_like/{{ recipe.id }}" id="messages-form">
                   <button class="food-cards__button">
-                    <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--inactive"> 
+                    <img src="../../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--inactive"> 
                     <span class="food-cards__button-text--inactive">{{ recipe.liked_by_users|length }}</span>
                   </button>
                 </form>
@@ -29,14 +29,14 @@
                 <form method="POST" 
                       action="/users/remove_grocery_item/{{ recipe.id }}" id="messages-form">
                   <button class="food-cards__button">
-                    <img src="../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--active">
+                    <img src="../../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--active">
                   </button>
                 </form>
                 {% else %}
                 <form method="POST" 
                       action="/users/add_grocery_item/{{ recipe.id }}" id="messages-form">
                   <button class="food-cards__button">
-                    <img src="../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--inactive">
+                    <img src="../../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--inactive">
                   </button>
                 </form>
                 {% endif %}

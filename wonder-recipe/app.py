@@ -165,31 +165,22 @@ def remove_grocery_item(recipe_id):
 
 @app.route('/diets/<search_diet>')
 def diet_search(search_diet):
+
     all_recipes = Recipe.query.all()
-    
-    # Searches for which recipe contains the diet
-    # in their recipe.diets list then adds it to list
     recipes = search_diet_filter(all_recipes, search_diet)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
 @app.route('/cuisines/<search_cuisine>')
 def cuisine_search(search_cuisine):
-    recipes = []
+
     all_recipes = Recipe.query.all()
-    
-    # Searches for which recipe contains the cuisine
-    # in their recipe.cuisines list then adds it to list
-
-    for recipe in all_recipes:
-        for cuisine in recipe.cuisines:
-            if(cuisine.title == search_cuisine):
-                recipes.append(recipe)
-    recipes = sample(recipes, 24) if len(recipes) >= 24 else recipes
-
+    recipes = search_cuisine_filter(all_recipes, search_cuisine)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
 @app.route('/search')
@@ -268,35 +259,25 @@ def search_ascending_likes():
 
 
 # Filtering Likes
-@app.route('/users/diets/<search_diet>')
-def user_diet_search(search_diet):
-    recipes = []
+@app.route('/users/liked_recipes/diets/<search_diet>')
+def user_liked_recipe_diet_search(search_diet):
+
     all_recipes = g.user.liked_recipes
-    
-    # Searches for which recipe contains the diet
-    # in their recipe.diets list then adds it to list
     recipes = search_diet_filter(all_recipes, search_diet)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+
     return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
-# @app.route('users/cuisines/<search_cuisine>')
-# def user_cuisine_search(search_cuisine):
-#     recipes = []
-#     all_recipes = Recipe.query.all()
-    
-#     # Searches for which recipe contains the cuisine
-#     # in their recipe.cuisines list then adds it to list
+@app.route('/users/liked_recipes/cuisines/<search_cuisine>')
+def user_liked_recipe_cuisine_search(search_cuisine):
 
-#     for recipe in all_recipes:
-#         for cuisine in recipe.cuisines:
-#             if(cuisine.title == search_cuisine):
-#                 recipes.append(recipe)
-#     recipes = sample(recipes, 24) if len(recipes) >= 24 else recipes
+    all_recipes = g.user.grocery_list_recipes
+    recipes = search_cuisine_filter(all_recipes, search_cuisine)
+    diets = Diet.query.limit(11).all()
+    cuisines = Cuisine.query.all()
 
-#     diets = Diet.query.limit(11).all()
-#     cuisines = Cuisine.query.all()
-#     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
 # @app.route('/search')
 # def search_recipes():

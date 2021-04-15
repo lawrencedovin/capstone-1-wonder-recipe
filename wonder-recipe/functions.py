@@ -1,6 +1,9 @@
 from random import sample
 
 def search_diet_filter(all_recipes, search_diet):
+    # Searches for which recipe contains the diet
+    # in their recipe.diets list then adds it to list
+
     recipes = []
     for recipe in all_recipes:
         for diet in recipe.diets:
@@ -10,6 +13,9 @@ def search_diet_filter(all_recipes, search_diet):
     return recipes
 
 def search_cuisine_filter(all_recipes, search_cuisine):
+    # Searches for which recipe contains the cuisine
+    # in their recipe.cuisines list then adds it to list
+
     recipes = []
     for recipe in all_recipes:
         for cuisine in recipe.cuisines:
