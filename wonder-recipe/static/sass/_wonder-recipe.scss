@@ -420,7 +420,13 @@
 
         &-button {
             padding: 0 1.6rem;
-            border-left: 2px solid $color-black;
+            border: none;
+            background: $color-white;
+
+            &--likes {
+                border-left: 2px solid $color-black;
+                border-right: 2px solid $color-black;
+            }
 
             &--inactive,
             &--active, 
