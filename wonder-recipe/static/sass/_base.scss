@@ -66,6 +66,10 @@ a:hover {
     text-decoration: none;
 }
 
+button {
+    outline-color: $color-green !important;
+}
+
 .col-md-12 {
     padding: 0 8.8rem; 
 }
