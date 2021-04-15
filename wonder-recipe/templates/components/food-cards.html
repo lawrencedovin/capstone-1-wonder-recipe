@@ -9,12 +9,6 @@
             {% if g.user %}
             <div class="btn-group">
                 {% if recipe in g.user.liked_recipes %}
-                <!-- <form method="POST" action="/users/remove_like/{{ recipe.id }}">
-                    <button class="food-cards__button">
-                        <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--active"> 
-                        <span class="food-cards__button-text--active">{{ recipe.liked_by_users|length }}</span>
-                    </button>
-                </form> -->
                 <form method="POST" 
                       action="/users/remove_like/{{ recipe.id }}" id="messages-form">
                   <button class="food-cards__button">
@@ -23,13 +17,6 @@
                   </button>
                 </form>
                 {% else %}
-                <!-- <form action="POST" action="/users/add_like/{{ recipe.id }}">
-                    <button class="food-cards__button">
-                        <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--inactive"> 
-                        <span class="food-cards__button-text--inactive">{{ recipe.liked_by_users|length }}</span>
-                    </button>
-                </form> -->
-
                 <form method="POST" 
                       action="/users/add_like/{{ recipe.id }}" id="messages-form">
                   <button class="food-cards__button">
