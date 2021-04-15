@@ -130,6 +130,36 @@ def remove_like(recipe_id):
     # request.referrer sends user to previous page :)
     return redirect(request.referrer)
 
+@app.route('/users/add_grocery_item/<int:recipe_id>', methods=['POST'])
+def add_grocery_item(recipe_id):
+    """Add an item for grocery list"""
+
+    if not g.user:
+        flash("Login to your account.", "danger")
+        return redirect("/")
+
+    grocery_item = Recipe.query.get_or_404(recipe_id)
+    g.user.grocery_list_recipes.append(grocery_item)
+    db.session.commit()
+
+    # request.referrer sends user to previous page :)
+    return redirect(request.referrer)
+
+@app.route('/users/remove_grocery_item/<int:recipe_id>', methods=['POST'])
+def remove_grocery_item(recipe_id):
+    """Remove an item like for grocery list """
+
+    if not g.user:
+        flash("Login to your account.", "danger")
+        return redirect("/")
+
+    grocery_item = Recipe.query.get_or_404(recipe_id)
+    g.user.grocery_list_recipes.remove(grocery_item)
+    db.session.commit()
+
+    # request.referrer sends user to previous page :)
+    return redirect(request.referrer)
+
 # Filtering
 
 @app.route('/diets/<search_diet>')
