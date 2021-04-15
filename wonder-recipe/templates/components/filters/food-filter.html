@@ -41,6 +41,8 @@
             {% for cuisine in cuisines %}
             {% if url.find('liked_recipes') != -1 %}
             <a class="dropdown-item" href="/users/liked_recipes/cuisines/{{ cuisine.title }}">{{ cuisine.title }}</a>
+            {% elif url.find('grocery_list') != -1 %}
+            <a class="dropdown-item" href="/users/grocery_list/cuisines/{{ cuisine.title }}">{{ cuisine.title }}</a>
             {% else %}
             <a class="dropdown-item" href="/cuisines/{{ cuisine.title }}">{{ cuisine.title }}</a>
             {% endif %}
