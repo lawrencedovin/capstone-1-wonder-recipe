@@ -7,9 +7,6 @@
                 <p class="recipe-page__stats-item-likes">{{ recipe.liked_by_users|length }} likes</p>
             </li>
             <li class="recipe-page__stats-item">
-                <!-- <a class="recipe-page__stats-item-button" href="#">
-                    <img src="../static/images/icons/likes.svg" alt="" class="recipe-page__stats-item-button--active"> 
-                </a> -->
                 {% if recipe in g.user.liked_recipes %}
                 <form method="POST" 
                       action="/users/remove_like/{{ recipe.id }}" id="messages-form">
@@ -27,9 +24,21 @@
                 {% endif %}
             </li>
             <li class="recipe-page__stats-item">
-                <a class="recipe-page__stats-item-button" href="#">
-                    <img src="../static/images/icons/grocery-list.svg" alt="" class="recipe-page__stats-item-button--inactive">
-                </a>
+                {% if recipe in g.user.grocery_list_recipes %}
+                <form method="POST" 
+                      action="/users/remove_grocery_item/{{ recipe.id }}" id="messages-form">
+                  <button class="recipe-page__stats-item-button">
+                    <img src="../../static/images/icons/grocery-list.svg" alt="" class="recipe-page__stats-item-button--active">
+                  </button>
+                </form>
+                {% else %}
+                <form method="POST" 
+                      action="/users/add_grocery_item/{{ recipe.id }}" id="messages-form">
+                  <button class="recipe-page__stats-item-button">
+                    <img src="../../static/images/icons/grocery-list.svg" alt="" class="recipe-page__stats-item-button--inactive">
+                  </button>
+                </form>
+                {% endif %}
             </li>
         </ul>
         <div class="row">
