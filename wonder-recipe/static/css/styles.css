@@ -198,7 +198,9 @@ a:hover {
     font-weight: 600;
     margin-top: 1.6rem; }
   .food-cards__button {
-    margin-right: 1.6rem; }
+    margin-right: 1.6rem;
+    border: none;
+    background: #fff; }
     .food-cards__button:hover .food-cards__button-text--inactive, .food-cards__button-text--active {
       color: #31B233; }
     .food-cards__button:hover .food-cards__button-text--active, .food-cards__button-text--inactive {

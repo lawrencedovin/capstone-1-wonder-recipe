@@ -100,6 +100,36 @@ def recipe_page(recipe_id):
     recipe = Recipe.query.get(recipe_id)
     return render_template('recipe.html', recipe=recipe)
 
+@app.route('/users/add_like/<int:recipe_id>', methods=['POST'])
+def add_like(recipe_id):
+    """Add a like for a recipe"""
+
+    if not g.user:
+        flash("Login to your account.", "danger")
+        return redirect("/")
+
+    liked_recipe = Recipe.query.get_or_404(recipe_id)
+    g.user.liked_recipes.append(liked_recipe)
+    db.session.commit()
+
+    # request.referrer sends user to previous page :)
+    return redirect(request.referrer)
+
+@app.route('/users/remove_like/<int:recipe_id>', methods=['POST'])
+def remove_like(recipe_id):
+    """Remove a like for a recipe"""
+
+    if not g.user:
+        flash("Login to your account.", "danger")
+        return redirect("/")
+
+    liked_recipe = Recipe.query.get_or_404(recipe_id)
+    g.user.liked_recipes.remove(liked_recipe)
+    db.session.commit()
+
+    # request.referrer sends user to previous page :)
+    return redirect(request.referrer)
+
 # Filtering
 
 @app.route('/diets/<search_diet>')

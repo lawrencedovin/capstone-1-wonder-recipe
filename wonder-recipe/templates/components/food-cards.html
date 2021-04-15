@@ -8,15 +8,36 @@
             <p class="food-cards__food-name">{{ recipe.title }}</p>
             {% if g.user %}
             <div class="btn-group">
-                <a class="food-cards__button" href="#">
-                    {% if recipe in g.user.liked_recipes %}
+                {% if recipe in g.user.liked_recipes %}
+                <!-- <form method="POST" action="/users/remove_like/{{ recipe.id }}">
+                    <button class="food-cards__button">
+                        <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--active"> 
+                        <span class="food-cards__button-text--active">{{ recipe.liked_by_users|length }}</span>
+                    </button>
+                </form> -->
+                <form method="POST" 
+                      action="/users/remove_like/{{ recipe.id }}" id="messages-form">
+                  <button class="food-cards__button">
                     <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--active"> 
                     <span class="food-cards__button-text--active">{{ recipe.liked_by_users|length }}</span>
-                    {% else %}
+                  </button>
+                </form>
+                {% else %}
+                <!-- <form action="POST" action="/users/add_like/{{ recipe.id }}">
+                    <button class="food-cards__button">
+                        <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--inactive"> 
+                        <span class="food-cards__button-text--inactive">{{ recipe.liked_by_users|length }}</span>
+                    </button>
+                </form> -->
+
+                <form method="POST" 
+                      action="/users/add_like/{{ recipe.id }}" id="messages-form">
+                  <button class="food-cards__button">
                     <img src="../../static/images/icons/likes.svg" alt="" class="food-cards__button--likes-icon food-cards__button-icon--inactive"> 
                     <span class="food-cards__button-text--inactive">{{ recipe.liked_by_users|length }}</span>
-                    {% endif %}
-                </a>
+                  </button>
+                </form>
+                {% endif %}
                 <a class="food-cards__button" href="#">
                     {% if recipe in g.user.grocery_list_recipes %}
                     <img src="../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--active">
