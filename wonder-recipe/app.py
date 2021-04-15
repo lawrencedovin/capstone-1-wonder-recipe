@@ -10,6 +10,7 @@ from models import *
 from forms import RegisterForm, LoginForm, EditForm
 from random import sample
 import operator
+from functions import search_diet_filter, search_cuisine_filter
 
 CURR_USER_KEY = "curr_user"
 
@@ -160,7 +161,7 @@ def remove_grocery_item(recipe_id):
     # request.referrer sends user to previous page :)
     return redirect(request.referrer)
 
-# Filtering
+# Filtering Homepage
 
 @app.route('/diets/<search_diet>')
 def diet_search(search_diet):
@@ -178,7 +179,7 @@ def diet_search(search_diet):
 
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template(request.referrer, recipes=recipes, diets=diets, cuisines=cuisines)
 
 @app.route('/cuisines/<search_cuisine>')
 def cuisine_search(search_cuisine):
@@ -271,6 +272,114 @@ def search_ascending_likes():
     cuisines = Cuisine.query.all()
 
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+
+
+# Filtering Likes
+@app.route('/users/diets/<search_diet>')
+def user_diet_search(search_diet):
+    recipes = []
+    all_recipes = g.user.liked_recipes
+    
+    # Searches for which recipe contains the diet
+    # in their recipe.diets list then adds it to list
+    recipes = search_diet_filter(all_recipes, search_diet)
+    diets = Diet.query.limit(11).all()
+    cuisines = Cuisine.query.all()
+    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines)
+
+# @app.route('users/cuisines/<search_cuisine>')
+# def user_cuisine_search(search_cuisine):
+#     recipes = []
+#     all_recipes = Recipe.query.all()
+    
+#     # Searches for which recipe contains the cuisine
+#     # in their recipe.cuisines list then adds it to list
+
+#     for recipe in all_recipes:
+#         for cuisine in recipe.cuisines:
+#             if(cuisine.title == search_cuisine):
+#                 recipes.append(recipe)
+#     recipes = sample(recipes, 24) if len(recipes) >= 24 else recipes
+
+#     diets = Diet.query.limit(11).all()
+#     cuisines = Cuisine.query.all()
+#     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+
+# @app.route('/search')
+# def search_recipes():
+#     """Page with listing of recipes.
+#     Can take a 'q' param in querystring to search by that recipe name.
+#     """
+
+#     search = request.args.get('q')
+
+#     if not search:
+#         recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
+#     else:
+#         recipes = Recipe.query.filter(Recipe.title.like(f"%{search.capitalize()}%")).limit(24).all()
+    
+#     diets = Diet.query.limit(11).all()
+#     cuisines = Cuisine.query.all()
+
+#     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+
+# @app.route('/likes_descending')
+# def search_descending_likes():
+#     """Page that displays 24 recipes by likes
+#     in descending order.    
+#     """
+
+#     # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
+#     recipe_dict = {}
+#     for recipe in Recipe.query.all():
+#         recipe_dict[recipe.id] = len(recipe.liked_by_users)
+
+#     # Sorts dictionary by descending order, the key,value pairs with the highest
+#     # likes will go first.
+#     descending_order = dict(sorted(recipe_dict.items(), key=operator.itemgetter(1), reverse=True))
+
+#     # Stores the full recipes by getting the id and places it
+#     # into a list based on the sorted dictionary
+#     descending_likes_recipe_list = []
+#     for key, value in descending_order.items():
+#         descending_likes_recipe_list.append(Recipe.query.get(key))
+
+#     recipes = descending_likes_recipe_list[:24]
+
+#     diets = Diet.query.limit(11).all()
+#     cuisines = Cuisine.query.all()
+
+#     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+
+# @app.route('/likes_ascending')
+# def search_ascending_likes():
+#     """Page that displays 24 recipes by likes
+#     in ascending order.    
+#     """
+
+#     # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
+#     recipe_dict = {}
+#     for recipe in Recipe.query.all():
+#         recipe_dict[recipe.id] = len(recipe.liked_by_users)
+
+#     # Sorts dictionary by ascending order, the key,value pairs with the highest
+#     # likes will go first.
+#     ascending_order = dict(sorted(recipe_dict.items(), key=operator.itemgetter(1)))
+
+#     # Stores the full recipes by getting the id and places it
+#     # into a list based on the sorted dictionary
+#     ascending_likes_recipe_list = []
+#     for key, value in ascending_order.items():
+#         ascending_likes_recipe_list.append(Recipe.query.get(key))
+
+#     recipes = ascending_likes_recipe_list[:24]
+
+#     diets = Diet.query.limit(11).all()
+#     cuisines = Cuisine.query.all()
+
+#     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+
+# Filtering Grocery List
 
 # Forms
 @app.route('/register', methods=['GET', 'POST'])
