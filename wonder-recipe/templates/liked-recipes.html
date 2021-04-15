@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} lawrence123's Liked Recipes {% endblock %}
+{% block title %} {{ g.user.username }}'s Liked Recipes {% endblock %}
 {% block content %}
 {% include '/components/titles/liked-recipes-title.html' %}
 {% include '/components/filters/searchbar.html' %}

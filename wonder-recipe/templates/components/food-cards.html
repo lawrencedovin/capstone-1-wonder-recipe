@@ -18,7 +18,11 @@
                     {% endif %}
                 </a>
                 <a class="food-cards__button" href="#">
+                    {% if recipe in g.user.grocery_list_recipes %}
+                    <img src="../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--active">
+                    {% else %}
                     <img src="../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--inactive">
+                    {% endif %}
                 </a>
             </div>
             {% endif %}

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} lawrence123's Grocery List {% endblock %}
+{% block title %} {{ g.user.username }}'s Grocery List {% endblock %}
 {% block content %}
 {% include '/components/titles/grocery-list-title.html' %}
 {% include '/components/filters/searchbar.html' %}
