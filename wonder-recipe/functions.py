@@ -1,3 +1,5 @@
+from random import sample
+
 def search_diet_filter(all_recipes, search_diet):
     recipes = []
     for recipe in all_recipes:

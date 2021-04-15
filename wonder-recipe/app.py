@@ -165,21 +165,14 @@ def remove_grocery_item(recipe_id):
 
 @app.route('/diets/<search_diet>')
 def diet_search(search_diet):
-    recipes = []
     all_recipes = Recipe.query.all()
     
     # Searches for which recipe contains the diet
     # in their recipe.diets list then adds it to list
-
-    for recipe in all_recipes:
-        for diet in recipe.diets:
-            if(diet.title == search_diet):
-                recipes.append(recipe)
-    recipes = sample(recipes, 24) if len(recipes) >= 24 else recipes
-
+    recipes = search_diet_filter(all_recipes, search_diet)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
-    return render_template(request.referrer, recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
 
 @app.route('/cuisines/<search_cuisine>')
 def cuisine_search(search_cuisine):
