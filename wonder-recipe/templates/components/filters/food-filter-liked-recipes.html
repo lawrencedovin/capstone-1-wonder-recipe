@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="btn-group food-filter">
+          <div class="dropdown">
+            <button
+              class="food-filter__button food-filter__button--active food-filter__button--diet"
+              type="button"
+              id="dropdownMenu2"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Diet
+              
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              {% for diet in diets %}
+              <a class="dropdown-item" href="/users/liked_recipes/diets/{{ diet.title }}">{{ diet.title }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="dropdown">
+            <button
+              class="food-filter__button food-filter__button--inactive"
+              type="button"
+              id="dropdownMenu2"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Cuisine
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              {% for cuisine in cuisines %}
+              <a class="dropdown-item" href="/users/liked_recipes/cuisines/{{ cuisine.title }}">{{ cuisine.title }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/likes_descending">
+              Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

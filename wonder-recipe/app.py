@@ -272,7 +272,7 @@ def user_liked_recipe_diet_search(search_diet):
 @app.route('/users/liked_recipes/cuisines/<search_cuisine>')
 def user_liked_recipe_cuisine_search(search_cuisine):
 
-    all_recipes = g.user.grocery_list_recipes
+    all_recipes = g.user.liked_recipes
     recipes = search_cuisine_filter(all_recipes, search_cuisine)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
