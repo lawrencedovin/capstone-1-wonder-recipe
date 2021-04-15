@@ -60,7 +60,8 @@ def home():
     recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    url = request.url
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/users/<int:user_id>/liked_recipes')
 def liked_recipes(user_id):
@@ -77,7 +78,9 @@ def liked_recipes(user_id):
         flash("Access unauthorized.", "danger")
         return redirect("/")
     
-    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    url = request.url
+    
+    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/users/<int:user_id>/grocery_list')
 def grocery_list(user_id):
@@ -93,8 +96,10 @@ def grocery_list(user_id):
     if user_id != g.user.id:
         flash("Access unauthorized.", "danger")
         return redirect("/")
+    
+    url = request.url
 
-    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/recipe/<int:recipe_id>')
 def recipe_page(recipe_id):
@@ -170,8 +175,9 @@ def diet_search(search_diet):
     recipes = search_diet_filter(all_recipes, search_diet)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+    url = request.url
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/cuisines/<search_cuisine>')
 def cuisine_search(search_cuisine):
@@ -180,8 +186,9 @@ def cuisine_search(search_cuisine):
     recipes = search_cuisine_filter(all_recipes, search_cuisine)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+    url = request.url
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/search')
 def search_recipes():
@@ -198,8 +205,9 @@ def search_recipes():
     
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+    url = request.url
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/likes_descending')
 def search_descending_likes():
@@ -226,8 +234,9 @@ def search_descending_likes():
 
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+    url = request.url
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/likes_ascending')
 def search_ascending_likes():
@@ -254,8 +263,9 @@ def search_ascending_likes():
 
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+    url = request.url
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 
 # Filtering Likes
@@ -266,8 +276,9 @@ def user_liked_recipe_diet_search(search_diet):
     recipes = search_diet_filter(all_recipes, search_diet)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+    url = request.url
 
-    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/users/liked_recipes/cuisines/<search_cuisine>')
 def user_liked_recipe_cuisine_search(search_cuisine):
@@ -276,8 +287,9 @@ def user_liked_recipe_cuisine_search(search_cuisine):
     recipes = search_cuisine_filter(all_recipes, search_cuisine)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
+    url = request.url
 
-    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines)
+    return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 # @app.route('/search')
 # def search_recipes():
