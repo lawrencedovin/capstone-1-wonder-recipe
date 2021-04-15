@@ -18,6 +18,8 @@
             {% for diet in diets %}
             {% if url.find('liked_recipes') != -1 %}
             <a class="dropdown-item" href="/users/liked_recipes/diets/{{ diet.title }}">{{ diet.title }}</a>
+            {% elif url.find('grocery_list') != -1 %}
+            <a class="dropdown-item" href="/users/grocery_list/diets/{{ diet.title }}">{{ diet.title }}</a>
             {% else %}
             <a class="dropdown-item" href="/diets/{{ diet.title }}">{{ diet.title }}</a>
             {% endif %}
