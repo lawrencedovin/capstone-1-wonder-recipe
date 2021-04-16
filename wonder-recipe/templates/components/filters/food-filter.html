@@ -76,8 +76,12 @@
         </div>
         {% if url.find('liked_recipes') != -1 %}
           {% if url.find('likes_descending') != -1 %}
-          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/liked_recipes/likes_ascending">
             Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% elif url.find('likes_ascending') != -1 %}
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/down.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
           </a>
           {% else %}
           <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/users/liked_recipes/likes_descending">
@@ -86,8 +90,12 @@
           {% endif %}
         {% elif url.find('grocery_list') != -1 %}
           {% if url.find('likes_descending') != -1 %}
-          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/grocery_list/likes_descending">
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/grocery_list/likes_ascending">
             Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% elif url.find('likes_ascending') != -1 %}
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/down.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
           </a>
           {% else %}
           <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/users/grocery_list/likes_descending">
@@ -96,8 +104,12 @@
           {% endif %}
         {% else %}
           {% if url.find('likes_descending') != -1 %}
-          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/likes_descending">
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/likes_ascending">
             Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% elif url.find('likes_ascending') != -1 %}
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/down.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
           </a>
           {% else %}
           <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/likes_descending">
