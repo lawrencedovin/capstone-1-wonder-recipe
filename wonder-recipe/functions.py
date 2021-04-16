@@ -61,3 +61,16 @@ def search_likes_ascending(user_list):
         ascending_likes_recipe_list.append(Recipe.query.get(key))
 
     return ascending_likes_recipe_list[:24]
+
+def searchbar(search, user_list):
+
+    recipes_list = []
+
+    if not search:
+        recipes = user_list[:24]
+    else:
+        recipes = Recipe.query.filter(Recipe.title.like(f"%{search.capitalize()}%")).all()
+        for recipe in recipes:
+            if recipe in user_list:
+                recipes_list.append(recipe)
+        return recipes_list[:24]

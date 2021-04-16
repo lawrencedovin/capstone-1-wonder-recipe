@@ -10,7 +10,7 @@ from models import *
 from forms import RegisterForm, LoginForm, EditForm
 from random import sample
 import operator
-from functions import search_diet_filter, search_cuisine_filter, search_likes_descending, search_likes_ascending
+from functions import search_diet_filter, search_cuisine_filter, search_likes_descending, search_likes_ascending, searchbar
 
 CURR_USER_KEY = "curr_user"
 
@@ -216,7 +216,6 @@ def search_descending_likes():
     """
 
     recipes = search_likes_descending(Recipe.query.all())
-
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
@@ -230,7 +229,6 @@ def search_ascending_likes():
     """
 
     recipes = search_likes_ascending(Recipe.query.all())
-
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
@@ -290,18 +288,7 @@ def user_liked_recipe_search_recipes():
     """
 
     search = request.args.get('q')
-    recipes_list = []
-
-    if not search:
-        recipes = g.user.liked_recipes[:24]
-    else:
-        recipes = Recipe.query.filter(Recipe.title.like(f"%{search.capitalize()}%")).all()
-        for recipe in recipes:
-            if recipe in g.user.liked_recipes:
-                recipes_list.append(recipe)
-        recipes = recipes_list[:24]
-
-    
+    recipes = searchbar(search, g.user.liked_recipes)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
@@ -315,17 +302,7 @@ def user_grocery_list_search_recipes():
     """
 
     search = request.args.get('q')
-    recipes_list = []
-
-    if not search:
-        recipes = g.user.grocery_list_recipes[:24]
-    else:
-        recipes = Recipe.query.filter(Recipe.title.like(f"%{search.capitalize()}%")).all()
-        for recipe in recipes:
-            if recipe in g.user.grocery_list_recipes:
-                recipes_list.append(recipe)
-        recipes = recipes_list[:24]
-    
+    recipes = searchbar(search, g.user.grocery_list_recipes)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
@@ -339,7 +316,6 @@ def user_liked_recipes_descending_likes():
     """
 
     recipes = search_likes_descending(g.user.liked_recipes)
-
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
@@ -353,12 +329,13 @@ def user_liked_recipes_ascending_likes():
     """
 
     recipes = search_likes_ascending(g.user.liked_recipes)
-
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
 
     return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+
+# Filtering Grocery List
 
 @app.route('/users/grocery_list/likes_descending')
 def user_grocery_list_descending_likes():
@@ -367,7 +344,6 @@ def user_grocery_list_descending_likes():
     """
 
     recipes = search_likes_descending(g.user.grocery_list_recipes)
-
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
@@ -381,14 +357,11 @@ def user_grocery_list_ascending_likes():
     """
 
     recipes = search_likes_ascending(g.user.grocery_list_recipes)
-
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
 
     return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
-
-# Filtering Grocery List
 
 # Forms
 @app.route('/register', methods=['GET', 'POST'])
