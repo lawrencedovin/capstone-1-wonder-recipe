@@ -440,3 +440,7 @@ button {
 
 .flash-danger {
   background-color: #CF0000; }
+
+.flash-form-success {
+  color: #31B233;
+  background-color: #fff; }

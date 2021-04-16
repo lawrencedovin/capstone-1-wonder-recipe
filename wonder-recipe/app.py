@@ -414,9 +414,42 @@ def login():
 def verify_account():
     return render_template('verify-account.html')
 
-@app.route('/edit_profile')
+@app.route('/users/edit_profile', methods=["GET", "POST"])
 def edit_profile():
-    return render_template('edit-profile.html')
+    """Updated profile for current user."""
+
+    if not g.user:
+        flash("Login to your account.", "danger")
+        return redirect("/")
+    
+    user = g.user
+    form = EditForm(obj=user)
+
+    if form.validate_on_submit():
+
+        if User.authenticate(user.username, form.password.data):
+
+            try:
+                user.username = form.username.data
+                user.email = form.email.data
+                user.phone_number = form.phone_number.data
+
+                db.session.commit()
+            
+            except IntegrityError:
+                flash('Username or Email Address is already taken', 'danger')
+                db.session.rollback()
+                return redirect('/users/edit_profile')
+            
+            flash(f'{user.username} successfully updated!', 'form-success')
+            return redirect('/users/edit_profile')
+        else:
+            flash('Invalid Password', 'danger')
+            return redirect('/users/edit_profile')
+        
+    else:
+        url = request.referrer
+        return render_template('edit-profile.html', user=user, form=form, url=url)
 
 # Logout
 @app.route('/logout')

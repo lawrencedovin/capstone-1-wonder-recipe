@@ -17,9 +17,11 @@ class User(db.Model):
                    primary_key=True,
                    autoincrement=True)
     username = db.Column(db.String(20),
-                     nullable=False)
+                     nullable=False,
+                     unique=True)
     email = db.Column(db.String(64),
-                     nullable=False)
+                     nullable=False,
+                     unique=True)
     password = db.Column(db.String(128),
                      nullable=False)
     phone_number = db.Column(db.String(16),

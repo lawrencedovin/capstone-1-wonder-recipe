@@ -1,6 +1,7 @@
 {% extends '/components/forms/form-template.html'%}
 {% block form %}
 <form method="POST" class="forms__register">
+    {{ form.hidden_tag() }}
     <div class="forms__icon-container text-center">
         <i class="fas fa-user forms__icon"></i>
     </div>
@@ -8,7 +9,23 @@
     <p class="forms__description text-center">
         Update your user credentials and save changes
     </p>
-    <div class="input-group forms__input-container align-items-center">
+    {% for field in form if field.widget.input_type != 'hidden' and field.name != 'password' %}
+    {% for error in field.errors %}
+      <span class="text-danger">{{ error }}</span>
+    {% endfor %}
+    {{ field(placeholder=field.label.text, class="form-control") }}
+    {% endfor %}
+
+    <p>To confirm changes, enter your password:</p>
+    {% if form.password.errors %}
+    {% for error in form.password.errors %}
+        <span class="text-danger">
+        {{ error }}
+        </span>
+    {% endfor %}
+    {% endif %}
+    {{ form.password(placeholder="Enter your password to confirm", class="form-control") }}   
+    <!-- <div class="input-group forms__input-container align-items-center">
         <input type="text" class="form-control forms__input" name="username" id="username" placeholder="lawrence123" autocomplete="off" required>
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-user"></i>
@@ -32,7 +49,7 @@
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-lock"></i>
         </span>
-    </div>
+    </div> -->
     {% include '/components/buttons/edit-profile-button.html' %}
 </form>
 {% endblock %}
