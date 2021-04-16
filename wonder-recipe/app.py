@@ -392,14 +392,14 @@ def user_liked_recipes_descending_likes():
     return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/users/liked_recipes/likes_ascending')
-def user_liked_ascending_likes():
+def user_liked_recipes_ascending_likes():
     """Page that displays 24 recipes by likes
     in ascending order.    
     """
 
     # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
     recipe_dict = {}
-    for recipe in Recipe.query.all():
+    for recipe in g.user.liked_recipes:
         recipe_dict[recipe.id] = len(recipe.liked_by_users)
 
     # Sorts dictionary by ascending order, the key,value pairs with the highest
@@ -419,6 +419,64 @@ def user_liked_ascending_likes():
     url = request.url
 
     return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+
+@app.route('/users/grocery_list/likes_descending')
+def user_grocery_list_descending_likes():
+    """Page that displays 24 recipes by likes
+    in descending order.    
+    """
+
+    # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
+    recipe_dict = {}
+    for recipe in g.user.grocery_list_recipes:
+        recipe_dict[recipe.id] = len(recipe.liked_by_users)
+
+    # Sorts dictionary by descending order, the key,value pairs with the highest
+    # likes will go first.
+    descending_order = dict(sorted(recipe_dict.items(), key=operator.itemgetter(1), reverse=True))
+
+    # Stores the full recipes by getting the id and places it
+    # into a list based on the sorted dictionary
+    descending_likes_recipe_list = []
+    for key, value in descending_order.items():
+        descending_likes_recipe_list.append(Recipe.query.get(key))
+
+    recipes = descending_likes_recipe_list[:24]
+
+    diets = Diet.query.limit(11).all()
+    cuisines = Cuisine.query.all()
+    url = request.url
+
+    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+
+@app.route('/users/grocery_list/likes_ascending')
+def user_grocery_list_ascending_likes():
+    """Page that displays 24 recipes by likes
+    in ascending order.    
+    """
+
+    # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
+    recipe_dict = {}
+    for recipe in g.user.grocery_list_recipes:
+        recipe_dict[recipe.id] = len(recipe.liked_by_users)
+
+    # Sorts dictionary by ascending order, the key,value pairs with the highest
+    # likes will go first.
+    ascending_order = dict(sorted(recipe_dict.items(), key=operator.itemgetter(1)))
+
+    # Stores the full recipes by getting the id and places it
+    # into a list based on the sorted dictionary
+    ascending_likes_recipe_list = []
+    for key, value in ascending_order.items():
+        ascending_likes_recipe_list.append(Recipe.query.get(key))
+
+    recipes = ascending_likes_recipe_list[:24]
+
+    diets = Diet.query.limit(11).all()
+    cuisines = Cuisine.query.all()
+    url = request.url
+
+    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 # Filtering Grocery List
 
