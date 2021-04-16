@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="btn-group food-filter">
         <div class="dropdown">
-          {% if url.find('cuisines') != -1 or url.find('likes_descending') != -1 %}
+          {% if url.find('cuisines') != -1 or url.find('likes_descending') != -1 or url.find('likes_ascending') != -1 %}
           <button
             class="food-filter__button food-filter__button--inactive food-filter__button--diet"
             type="button"
