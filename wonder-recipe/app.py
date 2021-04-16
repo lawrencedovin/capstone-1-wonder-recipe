@@ -10,7 +10,7 @@ from models import *
 from forms import RegisterForm, LoginForm, EditForm
 from random import sample
 import operator
-from functions import search_diet_filter, search_cuisine_filter, search_likes_descending, search_likes_ascending, searchbar
+from functions import *
 
 CURR_USER_KEY = "curr_user"
 
@@ -423,7 +423,6 @@ def edit_profile():
 def logout():
     """Handle logout of user."""
 
-    # IMPLEMENT THIS
     do_logout()
     flash('Logged out successfully', 'success')
     return redirect('/')

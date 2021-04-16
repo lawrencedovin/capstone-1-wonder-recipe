@@ -50,17 +50,35 @@
           </div>
         </div>
         {% if url.find('liked_recipes') != -1 %}
-        <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/users/liked_recipes/likes_descending">
-          Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
-        </a>
+          {% if url.find('likes_descending') != -1 %}
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% else %}
+          <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% endif %}
         {% elif url.find('grocery_list') != -1 %}
-        <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/users/grocery_list/likes_descending">
-          Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
-        </a>
+          {% if url.find('likes_descending') != -1 %}
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% else %}
+          <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% endif %}
         {% else %}
-        <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/likes_descending">
-          Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
-        </a>
+          {% if url.find('likes_descending') != -1 %}
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% else %}
+          <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/users/liked_recipes/likes_descending">
+            Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
+          </a>
+          {% endif %}
         {% endif %}
       </div>
     </div>
