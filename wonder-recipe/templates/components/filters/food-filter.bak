@@ -3,18 +3,6 @@
     <div class="col-md-12">
       <div class="btn-group food-filter">
         <div class="dropdown">
-          {% if url.find('cuisines') != -1 or url.find('likes_descending') != -1 %}
-          <button
-            class="food-filter__button food-filter__button--inactive food-filter__button--diet"
-            type="button"
-            id="dropdownMenu2"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Diet
-          </button>
-          {% else %}
           <button
             class="food-filter__button food-filter__button--active food-filter__button--diet"
             type="button"
@@ -24,8 +12,8 @@
             aria-expanded="false"
           >
             Diet
+            
           </button>
-          {% endif %}
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             {% for diet in diets %}
             {% if url.find('liked_recipes') != -1 %}
@@ -39,18 +27,6 @@
           </div>
         </div>
         <div class="dropdown">
-          {% if url.find('cuisines') != -1 %}
-          <button
-            class="food-filter__button food-filter__button--active"
-            type="button"
-            id="dropdownMenu2"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Cuisine
-          </button>
-          {% else %}
           <button
             class="food-filter__button food-filter__button--inactive"
             type="button"
@@ -61,7 +37,6 @@
           >
             Cuisine
           </button>
-          {% endif %}
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             {% for cuisine in cuisines %}
             {% if url.find('liked_recipes') != -1 %}
