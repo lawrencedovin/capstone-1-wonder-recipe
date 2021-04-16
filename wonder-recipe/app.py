@@ -10,7 +10,7 @@ from models import *
 from forms import RegisterForm, LoginForm, EditForm
 from random import sample
 import operator
-from functions import search_diet_filter, search_cuisine_filter
+from functions import search_diet_filter, search_cuisine_filter, search_likes_descending
 
 CURR_USER_KEY = "curr_user"
 
@@ -215,22 +215,7 @@ def search_descending_likes():
     in descending order.    
     """
 
-    # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
-    recipe_dict = {}
-    for recipe in Recipe.query.all():
-        recipe_dict[recipe.id] = len(recipe.liked_by_users)
-
-    # Sorts dictionary by descending order, the key,value pairs with the highest
-    # likes will go first.
-    descending_order = dict(sorted(recipe_dict.items(), key=operator.itemgetter(1), reverse=True))
-
-    # Stores the full recipes by getting the id and places it
-    # into a list based on the sorted dictionary
-    descending_likes_recipe_list = []
-    for key, value in descending_order.items():
-        descending_likes_recipe_list.append(Recipe.query.get(key))
-
-    recipes = descending_likes_recipe_list[:24]
+    recipes = search_likes_descending(Recipe.query.all())
 
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
@@ -368,22 +353,7 @@ def user_liked_recipes_descending_likes():
     in descending order.    
     """
 
-    # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
-    recipe_dict = {}
-    for recipe in g.user.liked_recipes:
-        recipe_dict[recipe.id] = len(recipe.liked_by_users)
-
-    # Sorts dictionary by descending order, the key,value pairs with the highest
-    # likes will go first.
-    descending_order = dict(sorted(recipe_dict.items(), key=operator.itemgetter(1), reverse=True))
-
-    # Stores the full recipes by getting the id and places it
-    # into a list based on the sorted dictionary
-    descending_likes_recipe_list = []
-    for key, value in descending_order.items():
-        descending_likes_recipe_list.append(Recipe.query.get(key))
-
-    recipes = descending_likes_recipe_list[:24]
+    recipes = search_likes_descending(g.user.liked_recipes)
 
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
@@ -426,22 +396,7 @@ def user_grocery_list_descending_likes():
     in descending order.    
     """
 
-    # Makes dictionary out of id as the key and likes as of value ie. {1231234: 1}
-    recipe_dict = {}
-    for recipe in g.user.grocery_list_recipes:
-        recipe_dict[recipe.id] = len(recipe.liked_by_users)
-
-    # Sorts dictionary by descending order, the key,value pairs with the highest
-    # likes will go first.
-    descending_order = dict(sorted(recipe_dict.items(), key=operator.itemgetter(1), reverse=True))
-
-    # Stores the full recipes by getting the id and places it
-    # into a list based on the sorted dictionary
-    descending_likes_recipe_list = []
-    for key, value in descending_order.items():
-        descending_likes_recipe_list.append(Recipe.query.get(key))
-
-    recipes = descending_likes_recipe_list[:24]
+    recipes = search_likes_descending(g.user.grocery_list_recipes)
 
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
