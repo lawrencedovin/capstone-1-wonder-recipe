@@ -167,7 +167,6 @@ def remove_grocery_item(recipe_id):
     return redirect(request.referrer)
 
 # Filtering Homepage
-
 @app.route('/diets/<search_diet>')
 def diet_search(search_diet):
 
@@ -259,28 +258,6 @@ def user_liked_recipe_cuisine_search(search_cuisine):
 
     return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
-@app.route('/users/grocery_list/diets/<search_diet>')
-def user_grocery_list_diet_search(search_diet):
-
-    all_recipes = g.user.grocery_list_recipes[:24]
-    recipes = search_diet_filter(all_recipes, search_diet)
-    diets = Diet.query.limit(11).all()
-    cuisines = Cuisine.query.all()
-    url = request.url
-
-    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
-
-@app.route('/users/grocery_list/cuisines/<search_cuisine>')
-def user_grocery_list_cuisine_search(search_cuisine):
-
-    all_recipes = g.user.grocery_list_recipes[:24]
-    recipes = search_cuisine_filter(all_recipes, search_cuisine)
-    diets = Diet.query.limit(11).all()
-    cuisines = Cuisine.query.all()
-    url = request.url
-
-    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
-
 @app.route('/users/liked_recipes/search')
 def user_liked_recipe_search_recipes():
     """Page with listing of recipes.
@@ -294,20 +271,6 @@ def user_liked_recipe_search_recipes():
     url = request.url
 
     return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
-
-@app.route('/users/grocery_list/search')
-def user_grocery_list_search_recipes():
-    """Page with listing of recipes.
-    Can take a 'q' param in querystring to search by that recipe name.
-    """
-
-    search = request.args.get('q')
-    recipes = searchbar(search, g.user.grocery_list_recipes)
-    diets = Diet.query.limit(11).all()
-    cuisines = Cuisine.query.all()
-    url = request.url
-
-    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/users/liked_recipes/likes_descending')
 def user_liked_recipes_descending_likes():
@@ -336,6 +299,41 @@ def user_liked_recipes_ascending_likes():
     return render_template('liked-recipes.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 # Filtering Grocery List
+@app.route('/users/grocery_list/diets/<search_diet>')
+def user_grocery_list_diet_search(search_diet):
+
+    all_recipes = g.user.grocery_list_recipes[:24]
+    recipes = search_diet_filter(all_recipes, search_diet)
+    diets = Diet.query.limit(11).all()
+    cuisines = Cuisine.query.all()
+    url = request.url
+
+    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+
+@app.route('/users/grocery_list/cuisines/<search_cuisine>')
+def user_grocery_list_cuisine_search(search_cuisine):
+
+    all_recipes = g.user.grocery_list_recipes[:24]
+    recipes = search_cuisine_filter(all_recipes, search_cuisine)
+    diets = Diet.query.limit(11).all()
+    cuisines = Cuisine.query.all()
+    url = request.url
+
+    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+
+@app.route('/users/grocery_list/search')
+def user_grocery_list_search_recipes():
+    """Page with listing of recipes.
+    Can take a 'q' param in querystring to search by that recipe name.
+    """
+
+    search = request.args.get('q')
+    recipes = searchbar(search, g.user.grocery_list_recipes)
+    diets = Diet.query.limit(11).all()
+    cuisines = Cuisine.query.all()
+    url = request.url
+
+    return render_template('grocery-list.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
 @app.route('/users/grocery_list/likes_descending')
 def user_grocery_list_descending_likes():
