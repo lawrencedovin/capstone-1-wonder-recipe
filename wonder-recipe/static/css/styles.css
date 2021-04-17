@@ -300,7 +300,8 @@ button {
   margin: 8.8rem auto;
   border-radius: 5rem; }
   .sms__button:hover {
-    color: #fff; }
+    color: #fff;
+    background: #009B49; }
   .sms__button-icon {
     margin-top: -.8rem;
     margin-left: 1.6rem; }
