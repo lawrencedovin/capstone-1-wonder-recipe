@@ -602,6 +602,11 @@
     border: none;
 }
 
+.flash-success,
+.flash-danger {
+    color: $color-white;
+}
+
 .flash-success {
     background-color: $color-dark-green;
 }
