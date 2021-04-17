@@ -9,47 +9,59 @@
     <p class="forms__description text-center">
         Update your user credentials and save changes
     </p>
-    {% for field in form if field.widget.input_type != 'hidden' and field.name != 'password' %}
-    {% for error in field.errors %}
-      <span class="text-danger">{{ error }}</span>
-    {% endfor %}
-    {{ field(placeholder=field.label.text, class="form-control") }}
-    {% endfor %}
-
-    <p>To confirm changes, enter your password:</p>
-    {% if form.password.errors %}
-    {% for error in form.password.errors %}
-        <span class="text-danger">
-        {{ error }}
-        </span>
-    {% endfor %}
-    {% endif %}
-    {{ form.password(placeholder="Enter your password to confirm", class="form-control") }}   
-    <!-- <div class="input-group forms__input-container align-items-center">
-        <input type="text" class="form-control forms__input" name="username" id="username" placeholder="lawrence123" autocomplete="off" required>
+    <div class="input-group forms__input-container align-items-center">
+        {{ form.username(class_="form-control forms__input", autocomplete="off") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-user"></i>
         </span>
+        {% if form.username.errors %}
+          {% for error in form.username.errors %}
+            <small class="form-text text-danger">
+                {{ error }}
+            </small>
+          {% endfor %}
+        {% endif %}
     </div>
     <div class="input-group forms__input-container align-items-center">
-        <input type="email" class="form-control forms__input" name="email" id="email" placeholder="lawrencedovin@gmail.com" required>
+        {{ form.email(class_="form-control forms__input", autocomplete="off") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-envelope"></i>
         </span>
+        {% if form.email.errors %}
+          {% for error in form.email.errors %}
+            <small class="form-text text-danger">
+                {{ error }}
+            </small>
+          {% endfor %}
+        {% endif %}
     </div>
     <div class="input-group forms__input-container align-items-center">
-        <input type="text" class="form-control forms__input" name="phoneno" id="phoneno" placeholder="(201) 654-1555" required>
+        {{ form.phone_number(class_="form-control forms__input", autocomplete="off") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-phone"></i>
         </span>
     </div>
+    {% if form.phone_number.errors %}
+      {% for error in form.phone_number.errors %}
+        <small class="form-text text-danger">
+            {{ error }}
+        </small>
+      {% endfor %}
+    {% endif %}
     <p class="forms__confirm-changes">To confirm changes, enter your password</p>
     <div class="input-group forms__input-container align-items-center">
-        <input type="password" class="form-control forms__input" name="password" id="password" placeholder="Password" autocomplete="off" required>
+        {{ form.password(class_="form-control forms__input", placeholder="Password", autocomplete="off") }}
         <span class="input-group-btn forms__input-icon align-middle">
             <i class="fas fa-lock"></i>
         </span>
-    </div> -->
+    </div>
+    {% if form.password.errors %}
+      {% for error in form.password.errors %}
+        <small class="form-text text-danger">
+            {{ error }}
+        </small>
+      {% endfor %}
+    {% endif %}
     {% include '/components/buttons/edit-profile-button.html' %}
 </form>
 {% endblock %}
