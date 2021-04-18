@@ -448,8 +448,7 @@ def edit_profile():
             return redirect('/users/edit_profile')
         
     else:
-        url = request.referrer
-        return render_template('edit-profile.html', user=user, form=form, url=url)
+        return render_template('edit-profile.html', user=user, form=form)
 
 # Logout
 @app.route('/logout')
