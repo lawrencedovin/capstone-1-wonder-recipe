@@ -16,7 +16,7 @@ from models import *
 # before we import our app, since that will have already
 # connected to the database
 
-os.environ['DATABASE_URL'] = "postgresql:///wonder_recipe_db"
+os.environ['DATABASE_URL'] = "postgresql:///wonder_recipe"
 
 
 # Now we can import app
