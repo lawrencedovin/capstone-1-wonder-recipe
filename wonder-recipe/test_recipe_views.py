@@ -1,4 +1,4 @@
-"""User View tests."""
+"""Message View tests."""
 
 # run these tests like:
 #
@@ -8,15 +8,14 @@
 import os
 from unittest import TestCase
 
-from models import db, connect_db, Message, User, Likes, Follows
-from bs4 import BeautifulSoup
+from models import *
 
 # BEFORE we import our app, let's set an environmental variable
 # to use a different database for tests (we need to do this
 # before we import our app, since that will have already
 # connected to the database
 
-os.environ['DATABASE_URL'] = "postgresql:///wonder_recipe_test"
+os.environ['DATABASE_URL'] =  "postgresql:///wonder_recipe_test"
 
 
 # Now we can import app
