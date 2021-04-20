@@ -1,8 +1,8 @@
-"""Message View tests."""
+"""Recipe View tests."""
 
 # run these tests like:
 #
-#    FLASK_ENV=production python -m unittest test_message_views.py
+#    FLASK_ENV=production python -m unittest test_recipe_views.py
 
 
 import os
