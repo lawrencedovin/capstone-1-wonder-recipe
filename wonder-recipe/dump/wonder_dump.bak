@@ -185,7 +185,8 @@ CREATE TABLE public.users (
     username character varying(20) NOT NULL,
     email character varying(64) NOT NULL,
     password character varying(128) NOT NULL,
-    phone_number character varying(16) NOT NULL
+    phone_number character varying(16) NOT NULL,
+    UNIQUE (username, email)
 );
 
 
@@ -299,14 +300,6 @@ COPY public.diets (id, title) FROM stdin;
 --
 
 COPY public.grocery_list (user_id, recipe_id) FROM stdin;
-4	648565
-4	715545
-4	652078
-4	657686
-4	636096
-4	638642
-6	642413
-8	1095740
 \.
 
 
@@ -315,51 +308,6 @@ COPY public.grocery_list (user_id, recipe_id) FROM stdin;
 --
 
 COPY public.likes (user_id, recipe_id) FROM stdin;
-1	1096024
-4	648279
-4	645354
-4	659906
-4	636096
-4	645541
-4	654331
-4	648432
-4	663087
-4	659158
-4	642125
-4	642138
-4	1095731
-4	644907
-4	647109
-4	715438
-4	665379
-4	638642
-4	657768
-4	657686
-4	664737
-4	661249
-4	653500
-4	633093
-4	648565
-6	715533
-6	716268
-6	794538
-6	664501
-6	660504
-6	715594
-6	715495
-6	648257
-6	640323
-6	647109
-6	1096057
-6	657768
-6	659674
-8	649030
-8	638626
-8	648758
-8	649354
-8	663113
-8	652134
-8	1095834
 \.
 
 
@@ -2676,14 +2624,6 @@ COPY public.recipes (id, title, image, ingredients, macros, directions, ready_in
 --
 
 COPY public.users (id, username, email, password, phone_number) FROM stdin;
-1	lawrence123	lawrence@gmail.com	abc123	6105791888
-2	julie1	julie@gmail.com	123abc	6105791885
-3	miguel91	miguel@gmail.com	00123	6105791845
-5	pikachu	pika@gmail.com	$2b$12$3ZC74HKACBiaBuz.V4L2zOyb/9pADp8CGW3lNMHRQDU8vY9UTPfTm	5107861854
-4	robocop	robo@yahoo.com	abc1234	6105791854
-6	robocop	snorlax@aol.com	$2b$12$1IymnZNIzJAzNg.xGcGJa.q6VvpYacX7O76R4Uo2A1dIDt4nTmb62	6105791234
-7	robocop	robocop@gmail.com	$2b$12$ZDqs.e6gTrES.1RAYTGfS.NGrd7tS0gj.f0bUTpVKIau2tNpdgFOi	6105791345
-8	potato	potato@aol.com	$2b$12$DLdRRzoTjm7pWwN9Mz266.vtPDWlAbqgc.Q78XZe3L17SSbPOrxPC	6107895489
 \.
 
 
@@ -2729,38 +2669,6 @@ ALTER TABLE ONLY public.cuisines
 
 ALTER TABLE ONLY public.diets
     ADD CONSTRAINT diets_pkey PRIMARY KEY (id);
-
-
---
--- Name: grocery_list grocery_list_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.grocery_list
-    ADD CONSTRAINT grocery_list_pkey PRIMARY KEY (user_id, recipe_id);
-
-
---
--- Name: likes likes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.likes
-    ADD CONSTRAINT likes_pkey PRIMARY KEY (user_id, recipe_id);
-
-
---
--- Name: recipe_cuisine recipe_cuisine_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.recipe_cuisine
-    ADD CONSTRAINT recipe_cuisine_pkey PRIMARY KEY (recipe_id, cuisine_id);
-
-
---
--- Name: recipe_diet recipe_diet_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.recipe_diet
-    ADD CONSTRAINT recipe_diet_pkey PRIMARY KEY (recipe_id, diet_id);
 
 
 --

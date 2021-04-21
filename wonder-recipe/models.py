@@ -138,6 +138,9 @@ class Recipe(db.Model):
 class RecipeDiet(db.Model):
     __tablename__ = 'recipe_diet'
 
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id', ondelete='cascade'), primary_key=True)
     diet_id = db.Column(db.Integer, db.ForeignKey('diets.id', ondelete='cascade'), primary_key=True)
 
@@ -148,6 +151,9 @@ class RecipeDiet(db.Model):
 class RecipeCuisine(db.Model):
     __tablename__ = 'recipe_cuisine'
 
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id', ondelete='cascade'), primary_key=True)
     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisines.id', ondelete='cascade'), primary_key=True)
 
@@ -158,6 +164,9 @@ class RecipeCuisine(db.Model):
 class GroceryList(db.Model):
     __tablename__ = 'grocery_list'
 
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='cascade'), primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id', ondelete='cascade'), primary_key=True)
 
@@ -168,6 +177,9 @@ class GroceryList(db.Model):
 class Likes(db.Model):
     __tablename__ = 'likes'
 
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='cascade'), primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id', ondelete='cascade'), primary_key=True)
 
