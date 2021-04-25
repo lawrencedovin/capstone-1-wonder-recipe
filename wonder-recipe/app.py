@@ -71,7 +71,11 @@ def paginate_food(page_number):
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number)
+    if page_number > 5:
+        page_list = list(range(page_number-2, page_number+3))
+    else:
+        page_list = [item for item in range(1, 6)]
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number, page_list=page_list)
 
 # User Pages
 
