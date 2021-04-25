@@ -59,12 +59,7 @@ def do_logout():
 
 @app.route('/')
 def home():
-    # recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
-    recipes = Recipe.query.filter().limit(24).all()
-    diets = Diet.query.limit(11).all()
-    cuisines = Cuisine.query.all()
-    url = request.url
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+    return redirect("/page_1")
 
 # Pagination
 @app.route('/page_<int:page_number>')
