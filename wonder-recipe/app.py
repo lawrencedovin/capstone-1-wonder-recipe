@@ -57,7 +57,8 @@ def do_logout():
 
 @app.route('/')
 def home():
-    recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
+    # recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
+    recipes = Recipe.query.filter().limit(24).all()
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
