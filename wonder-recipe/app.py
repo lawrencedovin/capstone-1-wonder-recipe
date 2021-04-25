@@ -76,7 +76,7 @@ def paginate_food(page_number):
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number)
 
 # User Pages
 
