@@ -55,6 +55,8 @@ def do_logout():
     if CURR_USER_KEY in session:
         del session[CURR_USER_KEY]
 
+# Homepage
+
 @app.route('/')
 def home():
     # recipes = Recipe.query.filter().order_by(func.random()).limit(24).all()
@@ -63,6 +65,20 @@ def home():
     cuisines = Cuisine.query.all()
     url = request.url
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+
+# Pagination
+@app.route('/page_<int:page_number>')
+def paginate_food(page_number):
+    recipes = []
+    recipes_paginate = Recipe.query.paginate(page=page_number, per_page=24)
+    for recipe in recipes_paginate.items:
+        recipes.append(recipe)
+    diets = Diet.query.limit(11).all()
+    cuisines = Cuisine.query.all()
+    url = request.url
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+
+# User Pages
 
 @app.route('/users/<int:user_id>/liked_recipes')
 def liked_recipes(user_id):
