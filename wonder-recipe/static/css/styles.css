@@ -240,8 +240,17 @@ button {
       height: 1.6rem;
       color: #31B233;
       margin-left: 1.6rem;
+      margin-top: .4rem;
       position: absolute;
-      bottom: 1rem;
+      filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%); }
+    .pagination__button--previous, .pagination__button--previous:hover {
+      color: #050505;
+      position: relative; }
+    .pagination__button--previous-icon {
+      height: 1.6rem;
+      color: #31B233;
+      margin-right: 1.2rem;
+      margin-top: .4rem;
       filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%); }
 
 .footer {

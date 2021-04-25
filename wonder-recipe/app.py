@@ -183,27 +183,29 @@ def remove_grocery_item(recipe_id):
     return redirect(request.referrer)
 
 # Filtering Homepage
-@app.route('/diets/<search_diet>')
-def diet_search(search_diet):
+@app.route('/diets/<search_diet>/page_<int:page_number>')
+def diet_search(search_diet, page_number):
 
     all_recipes = Recipe.query.all()
     recipes = search_diet_filter(all_recipes, search_diet)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
+    page_number = 1
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number)
 
-@app.route('/cuisines/<search_cuisine>')
-def cuisine_search(search_cuisine):
+@app.route('/cuisines/<search_cuisine>/page_<int:page_number>')
+def cuisine_search(search_cuisine, page_number):
 
     all_recipes = Recipe.query.all()
     recipes = search_cuisine_filter(all_recipes, search_cuisine)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
+    page_number = 1
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number)
 
 @app.route('/search')
 def search_recipes():

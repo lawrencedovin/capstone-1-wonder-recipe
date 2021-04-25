@@ -297,8 +297,25 @@
                 height: 1.6rem;
                 color: $color-green;
                 margin-left: 1.6rem;
+                margin-top: .4rem;
                 position: absolute;
-                bottom: 1rem;
+                filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
+            }
+        }
+
+        &--previous {
+
+            &,
+            &:hover {
+                color: $color-black;
+                position: relative;
+            }
+
+            &-icon {
+                height: 1.6rem;
+                color: $color-green;
+                margin-right: 1.2rem;
+                margin-top: .4rem;
                 filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
             }
         }
