@@ -185,25 +185,46 @@ def remove_grocery_item(recipe_id):
 # Filtering Homepage
 @app.route('/diets/<search_diet>/page_<int:page_number>')
 def diet_search(search_diet, page_number):
-
-    all_recipes = Recipe.query.all()
-    recipes = search_diet_filter(all_recipes, search_diet)
+    recipes = []
+    # all_recipes = Recipe.query.filter(Recipe.diets.contains(f'{search_diet}')).all()
+    # diet = Diet.query.filter(Diet.title == search_diet)
+    all_diets = Diet.query.all()
+    for diet in all_diets:
+        if diet.title == search_diet:
+            diet_id = diet.id
+    # diet = Diet.query.filter_by(title==search_diet)
+    diet = Diet.query.get(diet_id)
+    # diet = Diet.query.get(diet_id).limit(24).offset((page_number-1)*24)
+    # diet_list = Diet.query.filter(Diet.title.like('%'+search_diet+'%')).paginate(int(page_number), int(24),False)
+    recipes = diet.recipe[:24]
+    # recipe_paginate = recipe_paginate.paginate(page=page_number, per_page=24)
+    # for recipe in recipe_paginate.items:
+    #     recipes.append(recipe)
+    # recipes = diet.recipe
+    # recipes = Diet.query.filter(Diet.title.contains(f'{search_diet}').all()
+    # diet_recipes = search_diet_filter(all_recipes, search_diet)
+    # recipes = cuisine_recipes[:24]
+    # recipes = recipes[:24]
+    # recipes_paginate = diet_recipes.paginate(page=page_number, per_page=24)
+    # for diet in diet_list.items:
+    #     for recipe in diet.recipe:
+    #         recipes.append(recipe)
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
-    page_number = 1
 
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number)
 
 @app.route('/cuisines/<search_cuisine>/page_<int:page_number>')
 def cuisine_search(search_cuisine, page_number):
-
+    recipes = []
     all_recipes = Recipe.query.all()
-    recipes = search_cuisine_filter(all_recipes, search_cuisine)
+    cuisine_recipes = search_cuisine_filter(all_recipes, search_cuisine)
+    recipes = cuisine_recipes[:24]
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
-    page_number = 1
+    # page_number = 1
 
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number)
 
