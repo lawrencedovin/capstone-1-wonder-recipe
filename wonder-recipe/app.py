@@ -247,31 +247,33 @@ def search_recipes():
 
     return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
 
-@app.route('/likes_descending')
-def search_descending_likes():
+@app.route('/likes_descending/page_<int:page_number>')
+def search_descending_likes(page_number):
     """Page that displays 24 recipes by likes
     in descending order.    
     """
 
     recipes = search_likes_descending(Recipe.query.all())
+    recipes = recipes[:24]
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number)
 
-@app.route('/likes_ascending')
-def search_ascending_likes():
+@app.route('/likes_ascending/page_<int:page_number>')
+def search_ascending_likes(page_number):
     """Page that displays 24 recipes by likes
     in ascending order.    
     """
 
     recipes = search_likes_ascending(Recipe.query.all())
+    recipes = recipes[:24]
     diets = Diet.query.limit(11).all()
     cuisines = Cuisine.query.all()
     url = request.url
 
-    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url)
+    return render_template('home.html', recipes=recipes, diets=diets, cuisines=cuisines, url=url, page_number=page_number)
 
 
 # Filtering Likes

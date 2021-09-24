@@ -104,15 +104,15 @@
           {% endif %}
         {% else %}
           {% if url.find('likes_descending') != -1 %}
-          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/likes_ascending">
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/likes_ascending/page_1">
             Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
           </a>
           {% elif url.find('likes_ascending') != -1 %}
-          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/likes_descending">
+          <a class="food-filter__button food-filter__button--active food-filter__button--likes" href="/likes_descending/page_1">
             Likes <img src="../../../static/images/icons/down.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
           </a>
           {% else %}
-          <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/likes_descending">
+          <a class="food-filter__button food-filter__button--inactive food-filter__button--likes" href="/likes_descending/page_1">
             Likes <img src="../../../static/images/icons/top.svg" alt="" class="food-filter__button--likes-icon" id="likesIcon">
           </a>
           {% endif %}
