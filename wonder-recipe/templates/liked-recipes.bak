@@ -5,5 +5,6 @@
 {% include '/components/filters/searchbar.html' %}
 {% include '/components/filters/food-filter.html' %}
 {% include '/components/food-cards.html' %}
+<!-- {% include '/components/buttons/pagination.html' %} -->
 {% include '/components/footer.html' %}
 {% endblock %}

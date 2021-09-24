@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+       <div class="col-md-12">
+          <div class="btn-group pagination d-flex justify-content-end">
+            {% if page_number > 5 %}
+            <a class="pagination__button pagination__button--previous" href="/page_{{page_number-1}}">
+               <img src="../../../static/images/icons/previous.svg" alt="" class="pagination__button--previous-icon"> previous
+            </a>
+            {% endif %}
+            {% for page_item in page_list %}
+            {% if page_number == page_item %}
+            <a class="pagination__button pagination__button--active" href="/page_{{page_item}}">
+               {{page_item}}
+            </a>
+            {% else %}
+            <a class="pagination__button pagination__button--inactive" href="/page_{{page_item}}">
+               {{page_item}}
+            </a>
+            {% endif %}
+            {% endfor %}
+            <a class="pagination__button pagination__button--next" href="/page_{{page_number+1}}">
+               next <img src="../../../static/images/icons/next.svg" alt="" class="pagination__button--next-icon">
+            </a>
+          </div>
+       </div>
+       {{page_list}}
+    </div>
+ </div>
