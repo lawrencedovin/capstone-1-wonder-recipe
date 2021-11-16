@@ -11,15 +11,18 @@ from forms import RegisterForm, LoginForm, EditForm
 from random import sample
 import operator
 from functions import *
+import os
 
 CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///wonder_recipe'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///wonder_recipe'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///wonder_recipe')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
-app.config['SECRET_KEY'] = 'pikachu'
+# app.config['SECRET_KEY'] = 'pikachu'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'pikachu')
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
