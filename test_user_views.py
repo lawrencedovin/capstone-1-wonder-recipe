@@ -8,8 +8,9 @@
 import os
 from unittest import TestCase
 
-from models import db, connect_db, Message, User, Likes, Follows
-from bs4 import BeautifulSoup
+# from models import db, connect_db, Message, User, Likes, Follows
+from models import *
+# from bs4 import BeautifulSoup
 
 # BEFORE we import our app, let's set an environmental variable
 # to use a different database for tests (we need to do this
@@ -27,8 +28,17 @@ from app import app, CURR_USER_KEY
 # once for all tests --- in each test, we'll delete the data
 # and create fresh new clean test data
 
-db.create_all()
+# db.create_all()
 
 # Don't have WTForms use CSRF at all, since it's a pain to test
 
-app.config['WTF_CSRF_ENABLED'] = False
+# app.config['WTF_CSRF_ENABLED'] = False
+
+class HomeViewsTestCase(TestCase):
+    def test_home_view(self):
+        with app.test_client() as client:
+            res = client.get('/page_1')
+            html = res.get_data(as_text=True)
+
+            self.assertEqual(res.status_code, 200)
+            self.assertIn('<h1 class="hero-container__caption text-center">Discover Recipes.</h1>', html)

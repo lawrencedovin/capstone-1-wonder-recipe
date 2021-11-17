@@ -27,4 +27,6 @@ from app import app
 # once for all tests --- in each test, we'll delete the data
 # and create fresh new clean test data
 
-db.create_all()
+
+
+# db.create_all()

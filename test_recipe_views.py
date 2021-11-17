@@ -26,8 +26,8 @@ from app import app, CURR_USER_KEY
 # once for all tests --- in each test, we'll delete the data
 # and create fresh new clean test data
 
-db.create_all()
+# db.create_all()
 
 # Don't have WTForms use CSRF at all, since it's a pain to test
 
-app.config['WTF_CSRF_ENABLED'] = False
+# app.config['WTF_CSRF_ENABLED'] = False

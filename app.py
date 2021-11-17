@@ -18,6 +18,7 @@ CURR_USER_KEY = "curr_user"
 app = Flask(__name__)
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///wonder_recipe'
+# If DATABASE_URL exists use that otherwise use the computer's postgresql:///wonder_recipe database
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///wonder_recipe')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
