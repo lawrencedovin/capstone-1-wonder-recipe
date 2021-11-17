@@ -3,7 +3,7 @@
 from models import *
 from app import app
 from cuisinesdiets import cuisines, diets
-from secrets import API_KEY
+# from secrets import API_KEY
 from wonderrecipes import WonderRecipe
 from sqlalchemy import exc
 
@@ -52,66 +52,66 @@ db.session.commit()
 # Adds Recipe after Cuisine has been made to link the relationship
 # between Recipe and Cuisine
 ####################################
-recipe_list = []
-for cuisine in cuisines:
-   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=40)
-   serialized_recipes = recipes.serialize()
-   for recipe in serialized_recipes:
-      id = recipe["id"]
-      title = recipe["title"]
-      image = recipe["image"]
-      ingredients = recipe["ingredients"]
-      macros = recipe["macros"]
-      directions = recipe["directions"]
-      ready_in_minutes = recipe["readyInMinutes"]
-      servings = recipe["servings"]
-      recipe = Recipe(id=id, title=title, image=image, ingredients=ingredients, macros=macros, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings)
+# recipe_list = []
+# for cuisine in cuisines:
+#    recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=40)
+#    serialized_recipes = recipes.serialize()
+#    for recipe in serialized_recipes:
+#       id = recipe["id"]
+#       title = recipe["title"]
+#       image = recipe["image"]
+#       ingredients = recipe["ingredients"]
+#       macros = recipe["macros"]
+#       directions = recipe["directions"]
+#       ready_in_minutes = recipe["readyInMinutes"]
+#       servings = recipe["servings"]
+#       recipe = Recipe(id=id, title=title, image=image, ingredients=ingredients, macros=macros, directions=directions, ready_in_minutes=ready_in_minutes, servings=servings)
 
-      try:
-          db.session.add(recipe)
-          db.session.commit()
-      except exc.IntegrityError:
-          db.session.rollback()
+#       try:
+#           db.session.add(recipe)
+#           db.session.commit()
+#       except exc.IntegrityError:
+#           db.session.rollback()
 
 # Adds data for RecipeDiet, RecipeCuisine for M:M relationship
 ####################################
 
-for cuisine in cuisines:
-   recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=40)
-   serialized_recipes = recipes.serialize()
-   for recipe in serialized_recipes:
-      id = recipe["id"]
-      title = recipe["title"]
-      image = recipe["image"]
-      ingredients = recipe["ingredients"]
-      macros = recipe["macros"]
-      directions = recipe["directions"]
-      ready_in_minutes = recipe["readyInMinutes"]
-      servings = recipe["servings"]
+# for cuisine in cuisines:
+#    recipes = WonderRecipe(apiKey=API_KEY, cuisine=cuisine, number=40)
+#    serialized_recipes = recipes.serialize()
+#    for recipe in serialized_recipes:
+#       id = recipe["id"]
+#       title = recipe["title"]
+#       image = recipe["image"]
+#       ingredients = recipe["ingredients"]
+#       macros = recipe["macros"]
+#       directions = recipe["directions"]
+#       ready_in_minutes = recipe["readyInMinutes"]
+#       servings = recipe["servings"]
 
-      # Extracts the Cuisine table's id for where the match was found
-      # between Cuisine db Table and Recipe API call's cuisine.
-      cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
-      recipe_cuisine = RecipeCuisine(recipe_id=id, cuisine_id=cuisine_id)
-      try:
-        db.session.add(recipe_cuisine)
-        db.session.commit()
-      except exc.IntegrityError:
-        db.session.rollback()
+#       # Extracts the Cuisine table's id for where the match was found
+#       # between Cuisine db Table and Recipe API call's cuisine.
+#       cuisine_id = Cuisine.query.filter(Cuisine.title == cuisine).first().id
+#       recipe_cuisine = RecipeCuisine(recipe_id=id, cuisine_id=cuisine_id)
+#       try:
+#         db.session.add(recipe_cuisine)
+#         db.session.commit()
+#       except exc.IntegrityError:
+#         db.session.rollback()
 
-      for diet in recipe["diets"]:
+#       for diet in recipe["diets"]:
 
-        # Extracts the Diet table's id for where the match was found
-        # between Diets db Table and Recipe API call's diet.
-        diet_id = Diet.query.filter(Diet.title == diet).first().id
-        if not diet_id:
-            diet_id = Diet.query.order_by('-id').first().id
-        recipe_diet = RecipeDiet(recipe_id=id, diet_id=diet_id)
-        try:
-            db.session.add(recipe_diet)
-            db.session.commit()
-        except exc.IntegrityError:
-            db.session.rollback()
+#         # Extracts the Diet table's id for where the match was found
+#         # between Diets db Table and Recipe API call's diet.
+#         diet_id = Diet.query.filter(Diet.title == diet).first().id
+#         if not diet_id:
+#             diet_id = Diet.query.order_by('-id').first().id
+#         recipe_diet = RecipeDiet(recipe_id=id, diet_id=diet_id)
+#         try:
+#             db.session.add(recipe_diet)
+#             db.session.commit()
+#         except exc.IntegrityError:
+#             db.session.rollback()
 
 # Add Grocery List
 ####################################

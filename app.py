@@ -4,7 +4,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.sql.expression import func, select
 from wonderrecipes import WonderRecipe
-from secrets import API_KEY
+# from secrets import API_KEY
 from cuisinesdiets import cuisines
 from models import *
 from forms import RegisterForm, LoginForm, EditForm

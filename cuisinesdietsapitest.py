@@ -1,4 +1,4 @@
-from secrets import API_KEY
+# from secrets import API_KEY
 
 URL = "https://api.spoonacular.com/recipes/complexSearch"
 
@@ -16,10 +16,10 @@ choice = input("cuisines or diet?: ")
 while choice != "cuisines" and choice != "diet":
     choice = input("cuisines or diet?")
 
-if choice == 'cuisines':
-    for cuisine in cuisines:
-        print(f"{URL}?apiKey={API_KEY}&cuisine={cuisine}&number=100&addRecipeInformation=true")
+# if choice == 'cuisines':
+#     for cuisine in cuisines:
+#         print(f"{URL}?apiKey={API_KEY}&cuisine={cuisine}&number=100&addRecipeInformation=true")
 
-else: 
-    for diet in diets:
-        print(f"{URL}?apiKey={API_KEY}&diet={diet}&number=100")
+# else: 
+#     for diet in diets:
+#         print(f"{URL}?apiKey={API_KEY}&diet={diet}&number=100")

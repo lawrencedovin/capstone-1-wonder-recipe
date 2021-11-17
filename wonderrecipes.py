@@ -1,5 +1,5 @@
 import requests
-from secrets import API_KEY
+# from secrets import API_KEY
 from cuisinesdiets import cuisines
 from unicodedata import normalize
 
