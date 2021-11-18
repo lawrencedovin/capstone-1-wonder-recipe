@@ -331,8 +331,7 @@ button {
     border: none;
     background: #fff; }
     .recipe-page__stats-item-button--likes {
-      border-left: 2px solid #050505;
-      border-right: 2px solid #050505; }
+      border-left: 2px solid #050505; }
     .recipe-page__stats-item-button--inactive, .recipe-page__stats-item-button--active, .recipe-page__stats-item-button--inactive:hover, .recipe-page__stats-item-button--active:hover {
       height: 2rem; }
     .recipe-page__stats-item-button--active, .recipe-page__stats-item-button--inactive:hover {

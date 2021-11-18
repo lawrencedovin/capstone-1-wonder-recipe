@@ -25,7 +25,7 @@
                   </button>
                 </form>
                 {% endif %}
-                {% if recipe in g.user.grocery_list_recipes %}
+                <!-- {% if recipe in g.user.grocery_list_recipes %}
                 <form method="POST" 
                       action="/users/remove_grocery_item/{{ recipe.id }}" id="messages-form">
                   <button class="food-cards__button">
@@ -39,7 +39,7 @@
                     <img src="../../../static/images/icons/grocery-list.svg" alt="" class="food-cards__button--grocery-list-icon food-cards__button-icon--inactive">
                   </button>
                 </form>
-                {% endif %}
+                {% endif %} -->
             </div>
             {% endif %}
         </div>
